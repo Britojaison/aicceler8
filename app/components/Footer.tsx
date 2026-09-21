@@ -23,11 +23,11 @@ export default function Footer() {
             />
           </div>
           <p className="text-xs sm:text-sm text-neutral-500 font-normal max-w-sm leading-relaxed">
-            The Enterprise Growth Partner for the AI Era. We partner with ambitious leadership teams to redesign how their organizations grow, operate, and compete.
+            An Enterprise Growth & Transformation Company powered by Artificial Intelligence. We partner with ambitious leadership teams to redesign how their organizations grow, operate, and compete.
           </p>
           <div className="flex items-center gap-2 text-xs font-mono text-neutral-500">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span>Systems Operational · Continuous Enterprise Model Sync</span>
+            <span>Systems Operational · Continuous Enterprise Evolution</span>
           </div>
         </div>
 
@@ -49,22 +49,22 @@ export default function Footer() {
             </li>
             <li>
               <a href="#enterprise-impact" className="hover:text-black transition-colors">
-                Enterprise Impact
+                How We Create Impact
               </a>
             </li>
             <li>
-              <a href="#who-we-partner-with" className="hover:text-black transition-colors">
+              <a href="#who-we-work-with" className="hover:text-black transition-colors">
                 Who We Partner With
               </a>
             </li>
             <li>
               <a href="#transformations" className="hover:text-black transition-colors">
-                Transformations
+                Enterprise Transformations
               </a>
             </li>
             <li>
               <a href="#insights" className="hover:text-black transition-colors">
-                Insights & Research
+                Insights for the AI Era
               </a>
             </li>
           </ul>

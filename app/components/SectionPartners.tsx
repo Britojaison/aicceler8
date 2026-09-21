@@ -95,41 +95,33 @@ export default function SectionPartners() {
   ];
 
   return (
-    <section id="who-we-partner-with" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
-      {/* Ecosystem Row (Freshworks Style) */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-tight mb-4">
-          Built to work with <span className="font-serif italic font-normal text-neutral-950">your ecosystem</span>
+    <section id="who-we-work-with" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+      {/* Section Five Header from Aicceler8 Website.docx */}
+      <div className="max-w-3xl mb-16">
+        <span className="text-xs font-semibold tracking-wider text-brand-orange uppercase mb-3 block">
+          SECTION FIVE // PARTNERS
+        </span>
+        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+          Who We Partner With
         </h2>
-        <p className="text-base text-neutral-600">
-          Seamlessly embedding AI into the core business tools and enterprise software your teams use every day.
+        <p className="text-xl sm:text-2xl text-neutral-900 font-medium leading-snug mb-3">
+          We work with organizations that see AI as a strategic advantage—not just another technology initiative.
         </p>
-
-        {/* Ecosystem Tiles Strip */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {ecosystems.map((eco) => (
-            <div
-              key={eco.name}
-              className="px-4 py-2.5 rounded-xl bg-surface-100 border border-neutral-200/80 shadow-xs flex items-center gap-2 hover:border-neutral-300 hover:bg-white transition-all"
-            >
-              <div className="w-2 h-2 rounded-full bg-neutral-400" />
-              <span className="text-xs font-semibold text-neutral-800">{eco.name}</span>
-              <span className="text-[10px] text-neutral-500 font-mono hidden sm:inline">({eco.category})</span>
-            </div>
-          ))}
-        </div>
+        <p className="text-base text-neutral-600 font-normal leading-relaxed">
+          Our clients range from market-leading enterprise conglomerates to high-growth businesses preparing for international scale.
+        </p>
       </div>
 
-      {/* Strategic Mindset Banner (Freshworks Light Minimalist Box) */}
+      {/* Strategic Mindset Banner (from Aicceler8 Website.docx) */}
       <div className="mb-14 rounded-3xl border border-neutral-200 bg-surface-50 p-8 sm:p-12 relative overflow-hidden">
         <div className="max-w-3xl">
           <span className="text-xs font-mono uppercase tracking-widest text-brand-coral font-semibold block mb-3">
-            THE DECISIVE MINDSET SHIFT
+            THE STRATEGIC MINDSET
           </span>
-          <p className="text-2xl sm:text-4xl font-sans font-normal text-neutral-950 tracking-tight leading-snug">
-            Rather than asking <span className="text-neutral-400 line-through">“Can AI help us?”</span>, our partners ask:
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-sans font-normal text-neutral-950 tracking-tight leading-snug">
+            Rather than asking <span className="text-neutral-400 line-through">“Can AI help us?”</span>, these organizations ask:
             <br />
-            <span className="font-serif italic font-normal text-neutral-950 block mt-2">
+            <span className="font-serif italic font-normal text-neutral-950 block mt-3">
               “How can AI redefine the way we grow?”
             </span>
           </p>
@@ -138,8 +130,8 @@ export default function SectionPartners() {
 
       {/* 12 Cohort Grid */}
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-neutral-900 mb-4">
-          Enterprise Partnership Cohorts
+        <h3 className="text-xl font-serif font-bold text-neutral-900 mb-4">
+          Our Clients Typically Include:
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {cohorts.map((cohort, idx) => {

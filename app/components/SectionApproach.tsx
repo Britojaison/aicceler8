@@ -10,71 +10,71 @@ export default function SectionApproach() {
     {
       num: "01",
       title: "Discover",
-      tagline: "Uncovering Friction & Opportunity",
+      tagline: "Understand Your Business",
       icon: Search,
-      duration: "Weeks 1–2",
+      duration: "Phase 01",
       description:
-        "Understand your business, operational bottlenecks, revenue leaks, and highest-leverage AI opportunities. We evaluate data readiness, existing workflows, and competitive pressure.",
+        "Understand your business, challenges and opportunities. We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers.",
       deliverables: [
-        "Enterprise AI Readiness & Vulnerability Audit",
-        "Executive Opportunity Sizing Matrix",
-        "Data Architecture & Security Assessment",
+        "Business challenges and opportunity assessment",
+        "Executive opportunity sizing matrix",
+        "Data readiness & workflow vulnerability audit",
       ],
     },
     {
       num: "02",
       title: "Design",
-      tagline: "Architecting the Growth Blueprint",
+      tagline: "Create Transformation Blueprint",
       icon: Compass,
-      duration: "Weeks 3–4",
+      duration: "Phase 02",
       description:
-        "Create an AI transformation blueprint aligned with top-line growth and EBITDA expansion. We specify system architectures, governance guardrails, and KPI benchmarks.",
+        "Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.",
       deliverables: [
-        "Comprehensive Enterprise Transformation Blueprint",
-        "System Architecture & Model Selection Specs",
-        "Cross-functional Change Management Plan",
+        "AI transformation blueprint aligned with business goals",
+        "System architecture & model selection specs",
+        "Executive ROI and change management roadmap",
       ],
     },
     {
       num: "03",
       title: "Build",
-      tagline: "Engineering Intelligent Systems",
+      tagline: "Develop Intelligent Systems",
       icon: Hammer,
-      duration: "Weeks 5–10",
+      duration: "Phase 03",
       description:
-        "Develop intelligent systems, enterprise search, autonomous agent workflows, and internal copilots. Everything is custom-tailored to your proprietary operations.",
+        "Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.",
       deliverables: [
-        "Custom AI Copilots & Workflow Agents",
-        "Sub-second Enterprise Knowledge Search",
-        "Security, Privacy & Compliance Gateways",
+        "Intelligent business systems & autonomous workflows",
+        "Enterprise search & knowledge platforms",
+        "AI agents & collaborative decision systems",
       ],
     },
     {
       num: "04",
       title: "Enable",
-      tagline: "Embedding AI Into Everyday Work",
+      tagline: "Train Leadership and Teams",
       icon: GraduationCap,
-      duration: "Weeks 11–14",
+      duration: "Phase 04",
       description:
-        "Train leadership and departmental teams to integrate AI seamlessly into daily execution. We establish governance models and internal Centers of Excellence.",
+        "Train leadership and teams to integrate AI into everyday work. We drive organizational adoption, establish governance models, and eliminate operational friction.",
       deliverables: [
-        "Executive Leadership AI Fluency Program",
-        "Departmental Hands-on Workflow Mastery",
-        "Enterprise Governance & Prompt Guardrails",
+        "Leadership and executive AI integration training",
+        "Departmental workflow enablement & adoption",
+        "Enterprise governance models & guardrails",
       ],
     },
     {
       num: "05",
       title: "Scale",
-      tagline: "Continuous Evolution & Expansion",
+      tagline: "Continuously Improve and Evolve",
       icon: TrendingUp,
-      duration: "Ongoing Partnership",
+      duration: "Phase 05",
       description:
-        "Continuously improve, expand, and evolve as your organization grows. We benchmark monthly model releases and accelerate cross-border international expansion.",
+        "Continuously improve, expand and evolve as your organization grows. We ensure your business captures new market opportunities and expands internationally.",
       deliverables: [
-        "Continuous Model Tuning & Monthly Upgrades",
-        "Cross-Border International GTM Frameworks",
-        "Quarterly Executive Value Creation Reviews",
+        "Continuous optimization as new technologies emerge",
+        "Expansion into new business opportunities",
+        "International growth & scaling frameworks",
       ],
     },
   ];
@@ -84,16 +84,16 @@ export default function SectionApproach() {
       {/* Section Header */}
       <div className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-neutral-500 uppercase mb-3 block">
-          TRANSFORMATION METHODOLOGY
+          SECTION EIGHT // OUR APPROACH
         </span>
-        <h2 className="text-4xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-          Our approach. <br />
-          <span className="font-serif italic font-normal text-neutral-950">
-            From blueprint to compounding scale.
+        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+          Our Approach <br />
+          <span className="italic font-normal text-neutral-950">
+            From Blueprint to Compounding Scale.
           </span>
         </h2>
         <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          A disciplined, battle-tested 5-phase delivery model designed to produce early business wins while establishing scalable enterprise infrastructure.
+          A disciplined timeline from initial discovery to continuous enterprise evolution.
         </p>
       </div>
 

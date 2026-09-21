@@ -91,7 +91,7 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       cardNum: "TRANSFORMATION 03",
       title: "Operations Transformation",
       sector: "Enterprise Workflow Automation",
-      tagline: "Eradicating manual work across departments through enterprise knowledge networks.",
+      tagline: "Reducing manual work across departments by deploying AI-powered workflows.",
       brandName: "INDUSTRIAL CONGLOMERATE",
       bgColor: "bg-purple-600",
       textColor: "text-white",
@@ -119,11 +119,75 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       ],
     },
     {
-      id: "global",
+      id: "leadership",
       cardNum: "TRANSFORMATION 04",
+      title: "Leadership Transformation",
+      sector: "Executive Intelligence & Governance",
+      tagline: "Creating AI copilots for founders and executive teams that improve reporting and decision-making.",
+      brandName: "GLOBAL HOLDINGS GROUP",
+      bgColor: "bg-blue-600",
+      textColor: "text-white",
+      quote:
+        "“Our board meetings transformed overnight. Instead of reviewing retrospective monthly slides, our leadership team now queries real-time business telemetry and predictive risk forecasts.”",
+      quoteAuthor: "Harrison Vance",
+      quoteRole: "Managing Partner & CEO",
+      statNumber: "Real-Time",
+      statLabel: "Continuous P&L telemetry and automated 45-day predictive scenario forecasts",
+      summary:
+        "Creating AI copilots for founders and executive teams that improve reporting, strategic planning and decision-making.",
+      beforeState:
+        "Founders and executives relying on 4-week delayed retrospective reporting decks and disconnected business unit dashboards.",
+      aicceler8System:
+        "Engineered executive intelligence copilots connected to enterprise data lakes for instant scenario modeling, board reporting, and capital allocation foresight.",
+      businessResults: [
+        "Board reporting generation time compressed from 5 days to 15 minutes",
+        "Real-time operational risk alerts delivered 30–45 days ahead of quarter-close",
+        "Empowered executive decision-making speed accelerated 4x",
+      ],
+      metrics: [
+        { label: "Reporting Prep", value: "-95%" },
+        { label: "Risk Horizon", value: "45 Days" },
+        { label: "Decision Velocity", value: "4x" },
+      ],
+    },
+    {
+      id: "customer",
+      cardNum: "TRANSFORMATION 05",
+      title: "Customer Experience Transformation",
+      sector: "Omnichannel Service & Support",
+      tagline: "Deploying intelligent support systems that enhance service quality while reducing operational load.",
+      brandName: "FINANCIAL SERVICES GROUP",
+      bgColor: "bg-amber-600",
+      textColor: "text-white",
+      quote:
+        "“Customer queries are now resolved in seconds rather than hours, while our service satisfaction score jumped to 96% with zero increase in support headcount.”",
+      quoteAuthor: "Camilla Ramos",
+      quoteRole: "Chief Customer Experience Officer",
+      statNumber: "96%",
+      statLabel: "Customer satisfaction rating achieved with instant AI resolution",
+      summary:
+        "Deploying intelligent support systems that enhance service quality while reducing operational load.",
+      beforeState:
+        "High support tier backlog, average ticket resolution taking 18 hours, rising seasonal staffing costs.",
+      aicceler8System:
+        "Deployed an enterprise conversational AI support engine with contextual customer history, strict compliance guardrails, and seamless human-agent handoffs.",
+      businessResults: [
+        "82% of routine enterprise inquiries resolved autonomously without human triage",
+        "First response time reduced from 45 minutes to 3 seconds",
+        "Operational support expenditure reduced by 40% annually",
+      ],
+      metrics: [
+        { label: "CSAT Score", value: "96%" },
+        { label: "First Response", value: "3 Sec" },
+        { label: "Support OpEx", value: "-40%" },
+      ],
+    },
+    {
+      id: "global",
+      cardNum: "TRANSFORMATION 06",
       title: "International Growth",
       sector: "Global Expansion & Market Entry",
-      tagline: "Accelerating market research, localization, and global expansion frameworks.",
+      tagline: "Using AI to accelerate market research, localization, and global expansion strategies.",
       brandName: "CROSS-BORDER FINTECH",
       bgColor: "bg-emerald-600",
       textColor: "text-white",
@@ -163,13 +227,16 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
 
   return (
     <section id="transformations" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
-      {/* Header with Freshworks Title & Slider Buttons */}
+      {/* Header with Title & Slider Buttons from Aicceler8 Website.docx */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
         <div>
-          <h2 className="text-4xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.15]">
-            Chosen by enterprise leaders. <br />
-            <span className="font-serif italic font-normal text-neutral-950">
-              Operating at scale.
+          <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
+            SECTION SIX // ENTERPRISE AI IN ACTION
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.15]">
+            Enterprise Transformations <br />
+            <span className="italic font-normal text-neutral-950">
+              Enterprise AI in Action.
             </span>
           </h2>
         </div>

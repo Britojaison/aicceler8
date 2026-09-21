@@ -25,16 +25,16 @@ export default function SectionFinalCTA({ onOpenBooking }: SectionFinalCTAProps)
             <span>EXECUTIVE ENGAGEMENT</span>
           </div>
 
-          {/* Freshworks Serif Italic Monumental Statement */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-normal text-white tracking-tight leading-[1.12] mb-6">
-            Bring strategy and operations{" "}
-            <span className="font-serif italic font-normal text-amber-300">
-              together
+          {/* Headline from Aicceler8 Website.docx */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight leading-[1.18] mb-6">
+            The Future Won’t Be Built by Companies That Simply Use AI. <br />
+            <span className="italic font-normal text-amber-300">
+              It Will Be Built by Companies That Reinvent Themselves Around It.
             </span>
           </h2>
 
           <p className="text-base sm:text-lg text-neutral-300 font-normal leading-relaxed mb-10">
-            The Future Won’t Be Built by Companies That Simply Use AI. It Will Be Built by Companies That Reinvent Themselves Around It. Partner with AICceler8 to build an enterprise ready for the next decade.
+            Whether you’re exploring AI for the first time or scaling transformation across your organization, AICceler8 partners with you to build a business that is ready for the next decade.
           </p>
 
           {/* Dual Pill Buttons */}
@@ -43,7 +43,7 @@ export default function SectionFinalCTA({ onOpenBooking }: SectionFinalCTAProps)
               onClick={onOpenBooking}
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-950 font-semibold text-sm tracking-normal transition-all shadow-md active:scale-[0.98]"
             >
-              <span>Book an enterprise strategy session</span>
+              <span>Book an Enterprise Growth Strategy Session</span>
             </button>
             <a
               href="#transformations"

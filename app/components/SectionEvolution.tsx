@@ -62,11 +62,11 @@ export default function SectionEvolution() {
       {/* Section Header with Freshworks Serif Italic */}
       <div className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
-          THE PARADIGM SHIFT
+          WHY AICCELER8
         </span>
-        <h2 className="text-4xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           AI isn’t the transformation. <br />
-          <span className="font-serif italic font-normal text-neutral-950">
+          <span className="italic font-normal text-neutral-950">
             Your business is.
           </span>
         </h2>
@@ -74,8 +74,11 @@ export default function SectionEvolution() {
           <p>
             For the past decade, digital transformation focused on software. Today, every organization is adopting AI tools. <strong className="text-neutral-900 font-medium">Yet very few are becoming AI-powered businesses.</strong>
           </p>
-          <p className="text-neutral-500 text-base">
-            The companies that lead over the next decade won’t simply use AI. They will redesign the way they think, work, sell, create and serve customers. That shift requires strategy, leadership, and systemic organizational change.
+          <p>
+            The companies that lead over the next decade won’t simply use AI. They will redesign the way they think, work, sell, create and serve customers.
+          </p>
+          <p className="text-neutral-900 font-medium">
+            That shift requires more than technology. It requires strategy. It requires leadership. It requires organizational change. <span className="text-black font-semibold underline decoration-neutral-300 underline-offset-4">That is where AICceler8 comes in.</span>
           </p>
         </div>
       </div>
@@ -142,10 +145,13 @@ export default function SectionEvolution() {
       <div className="rounded-2xl bg-neutral-900 text-white p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block mb-2">
-            THE STRATEGIC OPPORTUNITY
+            STRATEGIC POSITIONING
           </span>
           <p className="text-xl sm:text-2xl font-serif italic text-white font-normal leading-snug">
-            “Accenture, McKinsey, and Deloitte solve business problems. Your opportunity is to be the Enterprise Growth Partner for the AI Era.”
+            “An Enterprise Growth & Transformation Company powered by Artificial Intelligence.”
+          </p>
+          <p className="text-xs text-neutral-400 mt-2">
+            Helping ambitious enterprises grow, adapt, and compete in the AI era.
           </p>
         </div>
         <a

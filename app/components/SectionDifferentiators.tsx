@@ -47,21 +47,31 @@ export default function SectionDifferentiators() {
       {/* Section Header */}
       <div className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
-          THE EXECUTION ADVANTAGE
+          SECTION SEVEN // WHY AICCELER8
         </span>
-        <h2 className="text-4xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-          Why organizations <br />
-          <span className="font-serif italic font-normal text-neutral-950">
-            choose AICceler8.
+        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+          Why Organizations <br />
+          <span className="italic font-normal text-neutral-950">
+            Choose AICceler8
           </span>
         </h2>
         <div className="space-y-4 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          <p className="text-xl sm:text-2xl font-serif italic text-neutral-900 leading-snug">
+          <p className="text-2xl sm:text-3xl font-serif italic text-neutral-950 leading-snug">
             “Because AI alone doesn’t transform businesses. Execution does.”
           </p>
-          <p className="text-neutral-500 text-base">
-            Unlike traditional consulting firms, we don’t stop at strategy. Unlike software vendors, we don’t stop at implementation. Unlike agencies, we don’t stop at marketing. We work across leadership, operations, technology and execution to ensure AI creates measurable business outcomes.
-          </p>
+          <div className="text-base text-neutral-600 space-y-2 pt-2">
+            <p className="text-neutral-900 font-medium">
+              Unlike traditional consulting firms, we don’t stop at strategy. <br />
+              Unlike software vendors, we don’t stop at implementation. <br />
+              Unlike agencies, we don’t stop at marketing.
+            </p>
+            <p>
+              We work across leadership, operations, technology and execution to ensure AI creates measurable business outcomes.
+            </p>
+            <p className="text-neutral-500 text-sm">
+              We combine strategic thinking, business understanding and AI expertise to build organizations that are faster, smarter and future-ready.
+            </p>
+          </div>
         </div>
       </div>
 

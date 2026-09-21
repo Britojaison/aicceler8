@@ -28,19 +28,27 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <span>The Enterprise Growth Partner for the AI Era</span>
           </div>
 
-          {/* Heading with Signature Freshworks Italic Serif Emphasis */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.08] mb-6">
-            Turn operational <br />
-            complexity into <br />
-            <span className="font-serif italic font-normal text-neutral-950">
-              coordinated growth
-            </span>
+          {/* Heading from Aicceler8 Website.docx with Editorial Lora Italic Emphasis */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.08] mb-6">
+            Building <br />
+            <span className="italic font-normal text-neutral-950">
+              AI-Powered
+            </span> <br />
+            Enterprises.
           </h1>
 
-          {/* Subheading */}
-          <p className="text-lg sm:text-xl text-neutral-600 font-normal leading-relaxed mb-8 max-w-xl">
-            Built for ambitious enterprises, AICceler8 transforms how organizations generate revenue, empower teams, and scale globally by embedding AI into every critical business function.
+          {/* Subheading and Body from Aicceler8 Website.docx */}
+          <p className="text-xl sm:text-2xl text-neutral-900 font-medium leading-snug mb-4 max-w-xl">
+            We help ambitious businesses redesign how they grow, operate and compete in an AI-first world.
           </p>
+          <div className="text-base text-neutral-600 font-normal leading-relaxed mb-8 max-w-xl space-y-3">
+            <p>
+              We don’t implement AI for the sake of technology. We transform how organizations generate revenue, empower teams, accelerate decisions and scale globally by embedding AI into every critical business function.
+            </p>
+            <p className="text-neutral-500 text-sm">
+              Whether you’re modernizing operations, empowering your workforce or preparing for international expansion, AICceler8 becomes your strategic partner in building an enterprise that’s ready for tomorrow.
+            </p>
+          </div>
 
           {/* CTA Buttons (Freshworks Pill Style) */}
           <div className="flex flex-wrap items-center gap-3 mb-14">
@@ -48,30 +56,30 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               onClick={onOpenBooking}
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-normal transition-all shadow-sm active:scale-[0.98]"
             >
-              <span>Book a strategy session</span>
+              <span>Book an Enterprise Strategy Session</span>
             </button>
             <a
-              href="#why-aicceler8"
+              href="#how-we-transform"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-neutral-50 text-neutral-800 font-semibold text-sm border border-neutral-300 transition-all"
             >
-              <span>Explore transformation model</span>
+              <span>Explore How We Transform</span>
             </a>
           </div>
 
-          {/* Trust Banner (Freshworks Style) */}
+          {/* Trust Banner (Aicceler8 Website.docx) */}
           <div className="border-t border-neutral-200/80 pt-6">
             <p className="text-xs font-medium text-neutral-500 mb-4 tracking-wide">
-              Trusted by ambitious enterprises worldwide
+              Trusted by ambitious enterprises across industries
             </p>
             <div className="flex flex-wrap items-center gap-8 text-neutral-400">
               <span className="font-serif text-lg font-bold text-neutral-800 tracking-tight">
-                Forbes
+                Enterprise Leaders
               </span>
               <span className="font-sans text-sm font-extrabold uppercase tracking-widest text-neutral-700">
-                INGRAM<span className="text-neutral-400">MICRO</span>
+                High-Growth Scaleups
               </span>
               <span className="font-sans text-sm font-semibold tracking-wide text-neutral-700">
-                RingCentral
+                Family Conglomerates
               </span>
               <span className="text-xs font-mono text-neutral-500 uppercase">
                 PE Portfolios ($2.4B+)

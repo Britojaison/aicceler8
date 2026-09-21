@@ -19,14 +19,14 @@ export default function SectionImpactGrid() {
       id: "revenue",
       title: "Revenue Growth",
       icon: TrendingUp,
-      badge: "TOP-LINE EXPANSION",
-      description: "Build compounding, self-optimizing commercial engines that drive client acquisition and LTV.",
+      badge: "OUTCOME 01",
+      description: "Build compounding, self-optimizing commercial engines that accelerate top-line revenue.",
       points: [
-        "Accelerate customer acquisition velocity",
-        "Increase multi-channel marketing efficiency",
-        "Strengthen enterprise sales pipeline conversion",
-        "Orchestrate intelligent, automated customer journeys",
-        "Build AI-powered predictive revenue engines",
+        "Improve customer acquisition",
+        "Increase marketing efficiency",
+        "Strengthen sales performance",
+        "Create intelligent customer journeys",
+        "Build AI-powered growth engines",
       ],
       kpi: "+38% Pipeline Velocity",
       color: "border-neutral-200",
@@ -35,14 +35,14 @@ export default function SectionImpactGrid() {
       id: "operations",
       title: "Smarter Operations",
       icon: Workflow,
-      badge: "EFFICIENCY & MARGINS",
-      description: "Eradicate operational drag and manual back-office friction with autonomous workflow orchestration.",
+      badge: "OUTCOME 02",
+      description: "Eradicate operational drag and repetitive work with automated internal workflows.",
       points: [
-        "Eradicate repetitive manual data entry and handoffs",
-        "Automate complex cross-departmental workflows",
-        "Improve cross-functional executive collaboration",
-        "Enable lightning-fast operational execution",
-        "Create end-to-end enterprise process visibility",
+        "Reduce repetitive work",
+        "Automate internal workflows",
+        "Improve cross-functional collaboration",
+        "Enable faster execution",
+        "Create operational visibility",
       ],
       kpi: "-45% Operational Cycle Time",
       color: "border-neutral-200",
@@ -51,63 +51,63 @@ export default function SectionImpactGrid() {
       id: "workforce",
       title: "Workforce Enablement",
       icon: Sparkles,
-      badge: "HUMAN LEVERAGE",
-      description: "Transform every team member into an AI-augmented super-performer without organizational chaos.",
+      badge: "OUTCOME 03",
+      description: "Empower every employee with AI while breaking down institutional knowledge silos.",
       points: [
-        "Empower every employee with purpose-built AI copilots",
-        "Multiply departmental productivity and creative output",
-        "Eradicate institutional knowledge silos permanently",
-        "Build an agile, fearless AI-first company culture",
-        "Upskill C-suite and leadership for strategic execution",
+        "Empower every employee with AI",
+        "Improve productivity",
+        "Reduce knowledge silos",
+        "Build AI-first teams",
+        "Upskill leadership",
       ],
-      kpi: "3.2x Employee Output Leverage",
+      kpi: "3.2x Employee Output",
       color: "border-neutral-200",
     },
     {
       id: "executive",
       title: "Executive Intelligence",
       icon: BarChart3,
-      badge: "DECISION ADVANTAGE",
-      description: "Give founders, CEOs, and boards real-time enterprise foresight instead of stale retrospective decks.",
+      badge: "OUTCOME 04",
+      description: "Provide executive leadership with real-time business foresight and decision systems.",
       points: [
-        "Provide leadership with real-time enterprise visibility",
-        "Automate high-context board and executive reporting",
-        "Deploy strategic predictive scenario dashboards",
-        "Generate automated competitive market intelligence",
-        "Deploy automated decision support systems",
+        "Provide leadership with real-time business visibility",
+        "AI-powered reporting",
+        "Strategic dashboards",
+        "Predictive insights",
+        "Decision support systems",
       ],
-      kpi: "Real-time P&L Foresight",
+      kpi: "Real-Time Foresight",
       color: "border-neutral-200",
     },
     {
       id: "customer",
       title: "Customer Experience",
       icon: MessageSquareHeart,
-      badge: "RETENTION & LOYALTY",
-      description: "Deliver human-grade, instantaneous personalization and 24/7 intelligent engagement across every touchpoint.",
+      badge: "OUTCOME 05",
+      description: "Deliver personalized, intelligent customer conversations with faster response times.",
       points: [
-        "Deploy intelligent, contextual AI conversations",
-        "Zero-latency resolution for enterprise support tiers",
-        "Unified omnichannel engagement across web, app, and messaging",
-        "Sub-second response times with brand guardrails",
-        "Hyper-personalized dynamic customer experiences",
+        "AI-powered conversations",
+        "Intelligent support",
+        "Omnichannel engagement",
+        "Faster response times",
+        "Personalized experiences",
       ],
-      kpi: "94% First-Contact Resolution",
+      kpi: "Sub-Second Response",
       color: "border-neutral-200",
     },
     {
       id: "global",
       title: "Global Expansion",
       icon: Globe2,
-      badge: "STRATEGIC DIFFERENTIATOR",
+      badge: "HIGHLY DIFFERENTIATED",
       highlight: true,
-      description: "Scale into new international territories in weeks rather than years with AI-assisted GTM intelligence.",
+      description: "Scale into new international territories with AI-assisted GTM and market research.",
       points: [
-        "Instant global market intelligence & competitor mapping",
-        "Automated cultural, linguistic & regulatory localization",
-        "International GTM strategy accelerated by generative insights",
-        "AI-assisted cross-border compliance research",
-        "Battle-tested growth frameworks for multi-region scale",
+        "Market intelligence",
+        "Localization",
+        "International GTM strategy",
+        "AI-assisted market research",
+        "Growth frameworks for scaling into new regions",
       ],
       kpi: "60% Faster Market Entry",
       color: "border-black",
@@ -119,16 +119,16 @@ export default function SectionImpactGrid() {
       {/* Section Header */}
       <div className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-emerald uppercase mb-3 block">
-          MEASURABLE OUTCOMES
+          SECTION FOUR // OUTCOMES
         </span>
-        <h2 className="text-4xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-          How we create <br />
-          <span className="font-serif italic font-normal text-neutral-950">
-            enterprise impact.
+        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+          How We Create <br />
+          <span className="italic font-normal text-neutral-950">
+            Enterprise Impact.
           </span>
         </h2>
         <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          Instead of listing generic technology services, we measure success exclusively through tangible business outcomes and market leadership.
+          Instead of listing services, we show measurable business outcomes.
         </p>
       </div>
 

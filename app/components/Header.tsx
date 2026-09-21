@@ -21,11 +21,10 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   }, []);
 
   const navLinks = [
+    { name: "Home", href: "#" },
     { name: "Why AICceler8", href: "#why-aicceler8" },
     { name: "How We Transform", href: "#how-we-transform" },
-    { name: "Enterprise Impact", href: "#enterprise-impact" },
-    { name: "Who We Partner With", href: "#who-we-partner-with" },
-    { name: "Transformations", href: "#transformations" },
+    { name: "Who We Work With", href: "#who-we-work-with" },
     { name: "Insights", href: "#insights" },
   ];
 
@@ -72,18 +71,18 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         </nav>
 
         {/* Action Buttons (Freshworks Style) */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#why-aicceler8"
-            className="text-xs font-semibold text-neutral-600 hover:text-neutral-900 px-3 py-2 transition-colors"
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={onOpenBooking}
+            className="text-sm font-medium text-neutral-600 hover:text-neutral-950 transition-colors py-1"
           >
-            Explore model
-          </a>
+            Contact
+          </button>
           <button
             onClick={onOpenBooking}
             className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-black hover:bg-neutral-800 active:scale-[0.98] transition-all shadow-sm"
           >
-            <span>Book a strategy session</span>
+            <span>Book an Enterprise Strategy Session</span>
           </button>
         </div>
 
@@ -91,9 +90,9 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={onOpenBooking}
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-black"
+            className="px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-black"
           >
-            Book session
+            Strategy Session
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -126,7 +125,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               }}
               className="w-full py-3 rounded-full bg-black text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2"
             >
-              <span>Book Strategy Session</span>
+              <span>Book an Enterprise Strategy Session</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>

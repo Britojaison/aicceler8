@@ -10,70 +10,70 @@ export default function SectionPillars() {
     {
       id: "strategy",
       num: "01",
-      tag: "STRATEGY // REVENUE MOAT",
+      tag: "PILLAR 01 // STRATEGY",
       title: "Enterprise Growth Strategy",
       subtitle: "This isn’t another AI roadmap. It’s a business transformation roadmap designed around growth.",
       icon: Compass,
       description:
-        "We identify where AI creates measurable business advantage across revenue, operations, customer experience and decision-making. We anchor every initiative to top-line expansion and defensible enterprise value.",
+        "We identify where AI creates measurable business advantage across revenue, operations, customer experience and decision-making.",
       capabilities: [
-        "Executive Growth Modeling & ROI Projections",
-        "Strategic High-Impact Opportunity Sizing",
-        "Enterprise Architecture & Data Moat Mapping",
-        "Competitive AI Differentiation Blueprint",
+        "Measurable revenue and top-line advantage identification",
+        "Operational friction and cost optimization mapping",
+        "Customer experience and intelligent journey design",
+        "Decision-making acceleration and executive intelligence",
       ],
-      quote: "We don't solve for technology curiosity; we solve for exponential enterprise value.",
+      quote: "This isn’t another AI roadmap. It’s a business transformation roadmap designed around growth.",
     },
     {
       id: "systems",
       num: "02",
-      tag: "SYSTEMS // DAILY OPERATIONS",
+      tag: "PILLAR 02 // SYSTEMS",
       title: "Intelligent Business Systems",
-      subtitle: "Everything designed around your business—not around generic software vendor licenses.",
+      subtitle: "Everything designed around your business—not around software.",
       icon: Cpu,
       description:
-        "We engineer AI-native systems that become part of your organization’s daily operations. We replace brittle manual handoffs with autonomous, self-learning business infrastructure.",
+        "We build AI-native systems that become part of your organization’s daily operations.",
       capabilities: [
-        "Proprietary Enterprise Knowledge Platforms",
-        "Sub-second Enterprise Semantic Search",
-        "Multi-Agent Autonomous Workflows",
-        "Predictive Decision Intelligence Engines",
+        "Knowledge platforms",
+        "Enterprise search",
+        "AI agents & Automation",
+        "Decision intelligence & Collaborative workflows",
       ],
-      quote: "AI systems that live inside your operational rhythm and compound daily.",
+      quote: "Everything designed around your business—not around software.",
     },
     {
       id: "enablement",
       num: "03",
-      tag: "PEOPLE // ADOPTION & MASTERY",
+      tag: "PILLAR 03 // PEOPLE",
       title: "Organization Enablement",
       subtitle: "Technology alone doesn’t transform organizations. People do.",
       icon: Users,
       description:
-        "We work alongside leadership teams and departmental heads to drive real adoption, eliminate friction, establish robust governance models, and ensure AI becomes an instinctive part of everyday execution.",
+        "We work alongside leadership teams to drive adoption, enable departments, build governance models and ensure AI becomes part of everyday execution.",
       capabilities: [
-        "C-Suite & Executive Leadership Enablement",
-        "Departmental AI Copilots & Workflow Training",
-        "Enterprise Governance & Data Ethics Guardrails",
-        "Internal AI Centers of Excellence (CoE)",
+        "Drive executive and team adoption",
+        "Enable and upskill cross-functional departments",
+        "Build enterprise governance models & data guardrails",
+        "Ensure AI becomes an instinctive part of everyday execution",
       ],
-      quote: "Empowering every human team member with 10x operational leverage.",
+      quote: "Technology alone doesn’t transform organizations. People do.",
     },
     {
       id: "evolution",
       num: "04",
-      tag: "MOMENTUM // CONTINUOUS SYNC",
+      tag: "PILLAR 04 // EVOLUTION",
       title: "Continuous Evolution",
       subtitle: "AI changes every month. Your business should never fall behind.",
       icon: Repeat,
       description:
-        "Foundation models and AI capabilities leap forward monthly. We continuously benchmark, optimize, and expand your enterprise AI ecosystem as breakthrough technologies and international business opportunities appear.",
+        "We continuously optimize, improve and expand your AI ecosystem as new technologies emerge and new business opportunities appear.",
       capabilities: [
-        "Continuous Model Benchmarking & Upgrades",
-        "Adaptive Performance & Latency Tuning",
-        "Regulatory & Cross-Border Compliance Audits",
-        "Next-Gen Breakthrough Integration Roadmap",
+        "Continuous optimization and benchmarking as new models emerge",
+        "Expansion into new business opportunities and capabilities",
+        "Proactive enterprise AI ecosystem monitoring",
+        "Future-proof architecture with zero technical debt",
       ],
-      quote: "Your enterprise stays permanently at the cutting edge without technical debt.",
+      quote: "AI changes every month. Your business should never fall behind.",
     },
   ];
 
@@ -84,14 +84,14 @@ export default function SectionPillars() {
         <span className="text-xs font-semibold tracking-wider text-brand-purple uppercase mb-3 block">
           HOW WE TRANSFORM
         </span>
-        <h2 className="text-4xl sm:text-5xl font-sans font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           From AI adoption to <br />
-          <span className="font-serif italic font-normal text-neutral-950">
+          <span className="italic font-normal text-neutral-950">
             enterprise transformation.
           </span>
         </h2>
         <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          Rather than selling services, we partner with leadership teams to rethink how every single part of the business creates value.
+          Rather than selling services, we partner with leadership teams to rethink how every part of the business creates value.
         </p>
       </div>
 
