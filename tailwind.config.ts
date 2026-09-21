@@ -25,8 +25,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["var(--font-serif)", "Playfair Display", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["var(--font-serif)", "Lora", "Georgia", "serif"],
       },
       letterSpacing: {
         tightest: "-0.04em",
