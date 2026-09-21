@@ -27,8 +27,8 @@ export default function Home() {
   };
 
   return (
-    <div className="relative bg-white text-neutral-900 min-h-screen selection:bg-black selection:text-white">
-      {/* Floating Freshworks-Style Header */}
+    <div className="relative bg-espresso-deep text-foreground min-h-screen selection:bg-burnt-peach selection:text-espresso-deep">
+      {/* Floating Performance Lab Header */}
       <Header onOpenBooking={handleOpenBooking} />
 
       {/* Main Content Sections */}

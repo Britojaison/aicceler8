@@ -9,16 +9,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#FFFFFF",
-        foreground: "#0F172A",
+        background: "#FFEBDC",
+        foreground: "#2D1712",
+        espresso: {
+          DEFAULT: "#4E2C23",
+          light: "#FFF5ED",
+          dark: "#FCD5BC",
+          deep: "#FFEBDC",
+          night: "#2D1712",
+        },
+        "burnt-peach": {
+          DEFAULT: "#E2725B",
+          light: "#EB8D79",
+          dark: "#C55842",
+        },
+        "soft-apricot": {
+          DEFAULT: "#4E2C23",
+          light: "#FFEBDC",
+          dark: "#E2725B",
+        },
         surface: {
-          50: "#FAFAFB",
-          100: "#F4F5F7",
-          200: "#E9ECF0",
+          50: "#FFF9F5",
+          100: "#FFF0E5",
+          200: "#FCD5BC",
+          800: "#4E2C23",
+          900: "#2D1712",
         },
         brand: {
-          orange: "#F59E0B",
-          coral: "#FF4500",
+          orange: "#E2725B",
+          coral: "#E2725B",
           purple: "#7C3AED",
           emerald: "#10B981",
           blue: "#2563EB",
@@ -27,25 +46,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
         serif: ["var(--font-serif)", "Lora", "Georgia", "serif"],
-      },
-      letterSpacing: {
-        tightest: "-0.04em",
-        tighter: "-0.025em",
-        tight: "-0.015em",
-      },
-      animation: {
-        "marquee": "marquee 35s linear infinite",
-        "float": "float 6s ease-in-out infinite",
-      },
-      keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
-        },
+        mono: ["var(--font-mono)", "JetBrains Mono", "Courier New", "monospace"],
       },
     },
   },

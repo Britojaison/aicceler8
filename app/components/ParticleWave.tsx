@@ -36,14 +36,13 @@ export default function ParticleWave() {
     window.addEventListener("resize", handleResize);
 
     const colors = [
-      "#F59E0B", // Golden Amber
-      "#FBBF24", // Warm Yellow
-      "#EF4444", // Coral Red
-      "#F97316", // Bright Orange
-      "#8B5CF6", // Violet
-      "#A855F7", // Purple
-      "#EC4899", // Magenta
-      "#6366F1", // Indigo
+      "#FFDAB9", // Soft Apricot
+      "#E2725B", // Burnt Peach
+      "#EB8D79", // Light Burnt Peach
+      "#FFF0E3", // Apricot Highlight
+      "#C55842", // Dark Peach
+      "#683C30", // Warm Espresso
+      "#F0B990", // Deep Apricot
     ];
 
     const particleCount = Math.min(380, Math.floor((width * height) / 1800));

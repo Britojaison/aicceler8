@@ -30,9 +30,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       sector: "Enterprise Creative & Demand Gen",
       tagline: "Scaling enterprise content production & multi-channel campaign execution 10x.",
       brandName: "GLOBAL RETAIL LEADER",
-      bgColor: "bg-[#F5AB26]", // Warm Gold / Amber
-      textColor: "text-neutral-950",
-      accentHex: "#F5AB26",
+      bgColor: "bg-espresso-dark/90 border border-burnt-peach/40",
+      textColor: "text-foreground",
+      accentHex: "#E2725B",
       quote:
         "“AICceler8 embedded generative creative workflows directly into our regional marketing teams. What previously took six weeks across agencies now ships in forty-eight hours with perfect brand compliance.”",
       quoteAuthor: "Marcus Sterling",
@@ -63,9 +63,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       sector: "B2B Commercial & Revenue",
       tagline: "Intelligent ecosystems accelerating proposal generation, CRM workflows, and deal closing.",
       brandName: "ENTERPRISE B2B SOFTWARE",
-      bgColor: "bg-[#FF5349]", // Coral / Red
-      textColor: "text-white",
-      accentHex: "#FF5349",
+      bgColor: "bg-espresso-dark/90 border border-burnt-peach/40",
+      textColor: "text-foreground",
+      accentHex: "#E2725B",
       quote:
         "“Our Account Executives were drowning in RFP paperwork and CRM updates. AICceler8 deployed an autonomous deal copilot that cut turnaround from two weeks to forty-eight hours and lifted our win rate by thirty percent.”",
       quoteAuthor: "Elena Rostova",
@@ -96,9 +96,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       sector: "Enterprise Workflow Automation",
       tagline: "Eradicating manual work across departments through enterprise knowledge networks.",
       brandName: "INDUSTRIAL CONGLOMERATE",
-      bgColor: "bg-[#D628D8]", // Fuchsia / Purple
-      textColor: "text-white",
-      accentHex: "#D628D8",
+      bgColor: "bg-espresso-dark/90 border border-burnt-peach/40",
+      textColor: "text-foreground",
+      accentHex: "#E2725B",
       quote:
         "“AICceler8 didn’t just suggest ideas—they built automated multi-agent reconciliation workflows that eradicated over 12,000 hours of manual back-office spreadsheet grind every month.”",
       quoteAuthor: "David Chen",
@@ -129,9 +129,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       sector: "Global Expansion & Market Entry",
       tagline: "Accelerating market research, localization, and global expansion frameworks.",
       brandName: "CROSS-BORDER FINTECH",
-      bgColor: "bg-[#6CB33F]", // Fresh Green
-      textColor: "text-white",
-      accentHex: "#6CB33F",
+      bgColor: "bg-espresso-dark/90 border border-burnt-peach/40",
+      textColor: "text-foreground",
+      accentHex: "#E2725B",
       quote:
         "“Scaling into EMEA and GCC used to take 14 months of expensive consulting and local agency hiring. With AICceler8’s AI GTM engine, we validated regulations and launched live in 90 days.”",
       quoteAuthor: "Sophia Al-Mansoor",
@@ -167,17 +167,20 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
   };
 
   return (
-    <section id="transformations" className="py-24 px-4 sm:px-6 lg:px-20 w-full border-t border-neutral-200/80 bg-neutral-50/30">
+    <section id="transformations" className="py-24 px-6 sm:px-12 lg:px-20 w-full border-t border-burnt-peach/20 bg-espresso-deep relative isolate overflow-hidden">
+      <div className="corner-plus top-6 left-6" />
+      <div className="corner-plus top-6 right-6" />
+
       {/* Header with Title & Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
         <div>
-          <span className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase mb-3 block">
+          <span className="type-mono text-burnt-peach block mb-3">
             TRANSFORMATION STORIES
           </span>
-          <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12]">
-            Chosen by enterprise leaders. <br />
-            <span className="italic font-normal text-neutral-800">
-              Operating at scale.
+          <h2 className="text-4xl sm:text-5xl font-serif font-medium text-foreground tracking-tight leading-[1.05] uppercase">
+            CHOSEN BY ENTERPRISE LEADERS. <br />
+            <span className="italic font-light text-burnt-peach">
+              OPERATING AT SCALE.
             </span>
           </h2>
         </div>
@@ -186,14 +189,14 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
         <div className="flex items-center gap-3">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white flex items-center justify-center text-neutral-800 hover:text-black transition-all shadow-xs active:scale-95"
+            className="w-12 h-12 rounded-full border border-burnt-peach/40 hover:border-burnt-peach bg-espresso-dark flex items-center justify-center text-foreground hover:text-burnt-peach transition-all shadow-md active:scale-95"
             aria-label="Previous case study"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white flex items-center justify-center text-neutral-800 hover:text-black transition-all shadow-xs active:scale-95"
+            className="w-12 h-12 rounded-full border border-burnt-peach/40 hover:border-burnt-peach bg-espresso-dark flex items-center justify-center text-foreground hover:text-burnt-peach transition-all shadow-md active:scale-95"
             aria-label="Next case study"
           >
             <ChevronRight className="w-5 h-5" />
@@ -201,8 +204,8 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
         </div>
       </div>
 
-      {/* Freshworks Inspired Category Navigation Tabs */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+      {/* Category Navigation Tabs */}
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
         {transformations.map((t, idx) => {
           const isActive = activeIdx === idx;
           return (
@@ -210,24 +213,22 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
               key={t.id}
               onClick={() => setActiveIdx(idx)}
               onMouseEnter={() => setActiveIdx(idx)}
-              className={`p-4 sm:p-5 rounded-2xl text-left transition-all duration-300 border flex flex-col justify-between relative ${
+              className={`p-4 sm:p-5 rounded-xl text-left transition-all duration-300 border flex flex-col justify-between relative ${
                 isActive
-                  ? "bg-white border-neutral-300 shadow-md translate-y-[-2px]"
-                  : "bg-white/70 border-neutral-200 hover:bg-white hover:border-neutral-300"
+                  ? "bg-espresso-dark border-burnt-peach text-burnt-peach font-bold shadow-md translate-y-[-2px]"
+                  : "bg-espresso-dark/40 border-burnt-peach/20 hover:border-burnt-peach/50 text-foreground/80"
               }`}
             >
-              {/* Top Color Strip */}
               <div
-                className={`absolute top-0 left-4 right-4 h-1 rounded-b-md transition-opacity ${
-                  isActive ? "opacity-100" : "opacity-0"
+                className={`absolute top-0 left-4 right-4 h-1 rounded-b transition-opacity ${
+                  isActive ? "bg-burnt-peach opacity-100" : "opacity-0"
                 }`}
-                style={{ backgroundColor: t.accentHex }}
               />
 
-              <span className="text-[10px] font-mono font-bold tracking-widest text-neutral-400 uppercase mb-2">
+              <span className="type-mono text-[9px] text-burnt-peach block mb-2">
                 {t.cardNum}
               </span>
-              <span className="text-sm font-bold text-neutral-900 leading-snug">
+              <span className="text-sm font-bold text-foreground leading-snug">
                 {t.title}
               </span>
             </button>
@@ -236,52 +237,52 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       </div>
 
       {/* Executive Hero Story Card Showcase */}
-      <div className="w-full">
-        <div
-          className={`w-full rounded-3xl p-8 sm:p-14 ${current.bgColor} ${current.textColor} transition-all duration-500 flex flex-col justify-between shadow-lg relative overflow-hidden min-h-[440px]`}
-        >
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="w-full rounded-2xl p-8 sm:p-14 bg-espresso-dark/90 border border-burnt-peach/30 text-foreground transition-all duration-500 flex flex-col justify-between shadow-2xl relative overflow-hidden min-h-[440px] backdrop-blur-md">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-burnt-peach" />
+
           <div>
             <div className="flex items-center justify-between mb-8">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest opacity-80">
+              <span className="type-mono text-[10px] text-burnt-peach">
                 {current.brandName}
               </span>
-              <span className="text-xs font-mono px-3.5 py-1 rounded-full bg-black/15 font-semibold">
+              <span className="type-mono text-[9px] px-3.5 py-1 rounded bg-burnt-peach/20 text-burnt-peach border border-burnt-peach/30 font-bold">
                 {current.cardNum}
               </span>
             </div>
 
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-serif leading-snug max-w-3xl mb-8">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-serif italic text-soft-apricot leading-snug max-w-3xl mb-8">
               {current.quote}
             </p>
 
             <div>
-              <div className="font-bold text-base sm:text-lg">{current.quoteAuthor}</div>
-              <div className="text-xs sm:text-sm opacity-80 font-medium">{current.quoteRole}</div>
+              <div className="font-bold text-base sm:text-lg text-foreground">{current.quoteAuthor}</div>
+              <div className="text-xs sm:text-sm text-foreground/70 font-medium">{current.quoteRole}</div>
             </div>
 
             <button
               onClick={() => setModalItem(current)}
-              className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider underline underline-offset-4 hover:opacity-80 transition-opacity"
+              className="mt-8 type-mono text-[11px] inline-flex items-center gap-2 text-burnt-peach hover:text-soft-apricot transition-colors underline underline-offset-4"
             >
-              <span>Read the full transformation story</span>
+              <span>READ THE FULL TRANSFORMATION STORY</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="border-t border-black/15 pt-8 mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div className="border-t border-burnt-peach/20 pt-8 mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div>
-              <div className="text-5xl sm:text-6xl font-sans font-bold tracking-tight">
+              <div className="text-5xl sm:text-6xl font-sans font-bold text-burnt-peach tracking-tight">
                 {current.statNumber}
               </div>
-              <div className="text-xs sm:text-sm opacity-85 max-w-md mt-1.5 font-medium">
+              <div className="text-xs sm:text-sm text-foreground/70 max-w-md mt-1.5 font-medium">
                 {current.statLabel}
               </div>
             </div>
             <button
               onClick={onOpenBooking}
-              className="px-7 py-3.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition-colors shrink-0 shadow-md active:scale-95"
+              className="type-mono text-[11px] px-7 py-3.5 bg-burnt-peach hover:bg-burnt-peach-light text-espresso-deep font-bold transition-all shadow-md active:scale-95 shrink-0"
             >
-              Request custom blueprint
+              REQUEST CUSTOM BLUEPRINT
             </button>
           </div>
         </div>

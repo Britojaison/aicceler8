@@ -99,23 +99,23 @@ END:VCALENDAR`;
 
       {/* Slide-over Drawer Panel */}
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-lg bg-white border-l border-neutral-200 shadow-2xl flex flex-col justify-between overflow-y-auto">
+        <div className="w-screen max-w-lg bg-espresso-deep border-l border-burnt-peach/30 shadow-2xl flex flex-col justify-between overflow-y-auto text-foreground">
           {/* Header */}
-          <div className="p-6 border-b border-neutral-100 flex items-center justify-between bg-surface-50">
+          <div className="p-6 border-b border-burnt-peach/20 flex items-center justify-between bg-espresso-dark">
             <div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-500 font-bold">
+                <span className="w-2 h-2 rounded-full bg-burnt-peach animate-pulse" />
+                <span className="type-mono text-[10px] text-burnt-peach font-bold">
                   EXECUTIVE SCHEDULER
                 </span>
               </div>
-              <h3 className="text-xl font-sans font-bold text-neutral-950 mt-1">
+              <h3 className="text-xl font-sans font-bold text-foreground mt-1">
                 Book an Enterprise Strategy Session
               </h3>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-neutral-200/80 hover:bg-neutral-300 text-neutral-700 transition-colors"
+              className="p-2 rounded-full bg-espresso-light/60 hover:bg-espresso-light text-foreground transition-colors"
               aria-label="Close scheduler"
             >
               <X className="w-5 h-5" />
@@ -127,9 +127,9 @@ END:VCALENDAR`;
             {step === "calendar" && (
               <div className="space-y-6">
                 <div>
-                  <label className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-3">
-                    <Calendar className="w-4 h-4 text-neutral-900" />
-                    <span>Select Preferred Date</span>
+                  <label className="flex items-center gap-2 type-mono text-[10px] text-burnt-peach mb-3">
+                    <Calendar className="w-4 h-4 text-burnt-peach" />
+                    <span>SELECT PREFERRED DATE</span>
                   </label>
                   <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
                     {dates.map((d, idx) => (
@@ -139,11 +139,11 @@ END:VCALENDAR`;
                         onClick={() => setSelectedDateIndex(idx)}
                         className={`p-2.5 rounded-xl border text-center transition-all ${
                           selectedDateIndex === idx
-                            ? "bg-black border-black text-white shadow-sm"
-                            : "bg-surface-50 border-neutral-200 text-neutral-600 hover:border-neutral-300 hover:bg-white"
+                            ? "bg-burnt-peach border-burnt-peach text-espresso-deep font-bold shadow-md"
+                            : "bg-espresso-dark border-burnt-peach/20 text-foreground/70 hover:border-burnt-peach/50"
                         }`}
                       >
-                        <div className="text-[10px] font-mono uppercase">{d.shortDay}</div>
+                        <div className="type-mono text-[9px] uppercase">{d.shortDay}</div>
                         <div className="text-base font-bold">{d.dateNum}</div>
                       </button>
                     ))}
@@ -151,9 +151,9 @@ END:VCALENDAR`;
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-3">
-                    <Clock className="w-4 h-4 text-neutral-900" />
-                    <span>Select Executive Time Slot</span>
+                  <label className="flex items-center gap-2 type-mono text-[10px] text-burnt-peach mb-3">
+                    <Clock className="w-4 h-4 text-burnt-peach" />
+                    <span>SELECT EXECUTIVE TIME SLOT</span>
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {timeSlots.map((slot) => (
@@ -163,22 +163,22 @@ END:VCALENDAR`;
                         onClick={() => setSelectedTimeSlot(slot)}
                         className={`p-3 rounded-xl border text-left text-xs font-medium transition-all flex items-center justify-between ${
                           selectedTimeSlot === slot
-                            ? "bg-neutral-100 border-black text-neutral-950 font-bold"
-                            : "bg-surface-50 border-neutral-200 text-neutral-600 hover:border-neutral-300"
+                            ? "bg-burnt-peach/20 border-burnt-peach text-soft-apricot font-bold"
+                            : "bg-espresso-dark border-burnt-peach/20 text-foreground/70 hover:border-burnt-peach/50"
                         }`}
                       >
                         <span>{slot}</span>
                         {selectedTimeSlot === slot && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-black" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-burnt-peach" />
                         )}
                       </button>
                     ))}
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-surface-50 border border-neutral-200/80 space-y-2 text-xs text-neutral-600">
-                  <div className="flex items-center gap-2 text-neutral-900 font-semibold">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <div className="p-4 rounded-xl bg-espresso-dark/60 border border-burnt-peach/20 space-y-2 text-xs text-foreground/70">
+                  <div className="flex items-center gap-2 text-soft-apricot font-semibold">
+                    <ShieldCheck className="w-4 h-4 text-burnt-peach" />
                     <span>Confidential Strategy Session (45 Mins)</span>
                   </div>
                   <p>
@@ -189,9 +189,9 @@ END:VCALENDAR`;
                 <button
                   type="button"
                   onClick={() => setStep("details")}
-                  className="w-full py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm"
+                  className="w-full type-mono text-[11px] py-3.5 rounded-xl bg-burnt-peach hover:bg-burnt-peach-light text-espresso-deep font-bold flex items-center justify-center gap-2 transition-all shadow-md"
                 >
-                  <span>Continue to Organization Details</span>
+                  <span>CONTINUE TO ORGANIZATION DETAILS</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -199,20 +199,20 @@ END:VCALENDAR`;
 
             {step === "details" && (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="text-xs text-neutral-500 mb-2 flex items-center justify-between">
+                <div className="text-xs text-foreground/60 mb-2 flex items-center justify-between">
                   <span>Selected: {dates[selectedDateIndex]?.label} @ {selectedTimeSlot}</span>
                   <button
                     type="button"
                     onClick={() => setStep("calendar")}
-                    className="text-black font-semibold hover:underline"
+                    className="text-burnt-peach font-semibold hover:underline"
                   >
                     Change
                   </button>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium uppercase text-neutral-600 mb-1">
-                    Your Full Name *
+                  <label className="block type-mono text-[10px] text-burnt-peach mb-1">
+                    YOUR FULL NAME *
                   </label>
                   <input
                     type="text"
@@ -220,13 +220,13 @@ END:VCALENDAR`;
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Sarah Jenkins"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 text-xs focus:outline-none focus:border-black"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-espresso-dark border border-burnt-peach/30 text-foreground text-xs focus:outline-none focus:border-burnt-peach"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium uppercase text-neutral-600 mb-1">
-                    Corporate Work Email *
+                  <label className="block type-mono text-[10px] text-burnt-peach mb-1">
+                    CORPORATE WORK EMAIL *
                   </label>
                   <input
                     type="email"
@@ -234,14 +234,14 @@ END:VCALENDAR`;
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="s.jenkins@enterprise.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 text-xs focus:outline-none focus:border-black"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-espresso-dark border border-burnt-peach/30 text-foreground text-xs focus:outline-none focus:border-burnt-peach"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium uppercase text-neutral-600 mb-1">
-                      Company Name *
+                    <label className="block type-mono text-[10px] text-burnt-peach mb-1">
+                      COMPANY NAME *
                     </label>
                     <input
                       type="text"
@@ -249,18 +249,18 @@ END:VCALENDAR`;
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Apex Global"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 text-xs focus:outline-none focus:border-black"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-espresso-dark border border-burnt-peach/30 text-foreground text-xs focus:outline-none focus:border-burnt-peach"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium uppercase text-neutral-600 mb-1">
-                      Organization Size
+                    <label className="block type-mono text-[10px] text-burnt-peach mb-1">
+                      ORGANIZATION SIZE
                     </label>
                     <select
                       value={formData.size}
                       onChange={(e) => setFormData({ ...formData, size: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 text-xs focus:outline-none focus:border-black"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-espresso-dark border border-burnt-peach/30 text-foreground text-xs focus:outline-none focus:border-burnt-peach"
                     >
                       <option>50–200 employees</option>
                       <option>201–1,000 employees</option>
@@ -271,13 +271,13 @@ END:VCALENDAR`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium uppercase text-neutral-600 mb-1">
-                    Primary Strategic Priority
+                  <label className="block type-mono text-[10px] text-burnt-peach mb-1">
+                    PRIMARY STRATEGIC PRIORITY
                   </label>
                   <select
                     value={formData.focus}
                     onChange={(e) => setFormData({ ...formData, focus: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 text-xs focus:outline-none focus:border-black"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-espresso-dark border border-burnt-peach/30 text-foreground text-xs focus:outline-none focus:border-burnt-peach"
                   >
                     <option>Enterprise Growth & Revenue Engines</option>
                     <option>Intelligent Operations & Workflow Automation</option>
@@ -289,9 +289,9 @@ END:VCALENDAR`;
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm mt-2"
+                  className="w-full type-mono text-[11px] py-3.5 rounded-xl bg-burnt-peach hover:bg-burnt-peach-light text-espresso-deep font-bold flex items-center justify-center gap-2 transition-all shadow-md mt-2"
                 >
-                  <span>Confirm Enterprise Strategy Session</span>
+                  <span>CONFIRM ENTERPRISE STRATEGY SESSION</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
@@ -299,56 +299,56 @@ END:VCALENDAR`;
 
             {step === "confirmed" && (
               <div className="py-8 text-center space-y-6">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-burnt-peach/20 text-burnt-peach mx-auto flex items-center justify-center border border-burnt-peach/30">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
 
                 <div>
-                  <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold block mb-1">
+                  <span className="type-mono text-[10px] text-burnt-peach font-bold block mb-1">
                     CONFIRMED & RESERVED
                   </span>
-                  <h4 className="text-2xl font-sans font-bold text-neutral-950">
+                  <h4 className="text-2xl font-sans font-bold text-foreground">
                     We look forward to meeting, {formData.name}.
                   </h4>
-                  <p className="text-xs text-neutral-600 mt-2 max-w-sm mx-auto">
-                    A calendar invitation and briefing preparation checklist have been dispatched to <strong className="text-black">{formData.email}</strong>.
+                  <p className="text-xs text-foreground/70 mt-2 max-w-sm mx-auto">
+                    A calendar invitation and briefing preparation checklist have been dispatched to <strong className="text-soft-apricot">{formData.email}</strong>.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-surface-50 border border-neutral-200 text-left text-xs space-y-2">
+                <div className="p-4 rounded-xl bg-espresso-dark border border-burnt-peach/30 text-left text-xs space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-neutral-500">Date & Time:</span>
-                    <span className="text-neutral-900 font-semibold">
+                    <span className="text-foreground/50">Date & Time:</span>
+                    <span className="text-soft-apricot font-semibold">
                       {dates[selectedDateIndex]?.label} @ {selectedTimeSlot}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-neutral-500">Organization:</span>
-                    <span className="text-neutral-900 font-semibold">{formData.company}</span>
+                    <span className="text-foreground/50">Organization:</span>
+                    <span className="text-foreground font-semibold">{formData.company}</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-3">
                   <button
                     onClick={handleDownloadICS}
-                    className="w-full py-3 rounded-xl border border-neutral-300 hover:bg-neutral-50 text-neutral-900 text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                    className="w-full py-3 rounded-xl border border-burnt-peach/40 hover:border-burnt-peach text-soft-apricot text-xs type-mono flex items-center justify-center gap-2 transition-all"
                   >
-                    <Download className="w-4 h-4 text-neutral-900" />
-                    <span>Download Calendar Event (.ics)</span>
+                    <Download className="w-4 h-4 text-burnt-peach" />
+                    <span>DOWNLOAD CALENDAR EVENT (.ICS)</span>
                   </button>
 
                   <button
                     onClick={onClose}
-                    className="w-full py-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs uppercase tracking-wider font-semibold"
+                    className="w-full py-3 rounded-xl bg-burnt-peach text-espresso-deep type-mono text-xs font-bold"
                   >
-                    Close Window
+                    CLOSE WINDOW
                   </button>
                 </div>
               </div>
             )}
           </div>
 
-          <div className="p-4 border-t border-neutral-100 bg-surface-50 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+          <div className="p-4 border-t border-burnt-peach/20 bg-espresso-dark flex items-center justify-between type-mono text-[10px] text-foreground/50">
             <span>AICCELER8 ENTERPRISE ASSURANCE</span>
             <span>NDA PROTECTED</span>
           </div>

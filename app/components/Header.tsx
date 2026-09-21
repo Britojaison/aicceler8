@@ -14,45 +14,45 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Why AICceler8", href: "#why-aicceler8" },
-    { name: "How We Transform", href: "#how-we-transform" },
-    { name: "Who We Work With", href: "#who-we-work-with" },
-    { name: "Insights", href: "#insights" },
+    { name: "HOME", href: "#" },
+    { name: "WHY AICCELER8", href: "#why-aicceler8" },
+    { name: "HOW WE TRANSFORM", href: "#how-we-transform" },
+    { name: "WHO WE WORK WITH", href: "#who-we-work-with" },
+    { name: "INSIGHTS", href: "#insights" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-neutral-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] py-3"
-          : "bg-white/80 backdrop-blur-sm border-b border-transparent py-4"
+          ? "bg-espresso-deep/95 backdrop-blur-md border-b border-burnt-peach/20 py-3.5 shadow-md shadow-espresso/5"
+          : "bg-transparent py-5"
       }`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-20 flex items-center justify-between">
-        {/* Brand Logo (Inverted to pure black for clean white background) */}
+      <div className="w-full px-4 sm:px-6 lg:px-16 flex items-center justify-between">
+        {/* Brand Logo */}
         <a
           href="#"
           className="flex items-center gap-3 group focus:outline-none"
           aria-label="AICceler8 Home"
         >
-          <div className="relative h-8 w-24 sm:h-8 sm:w-26 flex items-center">
+          <div className="relative h-8 w-24 sm:h-9 sm:w-28 flex items-center">
             <Image
               src="/logo.png"
               alt="AICceler8"
               fill
               priority
-              className="object-contain filter invert"
+              className="object-contain filter brightness-0"
             />
           </div>
-          <span className="hidden sm:inline-block text-[10px] font-mono tracking-widest text-neutral-400 uppercase border-l border-neutral-200 pl-3">
+          <span className="hidden sm:inline-block type-mono text-[10px] text-espresso/70 border-l border-burnt-peach/30 pl-3">
             ENTERPRISE AI
           </span>
         </a>
@@ -63,26 +63,26 @@ export default function Header({ onOpenBooking }: HeaderProps) {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-neutral-600 hover:text-neutral-950 transition-colors duration-150 py-1"
+              className="type-mono text-[11px] text-espresso/90 hover:text-burnt-peach font-semibold transition-colors duration-200 py-1 relative group"
             >
-              {link.name}
+              <span>{link.name}</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-burnt-peach transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        {/* Action Buttons (Freshworks Style) */}
+        {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={onOpenBooking}
-            className="text-sm font-medium text-neutral-600 hover:text-neutral-950 transition-colors py-1"
+            className="group relative inline-flex items-stretch gap-1 overflow-hidden transition-transform active:scale-[0.98]"
           >
-            Contact
-          </button>
-          <button
-            onClick={onOpenBooking}
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-black hover:bg-neutral-800 active:scale-[0.98] transition-all shadow-sm"
-          >
-            <span>Book an Enterprise Strategy Session</span>
+            <div className="type-mono inline-flex items-center justify-center h-11 px-5 bg-burnt-peach hover:bg-burnt-peach-light text-espresso-deep font-bold transition-colors">
+              <span>BOOK AN ENTERPRISE STRATEGY SESSION</span>
+            </div>
+            <div className="h-11 w-11 bg-burnt-peach hover:bg-burnt-peach-light text-espresso-deep grid place-items-center transition-colors">
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
           </button>
         </div>
 
@@ -90,45 +90,33 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={onOpenBooking}
-            className="px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-black"
+            className="type-mono text-[10px] px-3 py-2 bg-burnt-peach text-espresso-deep font-bold"
           >
-            Strategy Session
+            STRATEGY SESSION
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-neutral-700 hover:text-neutral-900 rounded-lg border border-neutral-200"
+            className="p-2 text-espresso hover:text-burnt-peach rounded border border-burnt-peach/30"
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-neutral-200 px-6 py-5 space-y-3">
+        <div className="md:hidden bg-espresso-deep border-b border-burnt-peach/30 px-6 py-6 space-y-4 shadow-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-neutral-700 hover:text-black py-1"
+              className="block type-mono text-xs text-espresso hover:text-burnt-peach font-bold py-2 border-b border-burnt-peach/10"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-3 border-t border-neutral-100">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full py-3 rounded-full bg-black text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2"
-            >
-              <span>Book an Enterprise Strategy Session</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
       )}
     </header>
