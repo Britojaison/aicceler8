@@ -36,7 +36,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           : "bg-white/80 backdrop-blur-sm border-b border-transparent py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 lg:px-20 flex items-center justify-between">
         {/* Brand Logo (Inverted to pure black for clean white background) */}
         <a
           href="#"

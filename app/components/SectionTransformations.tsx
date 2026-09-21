@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import TransformationModal, { TransformationItem } from "./TransformationModal";
 
 interface SectionTransformationsProps {
@@ -21,6 +21,7 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
     quote: string;
     quoteAuthor: string;
     quoteRole: string;
+    accentHex: string;
   })[] = [
     {
       id: "marketing",
@@ -29,8 +30,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       sector: "Enterprise Creative & Demand Gen",
       tagline: "Scaling enterprise content production & multi-channel campaign execution 10x.",
       brandName: "GLOBAL RETAIL LEADER",
-      bgColor: "bg-amber-500",
+      bgColor: "bg-[#F5AB26]", // Warm Gold / Amber
       textColor: "text-neutral-950",
+      accentHex: "#F5AB26",
       quote:
         "“AICceler8 embedded generative creative workflows directly into our regional marketing teams. What previously took six weeks across agencies now ships in forty-eight hours with perfect brand compliance.”",
       quoteAuthor: "Marcus Sterling",
@@ -61,8 +63,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       sector: "B2B Commercial & Revenue",
       tagline: "Intelligent ecosystems accelerating proposal generation, CRM workflows, and deal closing.",
       brandName: "ENTERPRISE B2B SOFTWARE",
-      bgColor: "bg-red-500",
+      bgColor: "bg-[#FF5349]", // Coral / Red
       textColor: "text-white",
+      accentHex: "#FF5349",
       quote:
         "“Our Account Executives were drowning in RFP paperwork and CRM updates. AICceler8 deployed an autonomous deal copilot that cut turnaround from two weeks to forty-eight hours and lifted our win rate by thirty percent.”",
       quoteAuthor: "Elena Rostova",
@@ -91,10 +94,11 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       cardNum: "TRANSFORMATION 03",
       title: "Operations Transformation",
       sector: "Enterprise Workflow Automation",
-      tagline: "Reducing manual work across departments by deploying AI-powered workflows.",
+      tagline: "Eradicating manual work across departments through enterprise knowledge networks.",
       brandName: "INDUSTRIAL CONGLOMERATE",
-      bgColor: "bg-purple-600",
+      bgColor: "bg-[#D628D8]", // Fuchsia / Purple
       textColor: "text-white",
+      accentHex: "#D628D8",
       quote:
         "“AICceler8 didn’t just suggest ideas—they built automated multi-agent reconciliation workflows that eradicated over 12,000 hours of manual back-office spreadsheet grind every month.”",
       quoteAuthor: "David Chen",
@@ -119,78 +123,15 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       ],
     },
     {
-      id: "leadership",
-      cardNum: "TRANSFORMATION 04",
-      title: "Leadership Transformation",
-      sector: "Executive Intelligence & Governance",
-      tagline: "Creating AI copilots for founders and executive teams that improve reporting and decision-making.",
-      brandName: "GLOBAL HOLDINGS GROUP",
-      bgColor: "bg-blue-600",
-      textColor: "text-white",
-      quote:
-        "“Our board meetings transformed overnight. Instead of reviewing retrospective monthly slides, our leadership team now queries real-time business telemetry and predictive risk forecasts.”",
-      quoteAuthor: "Harrison Vance",
-      quoteRole: "Managing Partner & CEO",
-      statNumber: "Real-Time",
-      statLabel: "Continuous P&L telemetry and automated 45-day predictive scenario forecasts",
-      summary:
-        "Creating AI copilots for founders and executive teams that improve reporting, strategic planning and decision-making.",
-      beforeState:
-        "Founders and executives relying on 4-week delayed retrospective reporting decks and disconnected business unit dashboards.",
-      aicceler8System:
-        "Engineered executive intelligence copilots connected to enterprise data lakes for instant scenario modeling, board reporting, and capital allocation foresight.",
-      businessResults: [
-        "Board reporting generation time compressed from 5 days to 15 minutes",
-        "Real-time operational risk alerts delivered 30–45 days ahead of quarter-close",
-        "Empowered executive decision-making speed accelerated 4x",
-      ],
-      metrics: [
-        { label: "Reporting Prep", value: "-95%" },
-        { label: "Risk Horizon", value: "45 Days" },
-        { label: "Decision Velocity", value: "4x" },
-      ],
-    },
-    {
-      id: "customer",
-      cardNum: "TRANSFORMATION 05",
-      title: "Customer Experience Transformation",
-      sector: "Omnichannel Service & Support",
-      tagline: "Deploying intelligent support systems that enhance service quality while reducing operational load.",
-      brandName: "FINANCIAL SERVICES GROUP",
-      bgColor: "bg-amber-600",
-      textColor: "text-white",
-      quote:
-        "“Customer queries are now resolved in seconds rather than hours, while our service satisfaction score jumped to 96% with zero increase in support headcount.”",
-      quoteAuthor: "Camilla Ramos",
-      quoteRole: "Chief Customer Experience Officer",
-      statNumber: "96%",
-      statLabel: "Customer satisfaction rating achieved with instant AI resolution",
-      summary:
-        "Deploying intelligent support systems that enhance service quality while reducing operational load.",
-      beforeState:
-        "High support tier backlog, average ticket resolution taking 18 hours, rising seasonal staffing costs.",
-      aicceler8System:
-        "Deployed an enterprise conversational AI support engine with contextual customer history, strict compliance guardrails, and seamless human-agent handoffs.",
-      businessResults: [
-        "82% of routine enterprise inquiries resolved autonomously without human triage",
-        "First response time reduced from 45 minutes to 3 seconds",
-        "Operational support expenditure reduced by 40% annually",
-      ],
-      metrics: [
-        { label: "CSAT Score", value: "96%" },
-        { label: "First Response", value: "3 Sec" },
-        { label: "Support OpEx", value: "-40%" },
-      ],
-    },
-    {
       id: "global",
-      cardNum: "TRANSFORMATION 06",
+      cardNum: "TRANSFORMATION 04",
       title: "International Growth",
       sector: "Global Expansion & Market Entry",
-      tagline: "Using AI to accelerate market research, localization, and global expansion strategies.",
+      tagline: "Accelerating market research, localization, and global expansion frameworks.",
       brandName: "CROSS-BORDER FINTECH",
-      bgColor: "bg-emerald-600",
+      bgColor: "bg-[#6CB33F]", // Fresh Green
       textColor: "text-white",
+      accentHex: "#6CB33F",
       quote:
         "“Scaling into EMEA and GCC used to take 14 months of expensive consulting and local agency hiring. With AICceler8’s AI GTM engine, we validated regulations and launched live in 90 days.”",
       quoteAuthor: "Sophia Al-Mansoor",
@@ -226,117 +167,123 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
   };
 
   return (
-    <section id="transformations" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
-      {/* Header with Title & Slider Buttons from Aicceler8 Website.docx */}
+    <section id="transformations" className="py-24 px-4 sm:px-6 lg:px-20 w-full border-t border-neutral-200/80 bg-neutral-50/30">
+      {/* Header with Title & Controls */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
         <div>
-          <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
-            SECTION SIX // ENTERPRISE AI IN ACTION
+          <span className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase mb-3 block">
+            TRANSFORMATION STORIES
           </span>
-          <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.15]">
-            Enterprise Transformations <br />
-            <span className="italic font-normal text-neutral-950">
-              Enterprise AI in Action.
+          <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12]">
+            Chosen by enterprise leaders. <br />
+            <span className="italic font-normal text-neutral-800">
+              Operating at scale.
             </span>
           </h2>
         </div>
 
-        {/* Slider Controls */}
-        <div className="flex items-center gap-2">
+        {/* Next/Prev Navigation Buttons */}
+        <div className="flex items-center gap-3">
           <button
             onClick={handlePrev}
-            className="w-10 h-10 rounded-full border border-neutral-200 hover:border-neutral-400 bg-white flex items-center justify-center text-neutral-700 hover:text-black transition-all shadow-xs"
+            className="w-12 h-12 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white flex items-center justify-center text-neutral-800 hover:text-black transition-all shadow-xs active:scale-95"
             aria-label="Previous case study"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-            className="w-10 h-10 rounded-full border border-neutral-200 hover:border-neutral-400 bg-white flex items-center justify-center text-neutral-700 hover:text-black transition-all shadow-xs"
+            className="w-12 h-12 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white flex items-center justify-center text-neutral-800 hover:text-black transition-all shadow-xs active:scale-95"
             aria-label="Next case study"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </div>
 
-      {/* Freshworks Signature Multi-Color Accordion Slider */}
-      <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
-        {/* Main Expanded Active Card */}
+      {/* Freshworks Inspired Category Navigation Tabs */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+        {transformations.map((t, idx) => {
+          const isActive = activeIdx === idx;
+          return (
+            <button
+              key={t.id}
+              onClick={() => setActiveIdx(idx)}
+              onMouseEnter={() => setActiveIdx(idx)}
+              className={`p-4 sm:p-5 rounded-2xl text-left transition-all duration-300 border flex flex-col justify-between relative ${
+                isActive
+                  ? "bg-white border-neutral-300 shadow-md translate-y-[-2px]"
+                  : "bg-white/70 border-neutral-200 hover:bg-white hover:border-neutral-300"
+              }`}
+            >
+              {/* Top Color Strip */}
+              <div
+                className={`absolute top-0 left-4 right-4 h-1 rounded-b-md transition-opacity ${
+                  isActive ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ backgroundColor: t.accentHex }}
+              />
+
+              <span className="text-[10px] font-mono font-bold tracking-widest text-neutral-400 uppercase mb-2">
+                {t.cardNum}
+              </span>
+              <span className="text-sm font-bold text-neutral-900 leading-snug">
+                {t.title}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Executive Hero Story Card Showcase */}
+      <div className="w-full">
         <div
-          className={`flex-1 rounded-3xl p-8 sm:p-12 ${current.bgColor} ${current.textColor} transition-all duration-300 flex flex-col justify-between shadow-sm relative overflow-hidden`}
+          className={`w-full rounded-3xl p-8 sm:p-14 ${current.bgColor} ${current.textColor} transition-all duration-500 flex flex-col justify-between shadow-lg relative overflow-hidden min-h-[440px]`}
         >
           <div>
             <div className="flex items-center justify-between mb-8">
               <span className="text-xs font-mono font-bold uppercase tracking-widest opacity-80">
                 {current.brandName}
               </span>
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-black/15 font-semibold">
+              <span className="text-xs font-mono px-3.5 py-1 rounded-full bg-black/15 font-semibold">
                 {current.cardNum}
               </span>
             </div>
 
-            <p className="text-xl sm:text-2xl font-serif leading-snug max-w-2xl mb-6">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-serif leading-snug max-w-3xl mb-8">
               {current.quote}
             </p>
 
             <div>
-              <div className="font-semibold text-sm">{current.quoteAuthor}</div>
-              <div className="text-xs opacity-75">{current.quoteRole}</div>
+              <div className="font-bold text-base sm:text-lg">{current.quoteAuthor}</div>
+              <div className="text-xs sm:text-sm opacity-80 font-medium">{current.quoteRole}</div>
             </div>
 
             <button
               onClick={() => setModalItem(current)}
-              className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider underline underline-offset-4 hover:opacity-80 transition-opacity"
+              className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider underline underline-offset-4 hover:opacity-80 transition-opacity"
             >
               <span>Read the full transformation story</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="border-t border-black/15 pt-6 mt-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="border-t border-black/15 pt-8 mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div>
-              <div className="text-4xl sm:text-5xl font-sans font-bold tracking-tight">
+              <div className="text-5xl sm:text-6xl font-sans font-bold tracking-tight">
                 {current.statNumber}
               </div>
-              <div className="text-xs opacity-80 max-w-sm mt-1">
+              <div className="text-xs sm:text-sm opacity-85 max-w-md mt-1.5 font-medium">
                 {current.statLabel}
               </div>
             </div>
             <button
               onClick={onOpenBooking}
-              className="px-5 py-2.5 rounded-full bg-black text-white text-xs font-semibold hover:bg-neutral-800 transition-colors w-fit"
+              className="px-7 py-3.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition-colors shrink-0 shadow-md active:scale-95"
             >
               Request custom blueprint
             </button>
           </div>
-        </div>
-
-        {/* Adjacent Narrow Vertical Cards (Freshworks Image 2 Style) */}
-        <div className="hidden lg:flex gap-3">
-          {transformations.map((t, idx) => {
-            if (idx === activeIdx) return null;
-            return (
-              <button
-                key={t.id}
-                onClick={() => setActiveIdx(idx)}
-                className={`w-24 rounded-3xl ${t.bgColor} p-6 flex flex-col justify-between items-center text-center transition-all duration-300 hover:w-28 group relative`}
-                aria-label={`View ${t.title}`}
-              >
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-black/60 rotate-90 whitespace-nowrap mt-8">
-                  {t.cardNum}
-                </span>
-
-                <div className="text-xs font-bold [writing-mode:vertical-rl] rotate-180 uppercase tracking-wider text-white">
-                  {t.title}
-                </div>
-
-                <div className="w-8 h-8 rounded-full bg-black/20 flex items-center justify-center text-white group-hover:bg-black/40 transition-colors mb-2">
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </button>
-            );
-          })}
         </div>
       </div>
 
@@ -349,3 +296,5 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
     </section>
   );
 }
+
+

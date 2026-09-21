@@ -18,7 +18,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
   ];
 
   return (
-    <section className="relative pt-32 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative pt-32 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-20 w-full overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[580px] relative z-10">
         {/* Left Column: Freshworks-style Editorial Content */}
         <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl">

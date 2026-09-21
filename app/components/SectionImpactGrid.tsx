@@ -9,10 +9,12 @@ import {
   MessageSquareHeart,
   Globe2,
   Check,
+  ArrowRight,
+  ChevronRight,
 } from "lucide-react";
 
 export default function SectionImpactGrid() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const impacts = [
     {
@@ -29,7 +31,9 @@ export default function SectionImpactGrid() {
         "Build AI-powered growth engines",
       ],
       kpi: "+38% Pipeline Velocity",
-      color: "border-neutral-200",
+      themeColor: "#F5AB26", // Warm Gold / Amber
+      bgColor: "bg-[#FFF9EE]",
+      borderColor: "border-[#F5AB26]",
     },
     {
       id: "operations",
@@ -45,7 +49,9 @@ export default function SectionImpactGrid() {
         "Create operational visibility",
       ],
       kpi: "-45% Operational Cycle Time",
-      color: "border-neutral-200",
+      themeColor: "#FF5349", // Coral Red
+      bgColor: "bg-[#FFF1F0]",
+      borderColor: "border-[#FF5349]",
     },
     {
       id: "workforce",
@@ -61,7 +67,9 @@ export default function SectionImpactGrid() {
         "Upskill leadership",
       ],
       kpi: "3.2x Employee Output",
-      color: "border-neutral-200",
+      themeColor: "#D628D8", // Fuchsia / Magenta
+      bgColor: "bg-[#FDF2FE]",
+      borderColor: "border-[#D628D8]",
     },
     {
       id: "executive",
@@ -77,7 +85,9 @@ export default function SectionImpactGrid() {
         "Decision support systems",
       ],
       kpi: "Real-Time Foresight",
-      color: "border-neutral-200",
+      themeColor: "#2563EB", // Enterprise Blue
+      bgColor: "bg-[#EFF6FF]",
+      borderColor: "border-[#2563EB]",
     },
     {
       id: "customer",
@@ -93,7 +103,9 @@ export default function SectionImpactGrid() {
         "Personalized experiences",
       ],
       kpi: "Sub-Second Response",
-      color: "border-neutral-200",
+      themeColor: "#00C49F", // Teal Green
+      bgColor: "bg-[#F0FDF4]",
+      borderColor: "border-[#00C49F]",
     },
     {
       id: "global",
@@ -110,95 +122,205 @@ export default function SectionImpactGrid() {
         "Growth frameworks for scaling into new regions",
       ],
       kpi: "60% Faster Market Entry",
-      color: "border-black",
+      themeColor: "#6CB33F", // Fresh Green
+      bgColor: "bg-[#F4FAEE]",
+      borderColor: "border-[#6CB33F]",
     },
   ];
 
   return (
-    <section id="enterprise-impact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
-      {/* Section Header */}
-      <div className="max-w-3xl mb-16">
-        <span className="text-xs font-semibold tracking-wider text-brand-emerald uppercase mb-3 block">
-          SECTION FOUR // OUTCOMES
-        </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-          How We Create <br />
-          <span className="italic font-normal text-neutral-950">
-            Enterprise Impact.
+    <section id="enterprise-impact" className="py-24 px-4 sm:px-6 lg:px-20 w-full border-t border-neutral-200/80 bg-white">
+      {/* Top Editorial Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+        <div className="max-w-3xl">
+          <span className="text-xs font-mono font-bold tracking-widest text-[#6CB33F] uppercase mb-4 block">
+            SECTION FOUR // OUTCOMES
           </span>
-        </h2>
-        <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.08]">
+            How We Create <br />
+            <span className="italic font-normal text-neutral-800">
+              Enterprise Impact.
+            </span>
+          </h2>
+        </div>
+        <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-md border-l-2 border-neutral-200 pl-5">
           Instead of listing services, we show measurable business outcomes.
         </p>
       </div>
 
-      {/* 6-Card Business Outcome Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Unique Horizontal Accordion Ledger Layout */}
+      <div className="hidden lg:flex gap-4 h-[520px] w-full items-stretch">
         {impacts.map((item, idx) => {
           const Icon = item.icon;
-          const isHighlighted = item.highlight;
-          const isHovered = hoveredCard === idx;
+          const isActive = activeIndex === idx;
 
           return (
             <div
               key={item.id}
-              onMouseEnter={() => setHoveredCard(idx)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className={`rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between border ${
-                isHighlighted
-                  ? "bg-neutral-950 text-white shadow-xl"
-                  : isHovered
-                  ? "bg-white border-black shadow-[0_12px_30px_-10px_rgba(0,0,0,0.1)]"
-                  : "bg-surface-50 border-neutral-200/80 hover:bg-white"
+              onClick={() => setActiveIndex(idx)}
+              onMouseEnter={() => setActiveIndex(idx)}
+              className={`rounded-3xl p-8 transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col justify-between border ${
+                isActive
+                  ? `flex-[3.5] bg-white border-neutral-300 shadow-xl`
+                  : `flex-1 bg-neutral-50/80 border-neutral-200/80 hover:bg-white hover:border-neutral-300`
               }`}
             >
+              {/* Active Top Color Line Accent */}
+              <div
+                className={`absolute top-0 left-0 right-0 h-2 transition-all duration-300 ${
+                  isActive ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ backgroundColor: item.themeColor }}
+              />
+
+              {/* Collapsed Vertical Bar View */}
+              {!isActive && (
+                <div className="h-full flex flex-col justify-between items-center text-center py-2 select-none">
+                  <div
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-xs"
+                    style={{ backgroundColor: item.themeColor }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+
+                  <div className="flex flex-col items-center gap-6">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 rotate-90 whitespace-nowrap">
+                      {item.badge}
+                    </span>
+                    <h3 className="text-base font-bold text-neutral-900 [writing-mode:vertical-rl] rotate-180 uppercase tracking-wider">
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  <div className="w-8 h-8 rounded-full bg-neutral-200/60 flex items-center justify-center text-neutral-600">
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
+                </div>
+              )}
+
+              {/* Expanded Detailed Content View */}
+              {isActive && (
+                <div className="h-full flex flex-col justify-between animate-fadeIn">
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-sm"
+                          style={{ backgroundColor: item.themeColor }}
+                        >
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <span
+                            className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
+                            style={{
+                              backgroundColor: `${item.themeColor}18`,
+                              color: item.themeColor,
+                            }}
+                          >
+                            {item.badge}
+                          </span>
+                          <h3 className="text-2xl sm:text-3xl font-bold text-neutral-950 mt-1">
+                            {item.title}
+                          </h3>
+                        </div>
+                      </div>
+
+                      <div
+                        className="px-3.5 py-1.5 rounded-full text-xs font-bold border"
+                        style={{
+                          backgroundColor: `${item.themeColor}12`,
+                          color: item.themeColor,
+                          borderColor: `${item.themeColor}30`,
+                        }}
+                      >
+                        {item.kpi}
+                      </div>
+                    </div>
+
+                    <p className="text-base text-neutral-600 leading-relaxed mb-6 font-normal">
+                      {item.description}
+                    </p>
+
+                    {/* Points Checklist */}
+                    <div className="space-y-2.5 border-t border-neutral-100 pt-5">
+                      <div className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase mb-3">
+                        DELIVERABLES & STRATEGIC OUTCOMES
+                      </div>
+                      <div className="grid grid-cols-1 gap-2">
+                        {item.points.map((point, pIdx) => (
+                          <div
+                            key={pIdx}
+                            className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-800 font-medium"
+                          >
+                            <Check
+                              className="w-4 h-4 shrink-0 mt-0.5"
+                              style={{ color: item.themeColor }}
+                            />
+                            <span>{point}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-400 font-mono">
+                    <span>BENCHMARK MEASUREMENT</span>
+                    <span className="font-bold text-neutral-900">{item.kpi}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Fallback Grid for Tablet and Mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:hidden">
+        {impacts.map((item) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={item.id}
+              className="bg-white border border-neutral-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between relative overflow-hidden"
+            >
+              <div
+                className="absolute top-0 left-0 right-0 h-1.5"
+                style={{ backgroundColor: item.themeColor }}
+              />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                      isHighlighted ? "bg-white/10 text-white" : "bg-neutral-100 text-neutral-800"
-                    }`}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center text-white"
+                    style={{ backgroundColor: item.themeColor }}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
                   <span
-                    className={`text-[10px] font-mono tracking-wider uppercase font-semibold px-2.5 py-1 rounded-full ${
-                      isHighlighted
-                        ? "bg-white text-neutral-950"
-                        : "bg-neutral-100 text-neutral-600"
-                    }`}
+                    className="text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-full"
+                    style={{
+                      backgroundColor: `${item.themeColor}18`,
+                      color: item.themeColor,
+                    }}
                   >
                     {item.badge}
                   </span>
                 </div>
 
-                <h3
-                  className={`text-2xl font-sans font-bold mb-2 ${
-                    isHighlighted ? "text-white" : "text-neutral-950"
-                  }`}
-                >
+                <h3 className="text-2xl font-bold text-neutral-950 mb-2">
                   {item.title}
                 </h3>
-                <p
-                  className={`text-xs sm:text-sm leading-relaxed mb-6 ${
-                    isHighlighted ? "text-neutral-300" : "text-neutral-500"
-                  }`}
-                >
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
                   {item.description}
                 </p>
 
-                <ul className="space-y-2.5 border-t border-neutral-200/40 pt-5 mb-6">
+                <ul className="space-y-2 border-t border-neutral-100 pt-4 mb-6">
                   {item.points.map((point, pIdx) => (
-                    <li
-                      key={pIdx}
-                      className={`flex items-start gap-2.5 text-xs ${
-                        isHighlighted ? "text-neutral-200" : "text-neutral-700"
-                      }`}
-                    >
+                    <li key={pIdx} className="flex items-start gap-2 text-xs text-neutral-800">
                       <Check
-                        className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                          isHighlighted ? "text-amber-400" : "text-emerald-600"
-                        }`}
+                        className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                        style={{ color: item.themeColor }}
                       />
                       <span>{point}</span>
                     </li>
@@ -206,24 +328,14 @@ export default function SectionImpactGrid() {
                 </ul>
               </div>
 
-              <div
-                className={`border-t pt-4 flex items-center justify-between ${
-                  isHighlighted ? "border-white/15" : "border-neutral-200/80"
-                }`}
-              >
+              <div className="border-t border-neutral-100 pt-4 flex items-center justify-between text-xs">
+                <span className="font-mono text-neutral-400 uppercase">Benchmark</span>
                 <span
-                  className={`text-[11px] font-mono uppercase tracking-wider ${
-                    isHighlighted ? "text-neutral-400" : "text-neutral-400"
-                  }`}
-                >
-                  Benchmark
-                </span>
-                <span
-                  className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                    isHighlighted
-                      ? "bg-amber-400/20 text-amber-300 border border-amber-400/30"
-                      : "bg-neutral-100 text-neutral-900 border border-neutral-200"
-                  }`}
+                  className="font-bold px-2.5 py-1 rounded-full"
+                  style={{
+                    backgroundColor: `${item.themeColor}15`,
+                    color: item.themeColor,
+                  }}
                 >
                   {item.kpi}
                 </span>
@@ -235,3 +347,4 @@ export default function SectionImpactGrid() {
     </section>
   );
 }
+

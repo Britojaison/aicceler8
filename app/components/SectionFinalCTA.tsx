@@ -10,7 +10,7 @@ interface SectionFinalCTAProps {
 
 export default function SectionFinalCTA({ onOpenBooking }: SectionFinalCTAProps) {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-20 w-full">
       {/* Freshworks Image 4: Embedded Dark Showcase Card */}
       <div className="relative rounded-3xl overflow-hidden bg-[#0A0A0B] text-white p-10 sm:p-16 lg:p-20 shadow-2xl">
         {/* Dynamic particle ribbon inside dark container */}

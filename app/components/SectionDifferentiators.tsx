@@ -43,7 +43,7 @@ export default function SectionDifferentiators() {
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+    <section className="py-24 px-4 sm:px-6 lg:px-20 w-full border-t border-neutral-200/70">
       {/* Section Header */}
       <div className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
@@ -76,47 +76,50 @@ export default function SectionDifferentiators() {
       </div>
 
       {/* Comparison Table */}
-      <div className="overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-3xl border border-neutral-200/90 bg-white shadow-md">
         <table className="w-full text-left border-collapse min-w-[700px]">
           <thead>
-            <tr className="border-b border-neutral-200 bg-surface-50 text-xs font-mono tracking-wider uppercase text-neutral-500">
-              <th className="py-4 px-6 font-semibold">Dimension</th>
-              <th className="py-4 px-4 font-normal">Traditional Consulting</th>
-              <th className="py-4 px-4 font-normal">Software Vendors</th>
-              <th className="py-4 px-4 font-normal">Digital Agencies</th>
-              <th className="py-4 px-6 font-bold text-neutral-950 bg-amber-50/60 border-l border-r border-amber-200">
-                AICceler8
+            <tr className="border-b border-neutral-200 bg-neutral-50/80 text-xs font-mono tracking-wider uppercase text-neutral-500">
+              <th className="py-5 px-6 font-bold text-neutral-900">Dimension</th>
+              <th className="py-5 px-5 font-semibold text-neutral-600">Traditional Consulting</th>
+              <th className="py-5 px-5 font-semibold text-neutral-600">Software Vendors</th>
+              <th className="py-5 px-5 font-semibold text-neutral-600">Digital Agencies</th>
+              <th className="py-5 px-6 font-bold text-white bg-neutral-950 border-l border-r border-neutral-900">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#F5AB26]" />
+                  <span>AICceler8</span>
+                </div>
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100 text-xs sm:text-sm">
             {comparison.map((row, idx) => (
-              <tr key={idx} className="hover:bg-neutral-50/60 transition-colors">
-                <td className="py-4 px-6 font-semibold text-neutral-900">
+              <tr key={idx} className="hover:bg-neutral-50/80 transition-colors group">
+                <td className="py-5 px-6 font-bold text-neutral-950 group-hover:text-black">
                   {row.dimension}
                 </td>
-                <td className="py-4 px-4 text-neutral-500">
+                <td className="py-5 px-5 text-neutral-500">
                   <div className="flex items-start gap-2">
-                    <X className="w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" />
+                    <X className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                     <span>{row.consulting}</span>
                   </div>
                 </td>
-                <td className="py-4 px-4 text-neutral-500">
+                <td className="py-5 px-5 text-neutral-500">
                   <div className="flex items-start gap-2">
-                    <X className="w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" />
+                    <X className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                     <span>{row.vendors}</span>
                   </div>
                 </td>
-                <td className="py-4 px-4 text-neutral-500">
+                <td className="py-5 px-5 text-neutral-500">
                   <div className="flex items-start gap-2">
-                    <X className="w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" />
+                    <X className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                     <span>{row.agencies}</span>
                   </div>
                 </td>
-                <td className="py-4 px-6 font-medium text-neutral-950 bg-amber-50/30 border-l border-r border-amber-200/80">
-                  <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>{row.aicceler8}</span>
+                <td className="py-5 px-6 font-semibold text-neutral-950 bg-[#FFF9EE] border-l border-r border-[#F5AB26]/40">
+                  <div className="flex items-start gap-2.5">
+                    <Check className="w-4 h-4 text-[#6CB33F] shrink-0 mt-0.5" />
+                    <span className="text-[#8F5D00] font-bold">{row.aicceler8}</span>
                   </div>
                 </td>
               </tr>
