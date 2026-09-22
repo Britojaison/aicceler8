@@ -1,239 +1,194 @@
 "use client";
 
-import React, { useState } from "react";
-import { Compass, Cpu, Users, Repeat, Check, ArrowRight } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function SectionPillars() {
-  const [activePillar, setActivePillar] = useState<number>(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const pillars = [
     {
       id: "strategy",
       num: "01",
-      tag: "PILLAR 01 // STRATEGY",
       title: "Enterprise Growth Strategy",
-      subtitle: "This isn’t another AI roadmap. It’s a business transformation roadmap designed around growth.",
-      icon: Compass,
-      themeColor: "#E2725B",
-      bgColor: "bg-espresso-dark/60",
-      textColor: "text-soft-apricot",
-      accentBorder: "border-burnt-peach",
+      subtitle: "Strategic Advantage",
       description:
         "We identify where AI creates measurable business advantage across revenue, operations, customer experience and decision-making.",
-      capabilities: [
-        "Measurable revenue and top-line advantage identification",
-        "Operational friction and cost optimization mapping",
-        "Customer experience and intelligent journey design",
-        "Decision-making acceleration and executive intelligence",
-      ],
-      quote: "This isn’t another AI roadmap. It’s a business transformation roadmap designed around growth.",
+      image: "/images/pillar_strategy.jpg",
     },
     {
       id: "systems",
       num: "02",
-      tag: "PILLAR 02 // SYSTEMS",
       title: "Intelligent Business Systems",
-      subtitle: "Everything designed around your business—not around software.",
-      icon: Cpu,
-      themeColor: "#E2725B",
-      bgColor: "bg-espresso-dark/60",
-      textColor: "text-soft-apricot",
-      accentBorder: "border-burnt-peach",
+      subtitle: "AI-Native Operations",
       description:
-        "We build AI-native systems that become part of your organization’s daily operations.",
-      capabilities: [
-        "Knowledge platforms",
-        "Enterprise search",
-        "AI agents & Automation",
-        "Decision intelligence & Collaborative workflows",
-      ],
-      quote: "Everything designed around your business—not around software.",
+        "We build AI-native systems that become part of your organization's daily operations.",
+      image: "/images/pillar_systems.jpg",
     },
     {
       id: "enablement",
       num: "03",
-      tag: "PILLAR 03 // PEOPLE",
       title: "Organization Enablement",
-      subtitle: "Technology alone doesn’t transform organizations. People do.",
-      icon: Users,
-      themeColor: "#E2725B",
-      bgColor: "bg-espresso-dark/60",
-      textColor: "text-soft-apricot",
-      accentBorder: "border-burnt-peach",
+      subtitle: "Adoption & Governance",
       description:
         "We work alongside leadership teams to drive adoption, enable departments, build governance models and ensure AI becomes part of everyday execution.",
-      capabilities: [
-        "Drive executive and team adoption",
-        "Enable and upskill cross-functional departments",
-        "Build enterprise governance models & data guardrails",
-        "Ensure AI becomes an instinctive part of everyday execution",
-      ],
-      quote: "Technology alone doesn’t transform organizations. People do.",
+      image: "/images/pillar_enablement.jpg",
     },
     {
       id: "evolution",
       num: "04",
-      tag: "PILLAR 04 // EVOLUTION",
       title: "Continuous Evolution",
-      subtitle: "AI changes every month. Your business should never fall behind.",
-      icon: Repeat,
-      themeColor: "#E2725B",
-      bgColor: "bg-espresso-dark/60",
-      textColor: "text-soft-apricot",
-      accentBorder: "border-burnt-peach",
+      subtitle: "Future-Proof Growth",
       description:
         "We continuously optimize, improve and expand your AI ecosystem as new technologies emerge and new business opportunities appear.",
-      capabilities: [
-        "Continuous optimization and benchmarking as new models emerge",
-        "Expansion into new business opportunities and capabilities",
-        "Proactive enterprise AI ecosystem monitoring",
-        "Future-proof architecture with zero technical debt",
-      ],
-      quote: "AI changes every month. Your business should never fall behind.",
+      image: "/images/pillar_evolution.jpg",
     },
   ];
 
-  const current = pillars[activePillar];
-  const CurrentIcon = current.icon;
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      const numbers = section.querySelectorAll(".row-number");
+      const titles = section.querySelectorAll(".row-title");
+      const descs = section.querySelectorAll(".row-desc");
+      const borders = section.querySelectorAll(".row-border");
+      const accents = section.querySelectorAll(".corner-accent");
+      const cardBorders = section.querySelectorAll(".img-card-border");
+
+      const row3 = section.querySelector("#pillar-row-03");
+
+      // Lenis & GSAP Ultra-Smooth Scroll Scrub Transition
+      // Slowly & fluidly interpolates background & row typography to light mode as user reaches Row 03
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: row3 || section,
+          start: "top 85%",
+          end: "top 20%",
+          scrub: 1.5,
+        },
+      });
+
+      tl.to(
+        section,
+        {
+          backgroundColor: "#FAF3EA",
+          ease: "power2.inOut",
+        },
+        0
+      )
+        .to(
+          numbers,
+          {
+            color: "#381c16",
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          titles,
+          {
+            color: "#381c16",
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          descs,
+          {
+            color: "#4E2C23",
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          borders,
+          {
+            borderColor: "rgba(78, 44, 35, 0.15)",
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          cardBorders,
+          {
+            borderColor: "rgba(78, 44, 35, 0.2)",
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          accents,
+          {
+            color: "#a3a3a3",
+            ease: "power2.inOut",
+          },
+          0
+        );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="how-we-transform" className="py-24 px-6 sm:px-12 lg:px-20 w-full border-t border-burnt-peach/20 bg-espresso-deep relative isolate overflow-hidden">
-      <div className="corner-plus top-6 left-6" />
-      <div className="corner-plus top-6 right-6" />
+    <section
+      ref={sectionRef}
+      id="how-we-transform"
+      className="pt-2 sm:pt-6 pb-16 sm:pb-24 px-6 sm:px-12 lg:px-16 w-full bg-[#0c0c0c] text-white relative isolate overflow-hidden transition-colors duration-200"
+    >
+      {/* Corner cross accents */}
+      <div className="corner-accent corner-plus top-3 left-6 sm:left-12 lg:left-16 text-neutral-600 transition-colors" />
+      <div className="corner-accent corner-plus top-3 right-6 sm:right-12 lg:right-16 text-neutral-600 transition-colors" />
 
-      {/* Top Split Editorial Header */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-start">
-        <div className="lg:col-span-5">
-          <span className="type-mono text-burnt-peach block mb-3">
-            HOW WE TRANSFORM
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium text-foreground tracking-tight leading-[1.05] uppercase">
-            FROM AI ADOPTION TO <br />
-            <span className="italic font-light text-burnt-peach">
-              ENTERPRISE TRANSFORMATION.
-            </span>
-          </h2>
-        </div>
+      {/* List Rows matching SS2 layout */}
+      <div className="row-border w-full border-t border-white/10">
+        {pillars.map((pillar) => (
+          <div
+            key={pillar.id}
+            id={`pillar-row-${pillar.num}`}
+            className="row-border border-b border-white/10 py-12 lg:py-16 transition-colors duration-300 group hover:bg-black/[0.02]"
+          >
+            <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-10">
+              {/* Column 1: Big Number */}
+              <div className="lg:col-span-3 flex lg:justify-end lg:pr-6 xl:pr-10">
+                <span className="row-number text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-sans font-bold tracking-tighter text-white/90 group-hover:text-[#E2725B] transition-colors duration-300 select-none">
+                  {pillar.num}
+                </span>
+              </div>
 
-        <div className="lg:col-span-7 flex flex-col justify-end h-full">
-          <p className="text-lg sm:text-xl text-foreground/80 font-normal leading-relaxed border-l border-burnt-peach/30 pl-6 lg:pl-8">
-            Rather than selling services, we partner with leadership teams to rethink how every part of the business creates value.
-          </p>
-        </div>
-      </div>
+              {/* Column 2: Center Image */}
+              <div className="lg:col-span-4">
+                <div className="img-card-border w-full h-52 sm:h-60 lg:h-64 rounded-xl overflow-hidden border border-white/10 shadow-2xl relative bg-neutral-900 group-hover:border-[#E2725B]/40 transition-all duration-500">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                </div>
+              </div>
 
-      {/* Performance Lab Executive Matrix */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* Left Interactive Pillar Navigation Stack */}
-        <div className="lg:col-span-5 flex flex-col gap-3">
-          {pillars.map((pillar, idx) => {
-            const Icon = pillar.icon;
-            const isSelected = activePillar === idx;
+              {/* Column 3: Right Title & Description */}
+              <div className="lg:col-span-5 flex flex-col justify-center gap-3 lg:pl-2">
+                <h3 className="row-title text-2xl sm:text-3xl lg:text-4xl font-sans font-medium tracking-tight text-white group-hover:text-[#E2725B] transition-colors duration-300">
+                  {pillar.title}
+                </h3>
 
-            return (
-              <button
-                key={pillar.id}
-                onClick={() => setActivePillar(idx)}
-                onMouseEnter={() => setActivePillar(idx)}
-                className={`p-6 rounded-xl text-left transition-all duration-300 relative border flex items-center justify-between group ${
-                  isSelected
-                    ? "bg-espresso-dark border-burnt-peach text-burnt-peach shadow-md translate-x-1 font-bold"
-                    : "bg-espresso-dark/40 border-burnt-peach/20 hover:border-burnt-peach/50 text-foreground/80"
-                }`}
-              >
-                <div
-                  className={`absolute left-0 top-3 bottom-3 w-1 rounded-r transition-all ${
-                    isSelected ? "bg-burnt-peach opacity-100" : "opacity-0 group-hover:opacity-40 bg-burnt-peach"
-                  }`}
-                />
-
-                <div className="flex items-center gap-4 pl-3">
-                  <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                      isSelected ? "bg-burnt-peach text-espresso-deep" : "bg-espresso-deep text-burnt-peach"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="type-mono text-[9px] text-burnt-peach block mb-0.5">
-                      {pillar.tag}
-                    </span>
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-burnt-peach">
-                      {pillar.title}
-                    </h3>
-                  </div>
+                <div className="type-mono text-xs text-[#E2725B] font-semibold tracking-wider uppercase">
+                  {pillar.subtitle}
                 </div>
 
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                  isSelected ? "bg-burnt-peach text-espresso-deep" : "text-foreground/40 opacity-0 group-hover:opacity-100"
-                }`}>
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right Active Pillar Showcase Panel */}
-        <div className="lg:col-span-7 bg-espresso-dark border border-burnt-peach/30 rounded-2xl p-8 sm:p-12 shadow-xl flex flex-col justify-between relative overflow-hidden backdrop-blur-md">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-burnt-peach" />
-
-          <div>
-            <div className="flex items-center justify-between mb-6">
-              <span className="type-mono text-[10px] px-3 py-1 rounded bg-burnt-peach/20 text-burnt-peach border border-burnt-peach/30 font-bold">
-                {current.tag}
-              </span>
-
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-burnt-peach text-espresso-deep font-bold">
-                <CurrentIcon className="w-6 h-6" />
+                <p className="row-desc text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-lg transition-colors">
+                  {pillar.description}
+                </p>
               </div>
-            </div>
-
-            <h3 className="text-3xl sm:text-4xl font-sans font-bold text-foreground mb-3 tracking-tight">
-              {current.title}
-            </h3>
-
-            <p className="text-base sm:text-lg font-bold text-burnt-peach mb-4 leading-snug">
-              {current.subtitle}
-            </p>
-
-            <p className="text-sm sm:text-base text-foreground/85 leading-relaxed mb-8">
-              {current.description}
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {/* Capabilities Check List */}
-            <div className="border-t border-burnt-peach/20 pt-6">
-              <div className="type-mono text-[10px] text-burnt-peach block mb-4 font-bold">
-                CORE CAPABILITIES & EXECUTION
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {current.capabilities.map((cap, cIdx) => (
-                  <div
-                    key={cIdx}
-                    className="flex items-start gap-2.5 p-3 rounded-lg bg-espresso-deep/70 border border-burnt-peach/20 text-xs sm:text-sm text-foreground/90 font-medium"
-                  >
-                    <Check className="w-4 h-4 text-burnt-peach shrink-0 mt-0.5" />
-                    <span>{cap}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quote Box */}
-            <div className="p-5 rounded-xl border-l-4 border-burnt-peach bg-espresso-deep/60">
-              <div className="type-mono text-[9px] text-burnt-peach block mb-1 font-bold">
-                PHILOSOPHICAL ANCHOR
-              </div>
-              <p className="text-sm font-serif italic text-foreground font-semibold">
-                “{current.quote}”
-              </p>
             </div>
           </div>
-        </div>
-
+        ))}
       </div>
     </section>
   );

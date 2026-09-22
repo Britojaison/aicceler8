@@ -1,226 +1,227 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, Compass, Hammer, GraduationCap, TrendingUp, Check } from "lucide-react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 
 export default function SectionApproach() {
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const [activeIdx, setActiveIdx] = useState<number>(0);
 
-  const steps = [
+  const accordionItems = [
     {
-      num: "01",
+      id: "discover",
+      phase: "Phase 01",
       title: "Discover",
-      tagline: "Understand Your Business",
-      icon: Search,
-      duration: "Phase 01",
-      color: "#E2725B",
-      bgLight: "bg-burnt-peach/20",
-      borderAccent: "border-burnt-peach",
-      textAccent: "text-burnt-peach",
-      description:
-        "Understand your business, challenges and opportunities. We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers.",
-      deliverables: [
-        "Business challenges and opportunity assessment",
-        "Executive opportunity sizing matrix",
-        "Data readiness & workflow vulnerability audit",
-      ],
+      logoName: "DISCOVERY & AUDIT",
+      quote:
+        "\"We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers to map immediate ROI.\"",
+      author: "Executive Sizing",
+      role: "Phase 01 Audit Matrix",
+      stat: "100%",
+      statLabel: "Workflow Visibility",
+      bgColor: "bg-[#2A2421]", // Warm dark espresso
+      cardBorder: "border-[#E2725B]/40",
+      accentText: "text-[#E2725B]",
+      image: "/accordion_1.jpg",
     },
     {
-      num: "02",
+      id: "design",
+      phase: "Phase 02",
       title: "Design",
-      tagline: "Create Transformation Blueprint",
-      icon: Compass,
-      duration: "Phase 02",
-      color: "#E2725B",
-      bgLight: "bg-burnt-peach/20",
-      borderAccent: "border-burnt-peach",
-      textAccent: "text-burnt-peach",
-      description:
-        "Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.",
-      deliverables: [
-        "AI transformation blueprint aligned with business goals",
-        "System architecture & model selection specs",
-        "Executive ROI and change management roadmap",
-      ],
+      logoName: "BLUEPRINT ARCHITECTURE",
+      quote:
+        "\"Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.\"",
+      author: "System Architecture",
+      role: "Phase 02 Custom Blueprint",
+      stat: "3.8x",
+      statLabel: "Deployment Speed",
+      bgColor: "bg-[#E2725B]", // Burnt Peach / Coral Hero color
+      cardBorder: "border-white/30",
+      accentText: "text-white",
+      image: "/accordion_3.jpg",
     },
     {
-      num: "03",
+      id: "build",
+      phase: "Phase 03",
       title: "Build",
-      tagline: "Develop Intelligent Systems",
-      icon: Hammer,
-      duration: "Phase 03",
-      color: "#E2725B",
-      bgLight: "bg-burnt-peach/20",
-      borderAccent: "border-burnt-peach",
-      textAccent: "text-burnt-peach",
-      description:
-        "Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.",
-      deliverables: [
-        "Intelligent business systems & autonomous workflows",
-        "Enterprise search & knowledge platforms",
-        "Custom model fine-tuning & integration pipelines",
-      ],
+      logoName: "INTELLIGENT SYSTEMS",
+      quote:
+        "\"Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.\"",
+      author: "Custom Engineering",
+      role: "Phase 03 Integration Pipeline",
+      stat: "10+",
+      statLabel: "Systems Consolidated",
+      bgColor: "bg-[#1E1916]", // Dark charcoal espresso
+      cardBorder: "border-[#E2725B]/40",
+      accentText: "text-[#E2725B]",
+      image: "/accordion_2.jpg",
     },
     {
-      num: "04",
+      id: "enable",
+      phase: "Phase 04",
       title: "Enable",
-      tagline: "Empower Workforce & Leadership",
-      icon: GraduationCap,
-      duration: "Phase 04",
-      color: "#E2725B",
-      bgLight: "bg-burnt-peach/20",
-      borderAccent: "border-burnt-peach",
-      textAccent: "text-burnt-peach",
-      description:
-        "Empower workforce and leadership to use AI effectively. We conduct embedded workshops, deploy departmental copilots, and establish enterprise governance.",
-      deliverables: [
-        "Executive & departmental enablement coaching",
-        "Custom Copilot adoption & prompt engineering playbooks",
-        "Enterprise AI governance & security frameworks",
-      ],
-    },
-    {
-      num: "05",
-      title: "Evolve",
-      tagline: "Continuous Optimization & Scaling",
-      icon: TrendingUp,
-      duration: "Phase 05",
-      color: "#E2725B",
-      bgLight: "bg-burnt-peach/20",
-      borderAccent: "border-burnt-peach",
-      textAccent: "text-burnt-peach",
-      description:
-        "Continuously optimize, expand capabilities and adapt as AI advances. Monthly model benchmarking, ecosystem upgrades, and expanding automation across business units.",
-      deliverables: [
-        "Monthly model performance & accuracy benchmarking",
-        "Continuous ecosystem capability upgrades",
-        "Quarterly strategic AI expansion reviews",
-      ],
+      logoName: "WORKFORCE ENABLEMENT",
+      quote:
+        "\"Empower workforce and leadership to use AI effectively. We conduct embedded workshops, deploy departmental copilots, and establish enterprise governance.\"",
+      author: "Executive Coaching",
+      role: "Phase 04 Organization Sync",
+      stat: ">5k",
+      statLabel: "Copilot executions / mo",
+      bgColor: "bg-[#D8644D]", // Deep Terracotta
+      cardBorder: "border-white/30",
+      accentText: "text-white",
+      image: "/accordion_4.jpg",
     },
   ];
 
-  const current = steps[activeStep];
+  const handleNext = () => {
+    setActiveIdx((prev) => (prev + 1) % accordionItems.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIdx((prev) => (prev - 1 + accordionItems.length) % accordionItems.length);
+  };
 
   return (
-    <section className="py-24 px-6 sm:px-12 lg:px-20 w-full border-t border-burnt-peach/20 bg-espresso-deep relative isolate overflow-hidden">
-      <div className="corner-plus top-6 left-6" />
-      <div className="corner-plus top-6 right-6" />
+    <section className="py-20 sm:py-28 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10">
+      {/* Corner cross accents */}
+      <div className="corner-plus top-6 left-6 sm:left-10 lg:left-16 text-neutral-400" />
+      <div className="corner-plus top-6 right-6 sm:right-10 lg:right-16 text-neutral-400" />
 
-      {/* Section Header */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-start">
-        <div className="lg:col-span-5">
-          <span className="type-mono text-burnt-peach block mb-3 font-semibold">
-            SECTION EIGHT // OUR APPROACH
+      {/* Light subtle grid pattern background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+      {/* Header section matching brand guidelines */}
+      <div className="w-full mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
+        <div>
+          <span className="type-mono text-[#E2725B] block mb-3 font-semibold tracking-wider text-xs uppercase">
+            OUR APPROACH
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium text-foreground tracking-tight leading-[1.05] uppercase">
-            OUR APPROACH <br />
-            <span className="italic font-light text-burnt-peach">
-              FROM BLUEPRINT TO COMPOUNDING SCALE.
-            </span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-neutral-900 leading-[1.08] uppercase">
+            CHOSEN BY AGILE TEAMS. <br className="hidden sm:inline" />
+            <span className="font-light italic text-[#E2725B]">OPERATING AT SCALE.</span>
           </h2>
         </div>
-        <div className="lg:col-span-7 flex flex-col justify-end h-full">
-          <p className="text-base sm:text-lg text-foreground/85 font-normal leading-relaxed border-l border-burnt-peach/30 pl-6 lg:pl-8">
-            A disciplined timeline from initial discovery to continuous enterprise evolution.
-          </p>
+
+        {/* Carousel Prev/Next Buttons */}
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={handlePrev}
+            aria-label="Previous step"
+            className="w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={handleNext}
+            aria-label="Next step"
+            className="w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
 
-      {/* Connected Timeline Track Container */}
-      <div className="max-w-7xl mx-auto relative mb-12">
-        <div className="hidden lg:block absolute top-[28px] left-[6%] right-[6%] h-[2px] bg-burnt-peach/30 z-0" />
-        
-        {/* Timeline Steps Header Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
-          {steps.map((step, idx) => {
-            const Icon = step.icon;
-            const isActive = activeStep === idx;
+      {/* Accordion Gallery Horizontal Track */}
+      <div className="w-full relative z-10">
+        <div className="flex flex-col md:flex-row gap-3 sm:gap-4 h-auto md:h-[500px] lg:h-[540px] items-stretch transition-all duration-500 ease-in-out">
+          {accordionItems.map((item, idx) => {
+            const isActive = activeIdx === idx;
 
             return (
               <div
-                key={step.num}
-                onMouseEnter={() => setActiveStep(idx)}
-                onClick={() => setActiveStep(idx)}
-                className={`cursor-pointer group relative p-6 rounded-xl border transition-all duration-300 flex flex-col justify-between ${
+                key={item.id}
+                onClick={() => setActiveIdx(idx)}
+                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:p-10 border ${item.cardBorder} ${item.bgColor} ${
                   isActive
-                    ? "bg-espresso-dark border-burnt-peach shadow-md transform -translate-y-1"
-                    : "bg-espresso-dark/40 border-burnt-peach/20 hover:border-burnt-peach/50 hover:bg-espresso-dark/70"
+                    ? "md:flex-[4] lg:flex-[5] shadow-2xl"
+                    : "md:flex-[0.8] lg:flex-[0.9] hover:opacity-95 shadow-md"
                 }`}
               >
-                <div className="flex items-center justify-between mb-5">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center type-mono font-bold text-xs transition-all ${
-                    isActive ? "bg-burnt-peach text-espresso-deep" : "bg-espresso-deep text-burnt-peach border border-burnt-peach/30"
-                  }`}>
-                    {step.num}
-                  </div>
+                {/* Collapsed Vertical/Compact Card Content */}
+                {!isActive && (
+                  <div className="h-full flex flex-col justify-between items-start text-white">
+                    <div>
+                      <span className="type-mono text-[11px] font-bold tracking-widest uppercase opacity-75 block mb-2">
+                        {item.phase}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-white leading-tight">
+                        {item.title}
+                      </h3>
+                    </div>
 
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                    isActive ? "bg-burnt-peach/20 text-burnt-peach" : "text-foreground/40"
-                  }`}>
-                    <Icon className="w-4 h-4" />
+                    <div className="mt-auto">
+                      <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
+                        <ArrowUpRight className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
 
-                <div>
-                  <div className="type-mono text-[9px] text-burnt-peach block mb-1">
-                    {step.duration}
-                  </div>
-                  <div className="text-lg font-bold text-foreground group-hover:text-burnt-peach">
-                    {step.title}
-                  </div>
-                </div>
-
+                {/* Expanded Active Card Layout */}
                 {isActive && (
-                  <div className="absolute top-0 left-4 right-4 h-1 rounded bg-burnt-peach" />
+                  <div className="h-full flex flex-col justify-between text-white relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch h-full">
+                      {/* Left Details Column */}
+                      <div className="lg:col-span-6 flex flex-col justify-between h-full">
+                        <div>
+                          {/* Logo / Badge */}
+                          <div className="flex items-center gap-2 mb-6">
+                            <span className="type-mono text-xs font-bold tracking-wider uppercase px-3 py-1 bg-black/25 rounded-full border border-white/20 text-white">
+                              {item.logoName}
+                            </span>
+                          </div>
+
+                          {/* Quote */}
+                          <p className="text-base sm:text-lg lg:text-xl font-serif font-medium leading-relaxed mb-6 text-white/95">
+                            {item.quote}
+                          </p>
+
+                          {/* Author & Role */}
+                          <div className="mb-6">
+                            <div className="text-sm sm:text-base font-bold text-white">
+                              {item.author}
+                            </div>
+                            <div className="text-xs sm:text-sm text-white/75">
+                              {item.role}
+                            </div>
+                          </div>
+
+                          <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white underline underline-offset-4 group">
+                            <span>Read the story</span>
+                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </div>
+                        </div>
+
+                        {/* Stat Footer */}
+                        <div className="mt-8 pt-6 border-t border-white/20">
+                          <div className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+                            {item.stat}
+                          </div>
+                          <div className="text-xs sm:text-sm text-white/80 mt-1 font-medium">
+                            {item.statLabel}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Placeholder Image Frame */}
+                      <div className="lg:col-span-6 h-48 sm:h-64 lg:h-full relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                      </div>
+                    </div>
+                  </div>
                 )}
               </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Active Phase Enterprise Blueprint Display */}
-      <div className="max-w-7xl mx-auto rounded-2xl border border-burnt-peach/30 bg-espresso-dark p-8 sm:p-12 shadow-xl relative overflow-hidden backdrop-blur-md">
-        <div className="relative z-10 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="type-mono text-[10px] px-3.5 py-1.5 rounded bg-burnt-peach text-espresso-deep font-bold">
-              PHASE {current.num} // {current.duration}
-            </span>
-            <span className="type-mono text-[10px] text-burnt-peach uppercase font-bold">
-              {current.tagline}
-            </span>
-          </div>
-
-          <h3 className="text-3xl sm:text-4xl font-sans font-bold text-foreground tracking-tight mb-4">
-            {current.title}: {current.tagline}
-          </h3>
-
-          <p className="text-base sm:text-lg text-foreground/85 font-normal leading-relaxed mb-10">
-            {current.description}
-          </p>
-
-          <div className="pt-8 border-t border-burnt-peach/20">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-burnt-peach" />
-              <span className="type-mono text-xs text-burnt-peach font-bold tracking-wider uppercase">
-                CORE DELIVERABLES & OUTCOMES
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {current.deliverables.map((deliv, dIdx) => (
-                <div
-                  key={dIdx}
-                  className="p-4 rounded-xl bg-espresso-deep/80 border border-burnt-peach/20 flex items-start gap-3 shadow-sm"
-                >
-                  <Check className="w-4 h-4 text-burnt-peach shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-foreground/90 font-medium leading-snug">
-                    {deliv}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

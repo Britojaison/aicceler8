@@ -1,22 +1,46 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Lenis from "lenis";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import SectionEvolution from "./components/SectionEvolution";
 import SectionPillars from "./components/SectionPillars";
-import SectionImpactGrid from "./components/SectionImpactGrid";
 import SectionPartners from "./components/SectionPartners";
-import SectionTransformations from "./components/SectionTransformations";
 import SectionDifferentiators from "./components/SectionDifferentiators";
 import SectionApproach from "./components/SectionApproach";
-import SectionInsights from "./components/SectionInsights";
-import SectionFinalCTA from "./components/SectionFinalCTA";
 import BookingDrawer from "./components/BookingDrawer";
 import Footer from "./components/Footer";
 
 export default function Home() {
   const [bookingDrawerOpen, setBookingDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    const updateRaf = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateRaf);
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove(updateRaf);
+      lenis.destroy();
+    };
+  }, []);
 
   const handleOpenBooking = () => {
     setBookingDrawerOpen(true);
@@ -36,13 +60,9 @@ export default function Home() {
         <Hero onOpenBooking={handleOpenBooking} />
         <SectionEvolution />
         <SectionPillars />
-        <SectionImpactGrid />
         <SectionPartners />
-        <SectionTransformations onOpenBooking={handleOpenBooking} />
         <SectionDifferentiators />
         <SectionApproach />
-        <SectionInsights />
-        <SectionFinalCTA onOpenBooking={handleOpenBooking} />
       </main>
 
       {/* Clean Light Footer */}

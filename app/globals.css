@@ -120,3 +120,20 @@ h1, h2, h3, h4, h5, h6, .lora {
   border-color: rgba(226, 114, 91, 0.6);
   box-shadow: 0 20px 40px -15px rgba(226, 114, 91, 0.2);
 }
+
+/* Horizontal Marquee Ticker Right to Left */
+@keyframes marquee-fast {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-fast {
+  display: flex;
+  width: max-content;
+  animation: marquee-fast 40s linear infinite;
+}
+
