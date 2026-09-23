@@ -67,15 +67,15 @@ export default function SectionPillars() {
       images.forEach((img) => {
         gsap.fromTo(
           img,
-          { scale: 1.25 },
+          { scale: 1.15 },
           {
             scale: 1.0,
-            ease: "power2.out",
+            ease: "none",
             scrollTrigger: {
               trigger: img.parentElement,
-              start: "top 90%",
-              end: "top 30%",
-              scrub: 1,
+              start: "top 95%",
+              end: "top 40%",
+              scrub: true,
             },
           }
         );
@@ -85,9 +85,9 @@ export default function SectionPillars() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: row3 || section,
-          start: "top 75%",
-          end: "top 50%",
-          scrub: 0.3,
+          start: "top 80%",
+          end: "top 60%",
+          scrub: true,
         },
       });
 
