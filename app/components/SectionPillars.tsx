@@ -62,14 +62,32 @@ export default function SectionPillars() {
 
       const row3 = section.querySelector("#pillar-row-03");
 
-      // Lenis & GSAP Ultra-Smooth Scroll Scrub Transition
-      // Slowly & fluidly interpolates background & row typography to light mode as user reaches Row 03
+      // 1. Zoom Out Effect for each image as it comes into view (scale 1.25 -> 1.0)
+      const images = section.querySelectorAll<HTMLImageElement>(".pillar-img");
+      images.forEach((img) => {
+        gsap.fromTo(
+          img,
+          { scale: 1.25 },
+          {
+            scale: 1.0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: img.parentElement,
+              start: "top 90%",
+              end: "top 30%",
+              scrub: 1,
+            },
+          }
+        );
+      });
+
+      // 2. Fast & Ultra-Smooth Background Transition to Light Mode as user reaches Row 03
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: row3 || section,
-          start: "top 85%",
-          end: "top 20%",
-          scrub: 1.5,
+          start: "top 75%",
+          end: "top 50%",
+          scrub: 0.3,
         },
       });
 
@@ -77,7 +95,7 @@ export default function SectionPillars() {
         section,
         {
           backgroundColor: "#FAF3EA",
-          ease: "power2.inOut",
+          ease: "power3.out",
         },
         0
       )
@@ -85,7 +103,7 @@ export default function SectionPillars() {
           numbers,
           {
             color: "#381c16",
-            ease: "power2.inOut",
+            ease: "power3.out",
           },
           0
         )
@@ -93,7 +111,7 @@ export default function SectionPillars() {
           titles,
           {
             color: "#381c16",
-            ease: "power2.inOut",
+            ease: "power3.out",
           },
           0
         )
@@ -101,7 +119,7 @@ export default function SectionPillars() {
           descs,
           {
             color: "#4E2C23",
-            ease: "power2.inOut",
+            ease: "power3.out",
           },
           0
         )
@@ -109,7 +127,7 @@ export default function SectionPillars() {
           borders,
           {
             borderColor: "rgba(78, 44, 35, 0.15)",
-            ease: "power2.inOut",
+            ease: "power3.out",
           },
           0
         )
@@ -117,7 +135,7 @@ export default function SectionPillars() {
           cardBorders,
           {
             borderColor: "rgba(78, 44, 35, 0.2)",
-            ease: "power2.inOut",
+            ease: "power3.out",
           },
           0
         )
@@ -125,7 +143,7 @@ export default function SectionPillars() {
           accents,
           {
             color: "#a3a3a3",
-            ease: "power2.inOut",
+            ease: "power3.out",
           },
           0
         );
@@ -150,23 +168,23 @@ export default function SectionPillars() {
           <div
             key={pillar.id}
             id={`pillar-row-${pillar.num}`}
-            className="row-border border-b border-white/10 py-12 lg:py-16 transition-colors duration-300 group hover:bg-black/[0.02]"
+            className="row-border border-b border-white/10 py-12 lg:py-16 transition-colors duration-300"
           >
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-10">
               {/* Column 1: Big Number */}
               <div className="lg:col-span-3 flex lg:justify-end lg:pr-6 xl:pr-10">
-                <span className="row-number text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-sans font-bold tracking-tighter text-white/90 group-hover:text-[#E2725B] transition-colors duration-300 select-none">
+                <span className="row-number text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-sans font-bold tracking-tighter text-white/90 select-none">
                   {pillar.num}
                 </span>
               </div>
 
               {/* Column 2: Center Image */}
               <div className="lg:col-span-4">
-                <div className="img-card-border w-full h-52 sm:h-60 lg:h-64 rounded-xl overflow-hidden border border-white/10 shadow-2xl relative bg-neutral-900 group-hover:border-[#E2725B]/40 transition-all duration-500">
+                <div className="img-card-border w-full h-52 sm:h-60 lg:h-64 rounded-xl overflow-hidden border border-white/10 shadow-2xl relative bg-neutral-900">
                   <img
                     src={pillar.image}
                     alt={pillar.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="pillar-img w-full h-full object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
                 </div>
@@ -174,7 +192,7 @@ export default function SectionPillars() {
 
               {/* Column 3: Right Title & Description */}
               <div className="lg:col-span-5 flex flex-col justify-center gap-3 lg:pl-2">
-                <h3 className="row-title text-2xl sm:text-3xl lg:text-4xl font-sans font-medium tracking-tight text-white group-hover:text-[#E2725B] transition-colors duration-300">
+                <h3 className="row-title text-2xl sm:text-3xl lg:text-4xl font-sans font-medium tracking-tight text-white">
                   {pillar.title}
                 </h3>
 

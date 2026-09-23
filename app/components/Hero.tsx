@@ -63,13 +63,13 @@ export default function Hero({ onOpenBooking }: HeroProps) {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen h-screen flex flex-col justify-between pt-28 pb-12 sm:pb-16 px-6 sm:px-12 lg:px-16 w-full overflow-hidden"
+      className="relative min-h-screen h-screen flex flex-col justify-between pt-24 pb-2 sm:pb-3 px-6 sm:px-12 lg:px-16 w-full overflow-hidden"
     >
       {/* Background Image - Parallax */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           ref={bgImgRef}
-          src="/images/home.jpg"
+          src="/images/home2.jpg"
           alt="AICceler8 Background"
           className="w-full h-full object-cover object-center scale-100 origin-center"
         />
@@ -87,14 +87,14 @@ export default function Hero({ onOpenBooking }: HeroProps) {
       {/* Bottom Layout: Heading on Bottom-Left, Paragraph & Buttons on Bottom-Right */}
       <div
         ref={contentRef}
-        className="relative z-10 w-full flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-4"
+        className="relative z-10 w-full flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-0 sm:pb-0 pt-8"
       >
         {/* Bottom Left: Headline */}
-        <div className="max-w-2xl lg:max-w-3xl">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] font-serif font-medium text-white tracking-tight leading-[0.88] uppercase drop-shadow-md">
+        <div className="max-w-3xl lg:max-w-5xl">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7.5rem] font-kobe font-normal text-white tracking-normal leading-[0.92] uppercase drop-shadow-md">
             BUILDING <br />
             <span
-              className={`italic font-light transition-colors duration-700 ease-in-out ${
+              className={`font-sans not-italic font-normal tracking-tight transition-colors duration-700 ease-in-out ${
                 isScrolled ? "text-burnt-peach" : "text-white"
               }`}
             >
@@ -104,32 +104,11 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           </h1>
         </div>
 
-        {/* Bottom Right: Subheading Paragraph & CTA Buttons */}
-        <div className="flex flex-col items-start max-w-md lg:max-w-lg gap-6">
+        {/* Bottom Right: Subheading Paragraph */}
+        <div className="flex flex-col items-start max-w-md lg:max-w-lg gap-6 mb-3 sm:mb-4 lg:mb-5">
           <p className="text-base sm:text-lg text-white/90 font-normal leading-relaxed drop-shadow-sm">
             We help ambitious businesses redesign how they grow, operate and compete in an AI-first world.
           </p>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              onClick={onOpenBooking}
-              className="group relative inline-flex items-stretch gap-1 overflow-hidden transition-transform active:scale-[0.98]"
-            >
-              <div className="type-mono inline-flex items-center justify-center h-12 px-6 bg-burnt-peach hover:bg-burnt-peach-dark text-espresso-light font-bold text-xs transition-colors">
-                <span>BOOK AN ENTERPRISE STRATEGY SESSION</span>
-              </div>
-              <div className="h-12 w-12 bg-burnt-peach hover:bg-burnt-peach-dark text-espresso-light grid place-items-center transition-colors">
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </button>
-
-            <a
-              href="#how-we-transform"
-              className="type-mono inline-flex items-center justify-center h-12 px-6 border border-white/60 hover:border-white text-white text-xs font-semibold backdrop-blur-sm transition-all hover:bg-white/10"
-            >
-              <span>EXPLORE HOW WE TRANSFORM</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>

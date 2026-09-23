@@ -25,95 +25,55 @@ export default function SectionPartners() {
       icon: Building2,
       context: "Tier-1 enterprises navigating legacy tech debt and seeking compounding AI architecture.",
       solution: "Unify fragmented ERP/CRM data into autonomous knowledge systems and executive intelligence copilots.",
-      image: "/images/pillar_strategy.jpg",
+      image: "/images/Enterprise Business.jpg",
     },
     {
       num: "02",
-      name: "High-Growth Scaleups",
-      icon: Rocket,
-      context: "Fast-moving Series B to Pre-IPO companies scaling headcount and product velocity rapidly.",
-      solution: "Embed AI growth engines that multiply revenue per employee without proportional burn rate.",
-      image: "/images/pillar_systems.jpg",
-    },
-    {
-      num: "03",
-      name: "Family Businesses & Conglomerates",
-      icon: Briefcase,
-      context: "Multi-generational organizations seeking modernization while safeguarding legacy equity.",
-      solution: "Operationalize multi-business unit governance, automate compliance, and institute AI-first leadership.",
-      image: "/images/pillar_enablement.jpg",
-    },
-    {
-      num: "04",
       name: "Manufacturing & Industry",
       icon: Factory,
       context: "Capital-intensive production, supply chain networks, and complex logistics operations.",
       solution: "Predictive supply intelligence, automated maintenance scheduling, and real-time operational telemetry.",
-      image: "/images/pillar_evolution.jpg",
+      image: "/images/manufacturing.jpg",
     },
     {
-      num: "05",
+      num: "03",
       name: "Retail & Omnichannel Brands",
       icon: ShoppingBag,
       context: "Customer-centric brands fighting high customer acquisition cost and inventory volatility.",
       solution: "Hyper-personalized marketing generation, intelligent merchandising, and automated inventory forecasting.",
-      image: "/images/section2.jpg",
+      image: "/images/retail.jpg",
     },
     {
-      num: "06",
+      num: "04",
       name: "Real Estate Developers",
       icon: Landmark,
       context: "High-value asset development, complex financing, and municipal approval cycles.",
       solution: "Automated underwriting synthesis, dynamic market intelligence, and AI-accelerated tenant journeys.",
-      image: "/images/home.jpg",
+      image: "/images/Real Estate Developers.jpg",
     },
     {
-      num: "07",
+      num: "05",
       name: "Healthcare Institutions",
       icon: Stethoscope,
       context: "Strictly regulated clinical environments requiring HIPAA-compliant operational efficiency.",
       solution: "Administrative clinical copilot automation, non-diagnostic workflow optimization, and patient engagement.",
-      image: "/images/pillar_strategy.jpg",
+      image: "/images/Healthcare.jpg",
     },
     {
-      num: "08",
+      num: "06",
       name: "Educational Organizations",
       icon: GraduationCap,
       context: "Academic networks and institutions adapting curricula and admissions to the AI century.",
       solution: "Adaptive learning systems, streamlined admissions operations, and institutional research copilots.",
-      image: "/images/pillar_systems.jpg",
+      image: "/images/educational.jpg",
     },
     {
-      num: "09",
+      num: "07",
       name: "Technology Companies",
       icon: Laptop,
       context: "Tech companies needing to evolve from SaaS point solutions to defensible AI-native platforms.",
       solution: "Strategic AI architecture reviews, agentic capability integration, and autonomous GTM workflows.",
-      image: "/images/pillar_enablement.jpg",
-    },
-    {
-      num: "10",
-      name: "Professional Services Firms",
-      icon: Scale,
-      context: "Legal, accounting, and advisory firms whose business model relies on knowledge leverage.",
-      solution: "Proprietary research synthesis platforms, automated doc analysis, and high-margin advisory productization.",
-      image: "/images/pillar_evolution.jpg",
-    },
-    {
-      num: "11",
-      name: "Private Equity-Backed Portfolios",
-      icon: Coins,
-      context: "Sponsors looking to accelerate EBITDA and operational efficiency across portfolio companies.",
-      solution: "Cross-portfolio AI value creation playbooks, rapid automation sprints, and exit valuation acceleration.",
-      image: "/images/section2.jpg",
-    },
-    {
-      num: "12",
-      name: "International Expansion Candidates",
-      icon: Globe,
-      context: "Ambitious enterprises expanding across the US, EMEA, GCC, and APAC regions.",
-      solution: "AI-powered regulatory mapping, automated multi-lingual localization, and hyper-targeted cross-border GTM.",
-      image: "/images/home.jpg",
+      image: "/images/Technology.jpg",
     },
   ];
 
@@ -123,7 +83,7 @@ export default function SectionPartners() {
   return (
     <section
       id="who-we-work-with"
-      className="py-20 sm:py-28 px-6 sm:px-12 lg:px-16 w-full border-t border-amber-900/15 bg-[#FAF3EA] text-[#4E2C23] relative isolate overflow-hidden"
+      className="py-20 sm:py-28 px-6 sm:px-12 lg:px-16 w-full bg-[#FAF3EA] text-[#4E2C23] relative isolate overflow-hidden"
     >
       <div className="corner-plus top-6 left-6 sm:left-12 lg:left-16 text-neutral-400" />
       <div className="corner-plus top-6 right-6 sm:right-12 lg:right-16 text-neutral-400" />

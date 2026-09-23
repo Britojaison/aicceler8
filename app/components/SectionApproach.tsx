@@ -14,13 +14,13 @@ export default function SectionApproach() {
       title: "Discover",
       logoName: "DISCOVERY & AUDIT",
       quote:
-        "\"We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers to map immediate ROI.\"",
+        "We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers to map immediate ROI.",
       author: "Executive Sizing",
       role: "Phase 01 Audit Matrix",
       stat: "100%",
       statLabel: "Workflow Visibility",
-      bgColor: "bg-[#2A2421]", // Warm dark espresso
-      cardBorder: "border-[#E2725B]/40",
+      bgColor: "bg-gradient-to-br from-[#2E1A15] via-[#4E2C23] to-[#E2725B]/40", // Deep Charcoal Espresso to Warm Burnt Peach Accent
+      cardBorder: "border-[#E2725B]/30",
       accentText: "text-[#E2725B]",
       image: "/accordion_1.jpg",
     },
@@ -30,12 +30,12 @@ export default function SectionApproach() {
       title: "Design",
       logoName: "BLUEPRINT ARCHITECTURE",
       quote:
-        "\"Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.\"",
+        "Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.",
       author: "System Architecture",
       role: "Phase 02 Custom Blueprint",
       stat: "3.8x",
       statLabel: "Deployment Speed",
-      bgColor: "bg-[#E2725B]", // Burnt Peach / Coral Hero color
+      bgColor: "bg-gradient-to-br from-[#E2725B] via-[#d65f46] to-[#4E2C23]", // Vivid Burnt Peach to Deep Espresso
       cardBorder: "border-white/30",
       accentText: "text-white",
       image: "/accordion_3.jpg",
@@ -46,13 +46,13 @@ export default function SectionApproach() {
       title: "Build",
       logoName: "INTELLIGENT SYSTEMS",
       quote:
-        "\"Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.\"",
+        "Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.",
       author: "Custom Engineering",
       role: "Phase 03 Integration Pipeline",
       stat: "10+",
       statLabel: "Systems Consolidated",
-      bgColor: "bg-[#1E1916]", // Dark charcoal espresso
-      cardBorder: "border-[#E2725B]/40",
+      bgColor: "bg-gradient-to-tr from-[#1C1210] via-[#381c16] to-[#E2725B]/30", // Dark Espresso to Burnt Peach Highlight
+      cardBorder: "border-[#E2725B]/30",
       accentText: "text-[#E2725B]",
       image: "/accordion_2.jpg",
     },
@@ -62,13 +62,13 @@ export default function SectionApproach() {
       title: "Enable",
       logoName: "WORKFORCE ENABLEMENT",
       quote:
-        "\"Empower workforce and leadership to use AI effectively. We conduct embedded workshops, deploy departmental copilots, and establish enterprise governance.\"",
+        "Empower workforce and leadership to use AI effectively. We conduct embedded workshops, deploy departmental copilots, and establish enterprise governance.",
       author: "Executive Coaching",
       role: "Phase 04 Organization Sync",
       stat: ">5k",
       statLabel: "Copilot executions / mo",
-      bgColor: "bg-[#D8644D]", // Deep Terracotta
-      cardBorder: "border-white/30",
+      bgColor: "bg-gradient-to-tl from-[#381c16] via-[#D8644D] to-[#E2725B]", // Terracotta to Burnt Peach to Dark Espresso Gradient
+      cardBorder: "border-white/40",
       accentText: "text-white",
       image: "/accordion_4.jpg",
     },
@@ -87,9 +87,6 @@ export default function SectionApproach() {
       {/* Corner cross accents */}
       <div className="corner-plus top-6 left-6 sm:left-10 lg:left-16 text-neutral-400" />
       <div className="corner-plus top-6 right-6 sm:right-10 lg:right-16 text-neutral-400" />
-
-      {/* Light subtle grid pattern background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
       {/* Header section matching brand guidelines */}
       <div className="w-full mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
@@ -124,7 +121,7 @@ export default function SectionApproach() {
 
       {/* Accordion Gallery Horizontal Track */}
       <div className="w-full relative z-10">
-        <div className="flex flex-col md:flex-row gap-3 sm:gap-4 h-auto md:h-[500px] lg:h-[540px] items-stretch transition-all duration-500 ease-in-out">
+        <div className="flex flex-col md:flex-row gap-3 sm:gap-4 h-auto md:h-[560px] lg:h-[600px] items-stretch transition-all duration-500 ease-in-out">
           {accordionItems.map((item, idx) => {
             const isActive = activeIdx === idx;
 
@@ -134,10 +131,14 @@ export default function SectionApproach() {
                 onClick={() => setActiveIdx(idx)}
                 className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:p-10 border ${item.cardBorder} ${item.bgColor} ${
                   isActive
-                    ? "md:flex-[4] lg:flex-[5] shadow-2xl"
-                    : "md:flex-[0.8] lg:flex-[0.9] hover:opacity-95 shadow-md"
+                    ? "md:flex-[6] lg:flex-[7] shadow-2xl scale-[1.01]"
+                    : "md:flex-[0.4] lg:flex-[0.5] hover:opacity-95 shadow-md"
                 }`}
               >
+                {/* Ambient Mesh Glow Effects */}
+                <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#E2725B]/25 blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#4E2C23]/40 blur-3xl pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 pointer-events-none" />
                 {/* Collapsed Vertical/Compact Card Content */}
                 {!isActive && (
                   <div className="h-full flex flex-col justify-between items-start text-white">
@@ -163,54 +164,26 @@ export default function SectionApproach() {
                   <div className="h-full flex flex-col justify-between text-white relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch h-full">
                       {/* Left Details Column */}
-                      <div className="lg:col-span-6 flex flex-col justify-between h-full">
+                      <div className="lg:col-span-5 flex flex-col justify-start h-full pt-2 sm:pt-4">
                         <div>
-                          {/* Logo / Badge */}
-                          <div className="flex items-center gap-2 mb-6">
-                            <span className="type-mono text-xs font-bold tracking-wider uppercase px-3 py-1 bg-black/25 rounded-full border border-white/20 text-white">
-                              {item.logoName}
-                            </span>
+                          {/* Main Phase Title */}
+                          <div className="type-mono text-xs font-bold tracking-widest uppercase opacity-75 block mb-3 text-white">
+                            {item.phase} // {item.title}
                           </div>
-
-                          {/* Quote */}
-                          <p className="text-base sm:text-lg lg:text-xl font-serif font-medium leading-relaxed mb-6 text-white/95">
+                          {/* Main Phase Description */}
+                          <p className="text-base sm:text-lg lg:text-xl font-serif font-medium leading-relaxed text-white/95">
                             {item.quote}
                           </p>
-
-                          {/* Author & Role */}
-                          <div className="mb-6">
-                            <div className="text-sm sm:text-base font-bold text-white">
-                              {item.author}
-                            </div>
-                            <div className="text-xs sm:text-sm text-white/75">
-                              {item.role}
-                            </div>
-                          </div>
-
-                          <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white underline underline-offset-4 group">
-                            <span>Read the story</span>
-                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                          </div>
-                        </div>
-
-                        {/* Stat Footer */}
-                        <div className="mt-8 pt-6 border-t border-white/20">
-                          <div className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
-                            {item.stat}
-                          </div>
-                          <div className="text-xs sm:text-sm text-white/80 mt-1 font-medium">
-                            {item.statLabel}
-                          </div>
                         </div>
                       </div>
 
-                      {/* Right Placeholder Image Frame */}
-                      <div className="lg:col-span-6 h-48 sm:h-64 lg:h-full relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
+                      {/* Right Placeholder Image Frame - Extended Length */}
+                      <div className="lg:col-span-7 h-64 sm:h-80 lg:h-full min-h-[320px] lg:min-h-[440px] relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
-                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          sizes="(max-width: 1024px) 100vw, 60vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           priority
                         />

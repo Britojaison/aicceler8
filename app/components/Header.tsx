@@ -25,7 +25,6 @@ export default function Header({ onOpenBooking }: HeaderProps) {
     { name: "WHY AICCELER8", href: "#why-aicceler8" },
     { name: "HOW WE TRANSFORM", href: "#how-we-transform" },
     { name: "WHO WE WORK WITH", href: "#who-we-work-with" },
-    { name: "INSIGHTS", href: "#insights" },
   ];
 
   return (
@@ -85,7 +84,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           </div>
         </div>
 
-        {/* Right Section: Action Button revealed on scroll */}
+        {/* Right Section: Mobile Menu Toggle revealed on scroll */}
         <div
           className={`flex items-center gap-4 transition-all duration-500 ease-out ${
             isScrolled
@@ -93,24 +92,8 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               : "opacity-0 translate-x-4 pointer-events-none"
           }`}
         >
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={onOpenBooking}
-              className="type-mono text-[11px] tracking-wider text-burnt-peach hover:text-burnt-peach-dark font-bold flex items-center gap-1 transition-all uppercase py-1"
-            >
-              <span>BOOK AN ENTERPRISE STRATEGY SESSION +</span>
-            </button>
-          </div>
-
           {/* Mobile Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
-            <button
-              onClick={onOpenBooking}
-              className="type-mono text-[10px] px-3 py-1.5 bg-burnt-peach text-espresso-deep font-bold"
-            >
-              STRATEGY
-            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-1.5 text-neutral-800 hover:text-burnt-peach rounded border border-neutral-300"

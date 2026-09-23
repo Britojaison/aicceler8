@@ -44,9 +44,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["var(--font-serif)", "Lora", "Georgia", "serif"],
-        mono: ["var(--font-mono)", "JetBrains Mono", "Courier New", "monospace"],
+        sans: ["HelveticaCustom", "Helvetica", "sans-serif"],
+        serif: ["HelveticaCustom", "Helvetica", "sans-serif"],
+        mono: ["HelveticaCustom", "Helvetica", "sans-serif"],
+        kobe: ["Kobe", "HelveticaCustom", "Helvetica", "sans-serif"],
       },
     },
   },

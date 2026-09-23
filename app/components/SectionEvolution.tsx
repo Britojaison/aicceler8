@@ -32,24 +32,26 @@ export default function SectionEvolution() {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=480%",
-          scrub: 1.2,
+          end: "+=150%",
+          scrub: 0.3,
           pin: true,
           anticipatePin: 1,
         },
       });
 
-      // 1. Smooth Word-by-Word Text Reveal
-      tl.fromTo(
+      // 1. Precise Word-by-Word Reveal Animation (SS2 & SS3 style)
+      tl.to(
         wordSpans,
-        { opacity: 0.15, color: "#cbbcb0" },
         {
           opacity: 1,
           color: (_i, target: HTMLElement) =>
-            target.dataset.brand === "true" ? "#E2725B" : "#381c16",
-          stagger: 0.05,
-          duration: 2.0,
-          ease: "power1.out",
+            target.dataset.brand === "true" ? "#E2725B" : "#0f0d0c",
+          stagger: {
+            each: 0.04,
+            ease: "none",
+          },
+          duration: 0.1,
+          ease: "none",
         }
       )
       // 2. Text gently fades out
@@ -57,20 +59,20 @@ export default function SectionEvolution() {
         content,
         {
           opacity: 0,
-          y: -50,
-          duration: 1.0,
+          y: -30,
+          duration: 0.4,
           ease: "power2.inOut",
         },
-        "+=0.3"
+        "+=0.1"
       )
-      // 3. Slow, ultra-smooth section2.jpg expansion to full screen
+      // 3. Fast image expansion to full screen
       .fromTo(
         imgCard,
         {
           opacity: 0,
           scale: 0.35,
           borderRadius: "2rem",
-          y: 80,
+          y: 50,
         },
         {
           opacity: 1,
@@ -79,25 +81,29 @@ export default function SectionEvolution() {
           y: 0,
           width: "100vw",
           height: "100vh",
-          duration: 1.8,
+          duration: 0.8,
           ease: "power2.inOut",
         },
-        "-=0.5"
+        "-=0.2"
       )
-      // 4. Reveal heading over full-screen image
-      .fromTo(
+      // 4. Reveal heading overlay box and animate letters one by one like a typewriter
+      tl.to(
         headingOverlay,
         {
-          opacity: 0,
-          y: 45,
+          opacity: 1,
+          duration: 0.1,
         },
+        "-=0.2"
+      )
+      .to(
+        section.querySelectorAll(".typewriter-char"),
         {
           opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power2.out",
+          stagger: 0.015,
+          duration: 0.05,
+          ease: "none",
         },
-        "-=0.5"
+        "<"
       );
     }, section);
 
@@ -142,7 +148,7 @@ export default function SectionEvolution() {
                 <React.Fragment key={wordIndex}>
                   <span
                     data-brand={isBrandWord ? "true" : "false"}
-                    className="reveal-word inline-block transition-colors duration-150 mr-[0.26em]"
+                    className="reveal-word inline-block opacity-15 text-[#c5b8ad] mr-[0.26em]"
                   >
                     {word}
                   </span>
@@ -178,15 +184,31 @@ export default function SectionEvolution() {
         {/* Smooth Blend at the Bottom into SectionPillars */}
         <div className="absolute inset-x-0 bottom-0 h-28 sm:h-40 bg-gradient-to-b from-transparent via-[#0c0c0c]/80 to-[#0c0c0c] z-20" />
 
-        {/* Heading Overlay on Top Left in 2 Clean Lines */}
+        {/* Heading Overlay on Top Left with Typewriter Letter-by-Letter Reveal */}
         <div
           ref={headingOverlayRef}
           className="absolute top-20 sm:top-28 lg:top-32 left-6 sm:left-12 lg:left-16 right-6 sm:right-12 lg:right-16 z-40 opacity-0 max-w-6xl"
         >
           <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-medium text-white tracking-tight leading-[1.1] uppercase drop-shadow-2xl">
-            <span className="block whitespace-nowrap">FROM AI ADOPTION TO</span>
-            <span className="italic font-light text-[#E2725B] block whitespace-nowrap">
-              ENTERPRISE TRANSFORMATION.
+            <span className="block whitespace-nowrap">
+              {"FROM AI ADOPTION TO".split("").map((char, index) => (
+                <span
+                  key={index}
+                  className="typewriter-char inline-block opacity-0"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
+            </span>
+            <span className="not-italic font-medium text-[#E2725B] block whitespace-nowrap">
+              {"ENTERPRISE TRANSFORMATION.".split("").map((char, index) => (
+                <span
+                  key={index}
+                  className="typewriter-char inline-block opacity-0"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
             </span>
           </h2>
         </div>

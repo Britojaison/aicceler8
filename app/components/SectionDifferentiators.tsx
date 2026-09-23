@@ -1,9 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Sparkles, Building2, Server, Megaphone } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function SectionDifferentiators() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridOverlayRef = useRef<HTMLDivElement>(null);
+
+  const verticalGridRef = useRef<HTMLDivElement>(null);
+  const horizontalGridRef = useRef<HTMLDivElement>(null);
+
   const dimensions = [
     "Primary Objective",
     "Implementation Depth",
@@ -67,14 +75,76 @@ export default function SectionDifferentiators() {
     },
   ];
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = sectionRef.current;
+    const vGrid = verticalGridRef.current;
+    const hGrid = horizontalGridRef.current;
+    if (!section || !vGrid || !hGrid) return;
+
+    const ctx = gsap.context(() => {
+      // Bind grid drafting animation to scroll scrub between top 80% and top 10% (finishing at 90% view)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "top 10%",
+          scrub: 1.2,
+        },
+      });
+
+      // 1. Vertical columns draw down top-to-bottom
+      tl.fromTo(
+        vGrid,
+        {
+          clipPath: "inset(0% 0% 100% 0%)",
+          opacity: 0,
+        },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          opacity: 1,
+          ease: "none",
+        }
+      )
+      // 2. Horizontal rows draw across left-to-right immediately following
+      .fromTo(
+        hGrid,
+        {
+          clipPath: "inset(0% 100% 0% 0%)",
+          opacity: 0,
+        },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          opacity: 1,
+          ease: "none",
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-16 sm:py-24 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-24 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10"
+    >
       {/* Corner cross accents */}
       <div className="corner-plus top-6 left-6 sm:left-10 lg:left-16 text-neutral-400" />
       <div className="corner-plus top-6 right-6 sm:right-10 lg:right-16 text-neutral-400" />
 
-      {/* Light subtle grid pattern background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+      {/* Darker Grid Pattern Background - Vertical lines draw top-to-bottom */}
+      <div
+        ref={verticalGridRef}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#0000001f_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-0"
+      />
+
+      {/* Darker Grid Pattern Background - Horizontal lines draw left-to-right */}
+      <div
+        ref={horizontalGridRef}
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,#0000001f_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-0"
+      />
 
       {/* Header section */}
       <div className="w-full mb-10 sm:mb-12 text-center relative z-10">
@@ -89,8 +159,8 @@ export default function SectionDifferentiators() {
           {/* Top Header Tabs - Light Mode Pills */}
           <div className="grid grid-cols-12 gap-1.5 sm:gap-2 items-center">
             {/* Column 0 spacer */}
-            <div className="col-span-2 bg-[#FAF3EA] border border-black/15 rounded-xl py-2.5 px-3 text-center shadow-sm">
-              <span className="type-mono text-[10px] sm:text-xs font-bold text-neutral-800 tracking-wider uppercase">
+            <div className="col-span-2 bg-[#FAF3EA] border border-black/15 rounded-xl py-3 px-3 text-center shadow-sm">
+              <span className="type-mono text-xs sm:text-sm font-extrabold text-neutral-900 tracking-wider uppercase">
                 MODEL OPTIONS
               </span>
             </div>
@@ -99,9 +169,9 @@ export default function SectionDifferentiators() {
             {dimensions.map((dim, idx) => (
               <div
                 key={idx}
-                className="col-span-2 bg-[#FAF3EA] border border-black/15 rounded-xl py-2.5 px-2 text-center shadow-sm h-full flex items-center justify-center"
+                className="col-span-2 bg-[#FAF3EA] border border-black/15 rounded-xl py-3 px-2 text-center shadow-sm h-full flex items-center justify-center"
               >
-                <span className="type-mono text-[10px] sm:text-[11px] font-bold text-neutral-900 tracking-wider uppercase text-center leading-tight">
+                <span className="type-mono text-xs sm:text-sm font-extrabold text-neutral-900 tracking-wider uppercase text-center leading-tight">
                   {dim}
                 </span>
               </div>
@@ -117,14 +187,14 @@ export default function SectionDifferentiators() {
               return (
                 <div
                   key={option.id}
-                  className="grid grid-cols-12 gap-1.5 sm:gap-2 items-stretch bg-[#E2725B] rounded-2xl p-1.5 sm:p-2 shadow-lg border border-[#d25f48] relative group"
+                  className="grid grid-cols-12 gap-1.5 sm:gap-2 items-stretch bg-[#E2725B] rounded-2xl p-2 sm:p-2.5 shadow-lg border border-[#d25f48] relative group"
                 >
                   {/* Left Cell: Brand Header */}
-                  <div className="col-span-2 bg-white/30 backdrop-blur-sm rounded-xl p-2.5 sm:p-3.5 flex items-center gap-2 border border-white/40">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white text-[#E2725B] flex items-center justify-center shrink-0 shadow-md font-bold">
-                      <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                  <div className="col-span-2 bg-white/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center gap-2.5 border border-white/40">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white text-[#E2725B] flex items-center justify-center shrink-0 shadow-md font-bold">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="text-xs sm:text-sm font-sans font-bold text-white leading-tight">
+                    <span className="text-sm sm:text-base font-sans font-extrabold text-white leading-tight">
                       {option.name}
                     </span>
                   </div>
@@ -133,9 +203,9 @@ export default function SectionDifferentiators() {
                   {option.cells.map((cellText, cellIdx) => (
                     <div
                       key={cellIdx}
-                      className="col-span-2 bg-white/20 backdrop-blur-sm rounded-xl p-2.5 sm:p-3.5 flex items-center justify-center text-center border border-white/30"
+                      className="col-span-2 bg-white/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center justify-center text-center border border-white/30"
                     >
-                      <span className="text-[11px] sm:text-xs font-sans font-bold text-white leading-snug">
+                      <span className="text-xs sm:text-sm lg:text-base font-sans font-bold text-white leading-snug">
                         {cellText}
                       </span>
                     </div>
@@ -148,14 +218,14 @@ export default function SectionDifferentiators() {
             return (
               <div
                 key={option.id}
-                className="grid grid-cols-12 gap-1.5 sm:gap-2 items-stretch bg-[#F4ECE1] rounded-2xl p-1.5 sm:p-2 border border-black/10 shadow-sm group hover:bg-[#eee4d7] transition-colors"
+                className="grid grid-cols-12 gap-1.5 sm:gap-2 items-stretch bg-[#F4ECE1] rounded-2xl p-2 sm:p-2.5 border border-black/10 shadow-sm group hover:bg-[#eee4d7] transition-colors"
               >
                 {/* Left Cell: Brand / Model Option */}
-                <div className="col-span-2 bg-[#EBE0D2] rounded-xl p-2.5 sm:p-3.5 flex items-center gap-2 border border-black/5">
-                  <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-lg bg-[#FAF3EA] text-neutral-800 flex items-center justify-center shrink-0 border border-black/10 shadow-xs">
-                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="col-span-2 bg-[#EBE0D2] rounded-xl p-3 sm:p-4 flex items-center gap-2.5 border border-black/5">
+                  <div className="w-8.5 h-8.5 sm:w-9.5 sm:h-9.5 rounded-lg bg-[#FAF3EA] text-neutral-900 flex items-center justify-center shrink-0 border border-black/10 shadow-xs">
+                    <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                   </div>
-                  <span className="text-xs sm:text-sm font-sans font-bold text-neutral-900 leading-tight">
+                  <span className="text-sm sm:text-base font-sans font-extrabold text-neutral-900 leading-tight">
                     {option.name}
                   </span>
                 </div>
@@ -164,9 +234,9 @@ export default function SectionDifferentiators() {
                 {option.cells.map((cellText, cellIdx) => (
                   <div
                     key={cellIdx}
-                    className="col-span-2 bg-[#FAF3EA]/80 rounded-xl p-2.5 sm:p-3.5 flex items-center justify-center text-center border border-black/5"
+                    className="col-span-2 bg-[#FAF3EA]/90 rounded-xl p-3 sm:p-4 flex items-center justify-center text-center border border-black/5"
                   >
-                    <span className="text-[11px] sm:text-xs font-sans font-medium text-neutral-700 leading-relaxed">
+                    <span className="text-xs sm:text-sm lg:text-base font-sans font-semibold text-neutral-800 leading-normal">
                       {cellText}
                     </span>
                   </div>
