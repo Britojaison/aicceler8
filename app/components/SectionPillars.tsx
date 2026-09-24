@@ -83,10 +83,10 @@ export default function SectionPillars() {
 
       const canvas = document.querySelector("#dark-to-light-canvas");
       const partnersSec = document.querySelector("#who-we-work-with");
-      const partnersTitles = partnersSec?.querySelectorAll(".partners-title");
-      const partnersTexts = partnersSec?.querySelectorAll(".partners-text");
-      const partnersBorders = partnersSec?.querySelectorAll(".partners-border");
-      const partnersAccents = partnersSec?.querySelectorAll(".corner-accent");
+      const partnersTitles = partnersSec ? partnersSec.querySelectorAll(".partners-title") : [];
+      const partnersTexts = partnersSec ? partnersSec.querySelectorAll(".partners-text") : [];
+      const partnersBorders = partnersSec ? partnersSec.querySelectorAll(".partners-border") : [];
+      const partnersAccents = partnersSec ? partnersSec.querySelectorAll(".corner-accent") : [];
 
       // 2. Ultra-Smooth Scrubbed Color Transition to Light Mode when "Who We Partner With" section enters view
       const tl = gsap.timeline({
