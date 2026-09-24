@@ -134,15 +134,6 @@ export default function SectionEvolution() {
         ref={contentRef}
         className="w-full px-6 sm:px-12 lg:px-16 flex flex-col gap-3 sm:gap-4 relative z-10"
       >
-        {/* Label */}
-        <div>
-          <span className="type-mono text-[11px] font-bold tracking-[0.25em] text-neutral-400 uppercase select-none">
-            WHY{" "}
-          </span>
-          <span className="type-mono text-[11px] font-bold tracking-[0.25em] text-[#FF5E3F] uppercase select-none">
-            AICCELER8
-          </span>
-        </div>
 
         {/* Full-width Word-by-Word Scroll Reveal Text */}
         <div className="w-full">
