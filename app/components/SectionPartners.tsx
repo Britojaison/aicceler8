@@ -83,21 +83,21 @@ export default function SectionPartners() {
   return (
     <section
       id="who-we-work-with"
-      className="py-20 sm:py-28 px-6 sm:px-12 lg:px-16 w-full bg-[#FAF3EA] text-[#4E2C23] relative isolate overflow-hidden"
+      className="py-20 sm:py-28 px-6 sm:px-12 lg:px-16 w-full bg-transparent text-white relative isolate overflow-hidden"
     >
-      <div className="corner-plus top-6 left-6 sm:left-12 lg:left-16 text-neutral-400" />
-      <div className="corner-plus top-6 right-6 sm:right-12 lg:right-16 text-neutral-400" />
+      <div className="corner-accent corner-plus top-6 left-6 sm:left-12 lg:left-16 text-neutral-600" />
+      <div className="corner-accent corner-plus top-6 right-6 sm:right-12 lg:right-16 text-neutral-600" />
 
       {/* Editorial Header - Aligned to Navbar margins */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-start pt-2">
         <div className="lg:col-span-6">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium text-[#381c16] tracking-tight leading-[1.05] uppercase">
+          <h2 className="partners-title text-4xl sm:text-5xl lg:text-6xl font-serif font-medium text-white tracking-tight leading-[1.05] uppercase">
             WHO WE PARTNER WITH
           </h2>
         </div>
 
-        <div className="lg:col-span-6 border-l border-amber-900/20 pl-6 lg:pl-8">
-          <p className="text-xl sm:text-2xl text-[#381c16] font-medium leading-snug">
+        <div className="partners-border lg:col-span-6 border-l border-white/20 pl-6 lg:pl-8">
+          <p className="partners-text text-xl sm:text-2xl text-neutral-300 font-medium leading-snug">
             We work with organizations that see AI as a strategic advantage—not just another technology initiative.
           </p>
         </div>
@@ -105,10 +105,10 @@ export default function SectionPartners() {
 
       {/* Ticker Subhead - Aligned to Navbar margins */}
       <div className="w-full mb-8 flex items-center justify-between">
-        <h3 className="text-xl sm:text-2xl font-serif font-semibold text-[#381c16] uppercase tracking-wider">
+        <h3 className="partners-title text-xl sm:text-2xl font-serif font-semibold text-white uppercase tracking-wider">
           OUR CLIENTS TYPICALLY INCLUDE:
         </h3>
-        <span className="type-mono text-xs text-neutral-500 hidden sm:block">
+        <span className="type-mono text-xs text-neutral-400 hidden sm:block">
           (HOVER TO EXPLORE DETAILS)
         </span>
       </div>
@@ -121,42 +121,44 @@ export default function SectionPartners() {
             return (
               <div
                 key={`${cohort.num}-${idx}`}
-                className="w-80 sm:w-[22rem] h-[26rem] sm:h-[29rem] shrink-0 rounded-2xl overflow-hidden relative group border border-amber-900/15 bg-neutral-900 shadow-xl transition-all duration-500"
+                className="w-80 sm:w-[22rem] h-[26rem] sm:h-[29rem] shrink-0 rounded-2xl overflow-hidden relative group border border-amber-900/15 bg-neutral-900"
               >
                 {/* Background Image */}
                 <img
                   src={cohort.image}
                   alt={cohort.name}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
                 />
 
-                {/* Constant Gradient Overlay (No black box shift on hover) */}
+                {/* Constant Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20 pointer-events-none" />
 
                 {/* Card Header & Content Layout */}
-                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
+                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10 pointer-events-none">
                   {/* Heading & Hidden Reveal Text */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-3 pointer-events-auto">
                     {/* Heading: Placed on top of image */}
-                    <h4 className="text-2xl sm:text-3xl font-serif font-semibold text-white tracking-tight leading-snug group-hover:text-[#E2725B] transition-colors duration-300">
+                    <h4 className="text-2xl sm:text-3xl font-serif font-semibold text-white tracking-tight leading-snug group-hover:text-[#FF5E3F] transition-colors duration-200">
                       {cohort.name}
                     </h4>
 
                     {/* Reveal Text Container */}
-                    <div className="max-h-0 opacity-0 group-hover:max-h-60 group-hover:opacity-100 transition-all duration-500 ease-out overflow-hidden flex flex-col gap-3">
-                      <div className="border-t border-white/20 pt-3">
-                        <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed font-normal">
-                          {cohort.context}
-                        </p>
-                      </div>
+                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+                      <div className="overflow-hidden">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pt-3 border-t border-white/20 flex flex-col gap-3">
+                          <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed font-normal">
+                            {cohort.context}
+                          </p>
 
-                      <a
-                        href="#why-aicceler8"
-                        className="type-mono text-[11px] inline-flex items-center gap-1.5 text-[#E2725B] hover:text-white font-bold transition-colors pt-1"
-                      >
-                        <span>PARTNER WITH US</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
+                          <a
+                            href="#why-aicceler8"
+                            className="type-mono text-[11px] inline-flex items-center gap-1.5 text-[#FF5E3F] hover:text-white font-bold transition-colors pt-1"
+                          >
+                            <span>PARTNER WITH US</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

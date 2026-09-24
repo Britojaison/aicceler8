@@ -19,14 +19,14 @@ export default {
           night: "#2D1712",
         },
         "burnt-peach": {
-          DEFAULT: "#E2725B",
-          light: "#EB8D79",
-          dark: "#C55842",
+          DEFAULT: "#FF5E3F",
+          light: "#FF7E65",
+          dark: "#E0482B",
         },
         "soft-apricot": {
           DEFAULT: "#4E2C23",
           light: "#FFEBDC",
-          dark: "#E2725B",
+          dark: "#FF5E3F",
         },
         surface: {
           50: "#FFF9F5",
@@ -36,8 +36,8 @@ export default {
           900: "#2D1712",
         },
         brand: {
-          orange: "#E2725B",
-          coral: "#E2725B",
+          orange: "#FF5E3F",
+          coral: "#FF5E3F",
           purple: "#7C3AED",
           emerald: "#10B981",
           blue: "#2563EB",

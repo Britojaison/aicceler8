@@ -48,7 +48,7 @@
   --color-espresso: #4E2C23;
   --color-espresso-dark: #FCD5BC;
   --color-espresso-deep: #FFEBDC;
-  --color-burnt-peach: #E2725B;
+  --color-burnt-peach: #FF5E3F;
   --color-soft-apricot: #4E2C23;
 }
 
@@ -56,8 +56,29 @@
   box-sizing: border-box;
 }
 
+@import "lenis/dist/lenis.css";
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 html {
-  scroll-behavior: smooth;
   color-scheme: light;
   background-color: #FFEBDC;
 }
@@ -75,7 +96,7 @@ body {
 }
 
 ::selection {
-  background: #E2725B;
+  background: #FF5E3F;
   color: #FFEBDC;
 }
 
@@ -87,7 +108,7 @@ body {
   background: #FFEBDC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E2725B;
+  background: #FF5E3F;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -102,13 +123,13 @@ body {
 /* Soft Light Apricot Mesh Gradients */
 .bg-apricot-mesh {
   background: radial-gradient(circle at 50% 20%, #FFEBDC 0%, transparent 65%),
-              radial-gradient(circle at 20% 60%, rgba(226, 114, 91, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 20% 60%, rgba(255, 94, 63, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 80% 80%, rgba(255, 218, 185, 0.4) 0%, transparent 55%),
               linear-gradient(180deg, #FFEBDC 0%, #FFF5ED 100%);
 }
 
 .bg-hero-gradient {
-  background: radial-gradient(circle at 70% 30%, rgba(226, 114, 91, 0.25) 0%, transparent 60%),
+  background: radial-gradient(circle at 70% 30%, rgba(255, 94, 63, 0.25) 0%, transparent 60%),
               radial-gradient(circle at 30% 80%, rgba(255, 218, 185, 0.5) 0%, transparent 60%),
               linear-gradient(180deg, #FFEBDC 0%, #FFF5ED 100%);
 }
@@ -120,28 +141,31 @@ body {
 /* Performance Lab style corner plus icons */
 .corner-plus {
   position: absolute;
-  width: 1rem;
-  height: 1rem;
+  width: 12px;
+  height: 12px;
+  max-width: 12px;
+  max-height: 12px;
   pointer-events: none;
   z-index: 20;
+  overflow: hidden;
 }
 .corner-plus::before,
 .corner-plus::after {
   content: '';
   position: absolute;
-  background-color: #E2725B;
+  background-color: #FF5E3F;
 }
 .corner-plus::before {
   top: 50%;
   left: 0;
-  width: 100%;
+  width: 12px;
   height: 1px;
   transform: translateY(-50%);
 }
 .corner-plus::after {
   left: 50%;
   top: 0;
-  height: 100%;
+  height: 12px;
   width: 1px;
   transform: translateX(-50%);
 }
@@ -152,23 +176,25 @@ body {
 }
 .fresh-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(226, 114, 91, 0.6);
-  box-shadow: 0 20px 40px -15px rgba(226, 114, 91, 0.2);
+  border-color: rgba(255, 94, 63, 0.6);
+  box-shadow: 0 20px 40px -15px rgba(255, 94, 63, 0.2);
 }
 
 /* Horizontal Marquee Ticker Right to Left */
 @keyframes marquee-fast {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-marquee-fast {
   display: flex;
   width: max-content;
-  animation: marquee-fast 40s linear infinite;
+  will-change: transform;
+  animation: marquee-fast 45s linear infinite;
+  backface-visibility: hidden;
 }
 

@@ -69,7 +69,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           ref={bgImgRef}
-          src="/images/home2.jpg"
+          src="/images/home.png"
           alt="AICceler8 Background"
           className="w-full h-full object-cover object-center scale-100 origin-center"
         />
@@ -95,7 +95,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             BUILDING <br />
             <span
               className={`font-sans not-italic font-normal tracking-tight transition-colors duration-700 ease-in-out ${
-                isScrolled ? "text-burnt-peach" : "text-white"
+                isScrolled ? "text-[#FF5E3F]" : "text-white"
               }`}
             >
               AI-POWERED

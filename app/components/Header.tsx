@@ -25,6 +25,9 @@ export default function Header({ onOpenBooking }: HeaderProps) {
     { name: "WHY AICCELER8", href: "#why-aicceler8" },
     { name: "HOW WE TRANSFORM", href: "#how-we-transform" },
     { name: "WHO WE WORK WITH", href: "#who-we-work-with" },
+    { name: "HOW'S AICCELER8 BETTER", href: "#why-traditional-models" },
+    { name: "OUR APPROACH", href: "#our-approach" },
+    { name: "CONTACT", href: "#contact" },
   ];
 
   return (

@@ -33,24 +33,22 @@ export default function SectionEvolution() {
           trigger: section,
           start: "top top",
           end: "+=150%",
-          scrub: 0.3,
+          scrub: 0.5,
           pin: true,
+          pinSpacing: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
-      // 1. Precise Word-by-Word Reveal Animation (SS2 & SS3 style)
+      // 1. Precise Word-by-Word Reveal Animation
       tl.to(
         wordSpans,
         {
           opacity: 1,
           color: (_i, target: HTMLElement) =>
-            target.dataset.brand === "true" ? "#E2725B" : "#0f0d0c",
-          stagger: {
-            each: 0.04,
-            ease: "none",
-          },
-          duration: 0.1,
+            target.dataset.brand === "true" ? "#FF5E3F" : "#0f0d0c",
+          stagger: 0.04,
           ease: "none",
         }
       )
@@ -87,7 +85,7 @@ export default function SectionEvolution() {
         "-=0.2"
       )
       // 4. Reveal heading overlay box and animate letters one by one like a typewriter
-      tl.to(
+      .to(
         headingOverlay,
         {
           opacity: 1,
@@ -105,6 +103,13 @@ export default function SectionEvolution() {
         },
         "<"
       );
+
+      // Refresh ScrollTrigger after render layout stabilization
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 250);
+
+      return () => clearTimeout(timer);
     }, section);
 
     return () => ctx.revert();
@@ -116,6 +121,10 @@ export default function SectionEvolution() {
       id="why-aicceler8"
       className="w-full h-screen bg-[#FAF3EA] relative isolate overflow-hidden flex items-center justify-center border-t border-amber-900/10"
     >
+      {/* Subtle orange ambient gradient effects in top-left and bottom-right corners */}
+      <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#FF5E3F]/40 via-[#FF5E3F]/18 to-transparent blur-[100px] pointer-events-none z-0" />
+      <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-[#FF5E3F]/40 via-[#FF5E3F]/18 to-transparent blur-[100px] pointer-events-none z-0" />
+
       {/* Corner cross accents matching Hero margins */}
       <div className="corner-plus top-6 left-6 sm:left-12 lg:left-16 text-neutral-400 z-20" />
       <div className="corner-plus top-6 right-6 sm:right-12 lg:right-16 text-neutral-400 z-20" />
@@ -130,7 +139,7 @@ export default function SectionEvolution() {
           <span className="type-mono text-[11px] font-bold tracking-[0.25em] text-neutral-400 uppercase select-none">
             WHY{" "}
           </span>
-          <span className="type-mono text-[11px] font-bold tracking-[0.25em] text-[#E2725B] uppercase select-none">
+          <span className="type-mono text-[11px] font-bold tracking-[0.25em] text-[#FF5E3F] uppercase select-none">
             AICCELER8
           </span>
         </div>
@@ -200,7 +209,7 @@ export default function SectionEvolution() {
                 </span>
               ))}
             </span>
-            <span className="not-italic font-medium text-[#E2725B] block whitespace-nowrap">
+            <span className="not-italic font-medium text-[#FF5E3F] block whitespace-nowrap">
               {"ENTERPRISE TRANSFORMATION.".split("").map((char, index) => (
                 <span
                   key={index}

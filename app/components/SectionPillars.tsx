@@ -81,21 +81,28 @@ export default function SectionPillars() {
         );
       });
 
-      // 2. Fast & Ultra-Smooth Background Transition to Light Mode as user reaches Row 03
+      const canvas = document.querySelector("#dark-to-light-canvas");
+      const partnersSec = document.querySelector("#who-we-work-with");
+      const partnersTitles = partnersSec?.querySelectorAll(".partners-title");
+      const partnersTexts = partnersSec?.querySelectorAll(".partners-text");
+      const partnersBorders = partnersSec?.querySelectorAll(".partners-border");
+      const partnersAccents = partnersSec?.querySelectorAll(".corner-accent");
+
+      // 2. Ultra-Smooth Scrubbed Color Transition to Light Mode when "Who We Partner With" section enters view
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: row3 || section,
-          start: "top 80%",
-          end: "top 60%",
-          scrub: true,
+          trigger: partnersSec || section,
+          start: "top 90%",
+          end: "top 20%",
+          scrub: 1,
         },
       });
 
       tl.to(
-        section,
+        canvas || section,
         {
           backgroundColor: "#FAF3EA",
-          ease: "power3.out",
+          ease: "sine.inOut",
         },
         0
       )
@@ -103,7 +110,7 @@ export default function SectionPillars() {
           numbers,
           {
             color: "#381c16",
-            ease: "power3.out",
+            ease: "sine.inOut",
           },
           0
         )
@@ -111,7 +118,7 @@ export default function SectionPillars() {
           titles,
           {
             color: "#381c16",
-            ease: "power3.out",
+            ease: "sine.inOut",
           },
           0
         )
@@ -119,7 +126,7 @@ export default function SectionPillars() {
           descs,
           {
             color: "#4E2C23",
-            ease: "power3.out",
+            ease: "sine.inOut",
           },
           0
         )
@@ -127,7 +134,7 @@ export default function SectionPillars() {
           borders,
           {
             borderColor: "rgba(78, 44, 35, 0.15)",
-            ease: "power3.out",
+            ease: "sine.inOut",
           },
           0
         )
@@ -135,7 +142,7 @@ export default function SectionPillars() {
           cardBorders,
           {
             borderColor: "rgba(78, 44, 35, 0.2)",
-            ease: "power3.out",
+            ease: "sine.inOut",
           },
           0
         )
@@ -143,7 +150,39 @@ export default function SectionPillars() {
           accents,
           {
             color: "#a3a3a3",
-            ease: "power3.out",
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .to(
+          partnersTitles,
+          {
+            color: "#381c16",
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .to(
+          partnersTexts,
+          {
+            color: "#381c16",
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .to(
+          partnersBorders,
+          {
+            borderColor: "rgba(120, 53, 15, 0.2)",
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .to(
+          partnersAccents,
+          {
+            color: "#a3a3a3",
+            ease: "sine.inOut",
           },
           0
         );
@@ -156,7 +195,7 @@ export default function SectionPillars() {
     <section
       ref={sectionRef}
       id="how-we-transform"
-      className="pt-2 sm:pt-6 pb-16 sm:pb-24 px-6 sm:px-12 lg:px-16 w-full bg-[#0c0c0c] text-white relative isolate overflow-hidden transition-colors duration-200"
+      className="pt-2 sm:pt-6 pb-16 sm:pb-24 px-6 sm:px-12 lg:px-16 w-full bg-transparent text-white relative isolate overflow-hidden"
     >
       {/* Corner cross accents */}
       <div className="corner-accent corner-plus top-3 left-6 sm:left-12 lg:left-16 text-neutral-600 transition-colors" />
@@ -196,7 +235,7 @@ export default function SectionPillars() {
                   {pillar.title}
                 </h3>
 
-                <div className="type-mono text-xs text-[#E2725B] font-semibold tracking-wider uppercase">
+                <div className="type-mono text-xs text-[#FF5E3F] font-semibold tracking-wider uppercase">
                   {pillar.subtitle}
                 </div>
 

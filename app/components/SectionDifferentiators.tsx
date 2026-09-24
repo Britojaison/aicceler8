@@ -128,6 +128,7 @@ export default function SectionDifferentiators() {
   return (
     <section
       ref={sectionRef}
+      id="why-traditional-models"
       className="py-16 sm:py-24 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10"
     >
       {/* Corner cross accents */}
@@ -187,11 +188,11 @@ export default function SectionDifferentiators() {
               return (
                 <div
                   key={option.id}
-                  className="grid grid-cols-12 gap-1.5 sm:gap-2 items-stretch bg-[#E2725B] rounded-2xl p-2 sm:p-2.5 shadow-lg border border-[#d25f48] relative group"
+                  className="grid grid-cols-12 gap-1.5 sm:gap-2 items-stretch bg-[#FF5E3F] rounded-2xl p-2 sm:p-2.5 shadow-lg border border-[#E0482B] relative group"
                 >
                   {/* Left Cell: Brand Header */}
                   <div className="col-span-2 bg-white/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center gap-2.5 border border-white/40">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white text-[#E2725B] flex items-center justify-center shrink-0 shadow-md font-bold">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white text-[#FF5E3F] flex items-center justify-center shrink-0 shadow-md font-bold">
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <span className="text-sm sm:text-base font-sans font-extrabold text-white leading-tight">

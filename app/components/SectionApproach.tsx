@@ -1,11 +1,76 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function SectionApproach() {
   const [activeIdx, setActiveIdx] = useState<number>(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = sectionRef.current;
+    const contactSec = document.querySelector("#contact");
+    if (!section || !contactSec) return;
+
+    const ctx = gsap.context(() => {
+      const prevNextBtns = section.querySelectorAll(".nav-arrow-btn");
+      const cornerPlus = section.querySelectorAll(".corner-plus");
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contactSec,
+          start: "top 95%",
+          end: "top 65%",
+          scrub: 0.3,
+        },
+      });
+
+      tl.to(
+        section,
+        {
+          backgroundColor: "#0d0d0d",
+          color: "#ffffff",
+          borderColor: "rgba(255, 255, 255, 0.1)",
+          ease: "none",
+        },
+        0
+      )
+        .to(
+          titleRef.current,
+          {
+            color: "#ffffff",
+            ease: "none",
+          },
+          0
+        )
+        .to(
+          prevNextBtns,
+          {
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderColor: "rgba(255, 255, 255, 0.2)",
+            color: "#ffffff",
+            ease: "none",
+          },
+          0
+        )
+        .to(
+          cornerPlus,
+          {
+            color: "#FF5E3F",
+            ease: "none",
+          },
+          0
+        );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   const accordionItems = [
     {
@@ -19,9 +84,9 @@ export default function SectionApproach() {
       role: "Phase 01 Audit Matrix",
       stat: "100%",
       statLabel: "Workflow Visibility",
-      bgColor: "bg-gradient-to-br from-[#2E1A15] via-[#4E2C23] to-[#E2725B]/40", // Deep Charcoal Espresso to Warm Burnt Peach Accent
-      cardBorder: "border-[#E2725B]/30",
-      accentText: "text-[#E2725B]",
+      bgColor: "bg-gradient-to-br from-[#2E1A15] via-[#4E2C23] to-[#FF5E3F]/40", // Deep Charcoal Espresso to Warm Burnt Peach Accent
+      cardBorder: "border-[#FF5E3F]/30",
+      accentText: "text-[#FF5E3F]",
       image: "/accordion_1.jpg",
     },
     {
@@ -35,7 +100,7 @@ export default function SectionApproach() {
       role: "Phase 02 Custom Blueprint",
       stat: "3.8x",
       statLabel: "Deployment Speed",
-      bgColor: "bg-gradient-to-br from-[#E2725B] via-[#d65f46] to-[#4E2C23]", // Vivid Burnt Peach to Deep Espresso
+      bgColor: "bg-gradient-to-br from-[#FF5E3F] via-[#e84d2e] to-[#4E2C23]", // Vivid Burnt Peach to Deep Espresso
       cardBorder: "border-white/30",
       accentText: "text-white",
       image: "/accordion_3.jpg",
@@ -51,9 +116,9 @@ export default function SectionApproach() {
       role: "Phase 03 Integration Pipeline",
       stat: "10+",
       statLabel: "Systems Consolidated",
-      bgColor: "bg-gradient-to-tr from-[#1C1210] via-[#381c16] to-[#E2725B]/30", // Dark Espresso to Burnt Peach Highlight
-      cardBorder: "border-[#E2725B]/30",
-      accentText: "text-[#E2725B]",
+      bgColor: "bg-gradient-to-tr from-[#1C1210] via-[#381c16] to-[#FF5E3F]/30", // Dark Espresso to Burnt Peach Highlight
+      cardBorder: "border-[#FF5E3F]/30",
+      accentText: "text-[#FF5E3F]",
       image: "/accordion_2.jpg",
     },
     {
@@ -67,7 +132,7 @@ export default function SectionApproach() {
       role: "Phase 04 Organization Sync",
       stat: ">5k",
       statLabel: "Copilot executions / mo",
-      bgColor: "bg-gradient-to-tl from-[#381c16] via-[#D8644D] to-[#E2725B]", // Terracotta to Burnt Peach to Dark Espresso Gradient
+      bgColor: "bg-gradient-to-tl from-[#381c16] via-[#e84d2e] to-[#FF5E3F]", // Terracotta to Burnt Peach to Dark Espresso Gradient
       cardBorder: "border-white/40",
       accentText: "text-white",
       image: "/accordion_4.jpg",
@@ -83,7 +148,11 @@ export default function SectionApproach() {
   };
 
   return (
-    <section className="py-20 sm:py-28 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10">
+    <section
+      ref={sectionRef}
+      id="our-approach"
+      className="py-20 sm:py-28 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10"
+    >
       {/* Corner cross accents */}
       <div className="corner-plus top-6 left-6 sm:left-10 lg:left-16 text-neutral-400" />
       <div className="corner-plus top-6 right-6 sm:right-10 lg:right-16 text-neutral-400" />
@@ -91,12 +160,15 @@ export default function SectionApproach() {
       {/* Header section matching brand guidelines */}
       <div className="w-full mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
         <div>
-          <span className="type-mono text-[#E2725B] block mb-3 font-semibold tracking-wider text-xs uppercase">
+          <span className="type-mono text-[#FF5E3F] block mb-3 font-semibold tracking-wider text-xs uppercase">
             OUR APPROACH
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-neutral-900 leading-[1.08] uppercase">
+          <h2
+            ref={titleRef}
+            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-neutral-900 leading-[1.08] uppercase"
+          >
             CHOSEN BY AGILE TEAMS. <br className="hidden sm:inline" />
-            <span className="font-light italic text-[#E2725B]">OPERATING AT SCALE.</span>
+            <span className="font-light italic text-[#FF5E3F]">OPERATING AT SCALE.</span>
           </h2>
         </div>
 
@@ -105,14 +177,14 @@ export default function SectionApproach() {
           <button
             onClick={handlePrev}
             aria-label="Previous step"
-            className="w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+            className="nav-arrow-btn w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
             aria-label="Next step"
-            className="w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+            className="nav-arrow-btn w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -129,21 +201,32 @@ export default function SectionApproach() {
               <div
                 key={item.id}
                 onClick={() => setActiveIdx(idx)}
-                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:p-10 border ${item.cardBorder} ${item.bgColor} ${
+                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:p-10 border border-white/10 bg-[#141211] ${
                   isActive
                     ? "md:flex-[6] lg:flex-[7] shadow-2xl scale-[1.01]"
                     : "md:flex-[0.4] lg:flex-[0.5] hover:opacity-95 shadow-md"
                 }`}
               >
-                {/* Ambient Mesh Glow Effects */}
-                <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#E2725B]/25 blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#4E2C23]/40 blur-3xl pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 pointer-events-none" />
+                {/* Background Image Layer: Full clear background for collapsed cards */}
+                {!isActive && (
+                  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    {/* Subtle dark gradient at top & bottom only for text contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
+                  </div>
+                )}
+
                 {/* Collapsed Vertical/Compact Card Content */}
                 {!isActive && (
-                  <div className="h-full flex flex-col justify-between items-start text-white">
+                  <div className="h-full flex flex-col justify-between items-start text-white relative z-10">
                     <div>
-                      <span className="type-mono text-[11px] font-bold tracking-widest uppercase opacity-75 block mb-2">
+                      <span className="type-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5E3F] block mb-2">
                         {item.phase}
                       </span>
                       <h3 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-white leading-tight">
@@ -167,7 +250,7 @@ export default function SectionApproach() {
                       <div className="lg:col-span-5 flex flex-col justify-start h-full pt-2 sm:pt-4">
                         <div>
                           {/* Main Phase Title */}
-                          <div className="type-mono text-xs font-bold tracking-widest uppercase opacity-75 block mb-3 text-white">
+                          <div className="type-mono text-xs font-bold tracking-widest uppercase text-[#FF5E3F] block mb-3">
                             {item.phase} // {item.title}
                           </div>
                           {/* Main Phase Description */}
@@ -177,7 +260,7 @@ export default function SectionApproach() {
                         </div>
                       </div>
 
-                      {/* Right Placeholder Image Frame - Extended Length */}
+                      {/* Right Image Frame */}
                       <div className="lg:col-span-7 h-64 sm:h-80 lg:h-full min-h-[320px] lg:min-h-[440px] relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
                         <Image
                           src={item.image}
