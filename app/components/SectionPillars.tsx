@@ -88,13 +88,13 @@ export default function SectionPillars() {
       const partnersBorders = partnersSec ? partnersSec.querySelectorAll(".partners-border") : [];
       const partnersAccents = partnersSec ? partnersSec.querySelectorAll(".corner-accent") : [];
 
-      // 2. Ultra-Smooth Scrubbed Color Transition to Light Mode when "Who We Partner With" section enters view
+      // 2. Ultra-Smooth Synchronous Scrubbed Color Transition to Light Mode
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: partnersSec || section,
-          start: "top 90%",
-          end: "top 20%",
-          scrub: 1,
+          start: "top 85%",
+          end: "top 30%",
+          scrub: 0.2,
         },
       });
 
@@ -102,7 +102,7 @@ export default function SectionPillars() {
         canvas || section,
         {
           backgroundColor: "#FAF3EA",
-          ease: "sine.inOut",
+          ease: "none",
         },
         0
       )
@@ -110,7 +110,7 @@ export default function SectionPillars() {
           numbers,
           {
             color: "#381c16",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -118,7 +118,7 @@ export default function SectionPillars() {
           titles,
           {
             color: "#381c16",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -126,7 +126,7 @@ export default function SectionPillars() {
           descs,
           {
             color: "#4E2C23",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -134,7 +134,7 @@ export default function SectionPillars() {
           borders,
           {
             borderColor: "rgba(78, 44, 35, 0.15)",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -142,7 +142,7 @@ export default function SectionPillars() {
           cardBorders,
           {
             borderColor: "rgba(78, 44, 35, 0.2)",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -150,7 +150,7 @@ export default function SectionPillars() {
           accents,
           {
             color: "#a3a3a3",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -158,7 +158,7 @@ export default function SectionPillars() {
           partnersTitles,
           {
             color: "#381c16",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -166,7 +166,7 @@ export default function SectionPillars() {
           partnersTexts,
           {
             color: "#381c16",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -174,7 +174,7 @@ export default function SectionPillars() {
           partnersBorders,
           {
             borderColor: "rgba(120, 53, 15, 0.2)",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         )
@@ -182,7 +182,7 @@ export default function SectionPillars() {
           partnersAccents,
           {
             color: "#a3a3a3",
-            ease: "sine.inOut",
+            ease: "none",
           },
           0
         );
