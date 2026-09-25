@@ -103,11 +103,6 @@ export default function Footer() {
         <div>
           © {new Date().getFullYear()} AICCELER8 ENTERPRISE HOLDINGS INC. ALL RIGHTS RESERVED.
         </div>
-        <div className="flex items-center gap-6 text-neutral-400">
-          <span className="hover:text-[#FF5E3F] cursor-pointer transition-colors">PRIVACY POLICY</span>
-          <span className="hover:text-[#FF5E3F] cursor-pointer transition-colors">ENTERPRISE TERMS</span>
-          <span className="hover:text-[#FF5E3F] cursor-pointer transition-colors">SECURITY WHITEPAPER</span>
-        </div>
       </div>
     </footer>
   );

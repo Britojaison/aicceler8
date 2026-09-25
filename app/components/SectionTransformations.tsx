@@ -100,7 +100,7 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       textColor: "text-foreground",
       accentHex: "#E2725B",
       quote:
-        "“AICceler8 didn’t just suggest ideas—they built automated multi-agent reconciliation workflows that eradicated over 12,000 hours of manual back-office spreadsheet grind every month.”",
+        "“AICceler8 didn’t just suggest ideas: they built automated multi-agent reconciliation workflows that eradicated over 12,000 hours of manual back-office spreadsheet grind every month.”",
       quoteAuthor: "David Chen",
       quoteRole: "Executive Vice President of Operations",
       statNumber: "12,000+",

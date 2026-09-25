@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aicceler8.ai"),
-  title: "AICceler8 — The Enterprise Growth Partner for the AI Era",
+  title: "AICceler8 | The Enterprise Growth Partner for the AI Era",
   description:
     "AICceler8 partners with ambitious enterprise leadership teams to redesign how they grow, operate, and compete. Building AI-powered enterprises with measurable revenue advantage, intelligent systems, and workforce enablement.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "AICceler8 Enterprise Strategy" }],
   openGraph: {
-    title: "AICceler8 — Building AI-Powered Enterprises",
+    title: "AICceler8 | Building AI-Powered Enterprises",
     description:
       "We help ambitious businesses redesign how they grow, operate, and compete in an AI-first world.",
     url: "https://aicceler8.ai",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AICceler8 — The Enterprise Growth Partner for the AI Era",
+    title: "AICceler8 | The Enterprise Growth Partner for the AI Era",
     description:
       "Enterprise growth, intelligent systems, and business transformation powered by Artificial Intelligence.",
     images: ["/logo.png"],

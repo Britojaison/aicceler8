@@ -219,7 +219,7 @@ export default function SectionPartners() {
 
         <div className="partners-border lg:col-span-5 xl:col-span-6 border-l border-white/20 pl-6 lg:pl-8">
           <p className="partners-text text-lg sm:text-xl lg:text-xl xl:text-2xl 4xl:text-3xl text-neutral-300 font-medium leading-snug">
-            We work with organizations that see AI as a strategic advantage—not just another technology initiative.
+            We work with organizations that see AI as a strategic advantage, not just another technology initiative.
           </p>
         </div>
       </div>
