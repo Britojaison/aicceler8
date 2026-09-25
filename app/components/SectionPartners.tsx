@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Building2,
   Rocket,
@@ -77,8 +77,129 @@ export default function SectionPartners() {
     },
   ];
 
-  // Duplicate for seamless infinite right-to-left marquee scrolling
-  const marqueeCards = [...cohorts, ...cohorts];
+  // Tripled for seamless infinite wrapping in both left and right directions
+  const marqueeCards = [...cohorts, ...cohorts, ...cohorts];
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftStartRef = useRef(0);
+  const hasDraggedRef = useRef(false);
+  
+  const [isHovered, setIsHovered] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Briefly pause auto-scroll when user manually scrolls or drags
+  const triggerUserInteraction = () => {
+    setIsUserInteracting(true);
+    if (interactionTimeoutRef.current) {
+      clearTimeout(interactionTimeoutRef.current);
+    }
+    interactionTimeoutRef.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 1800);
+  };
+
+  // Center initial scroll position & run continuous smooth auto-scroll loop
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    // Set starting position to middle set of cards so user can scroll left or right immediately
+    const singleSetWidth = container.scrollWidth / 3;
+    if (container.scrollLeft === 0 && singleSetWidth > 0) {
+      container.scrollLeft = singleSetWidth;
+    }
+
+    let animationFrameId: number;
+    const autoScrollSpeed = 0.8; // px per frame
+
+    const step = () => {
+      if (scrollRef.current) {
+        const el = scrollRef.current;
+        const setWidth = el.scrollWidth / 3;
+
+        // Auto scroll if not hovered, not dragged, and not actively interacted
+        if (!isHovered && !isDraggingRef.current && !isUserInteracting) {
+          el.scrollLeft += autoScrollSpeed;
+        }
+
+        // Infinite loop seamless wrap-around check
+        if (setWidth > 0) {
+          if (el.scrollLeft >= setWidth * 2) {
+            el.scrollLeft -= setWidth;
+          } else if (el.scrollLeft <= 2) {
+            el.scrollLeft += setWidth;
+          }
+        }
+      }
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered, isUserInteracting]);
+
+  // Handle Touchpad / Wheel horizontal scrolling
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (delta !== 0) {
+      scrollRef.current.scrollLeft += delta;
+      triggerUserInteraction();
+    }
+  };
+
+  // Handle Mouse Press & Drag
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeftStartRef.current = scrollRef.current.scrollLeft;
+    triggerUserInteraction();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current || !scrollRef.current) return;
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    if (Math.abs(walk) > 5) {
+      hasDraggedRef.current = true;
+    }
+    scrollRef.current.scrollLeft = scrollLeftStartRef.current - walk;
+    triggerUserInteraction();
+  };
+
+  const handleMouseUpOrLeave = () => {
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
+      triggerUserInteraction();
+    }
+  };
+
+  // Handle Mobile Touch Dragging
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    scrollLeftStartRef.current = scrollRef.current.scrollLeft;
+    triggerUserInteraction();
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current || !scrollRef.current) return;
+    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    scrollRef.current.scrollLeft = scrollLeftStartRef.current - walk;
+    triggerUserInteraction();
+  };
+
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+    triggerUserInteraction();
+  };
 
   return (
     <section
@@ -109,14 +230,29 @@ export default function SectionPartners() {
           OUR CLIENTS TYPICALLY INCLUDE:
         </h3>
         <span className="type-mono text-xs text-neutral-400 hidden sm:block">
-          (HOVER TO EXPLORE DETAILS)
+          (SWIPE OR DRAG TO EXPLORE)
         </span>
       </div>
 
       {/* Horizontal Right-to-Left Scrolling Reel - Full Bleed Edge-to-Edge */}
-      <div className="-mx-6 sm:-mx-12 lg:-mx-16 overflow-hidden relative py-4">
-        {/* Marquee Ticker Track */}
-        <div className="flex gap-6 w-max animate-marquee-fast hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing px-6">
+      <div className="-mx-6 sm:-mx-12 lg:-mx-16 relative py-4">
+        {/* Marquee Ticker Track with Touchpad / Mouse Drag / Touch Scroll support */}
+        <div
+          ref={scrollRef}
+          onWheel={handleWheel}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          onMouseLeave={() => {
+            setIsHovered(false);
+            handleMouseUpOrLeave();
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="flex gap-6 overflow-x-auto [::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing px-6 select-none"
+        >
           {marqueeCards.map((cohort, idx) => {
             return (
               <div
@@ -127,7 +263,8 @@ export default function SectionPartners() {
                 <img
                   src={cohort.image}
                   alt={cohort.name}
-                  className="w-full h-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
+                  className="w-full h-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform pointer-events-none"
+                  draggable={false}
                 />
 
                 {/* Constant Gradient Overlay */}
@@ -151,7 +288,10 @@ export default function SectionPartners() {
                           </p>
 
                           <a
-                            href="#why-aicceler8"
+                            href="#contact"
+                            onClick={(e) => {
+                              if (hasDraggedRef.current) e.preventDefault();
+                            }}
                             className="type-mono text-[11px] inline-flex items-center gap-1.5 text-[#FF5E3F] hover:text-white font-bold transition-colors pt-1"
                           >
                             <span>PARTNER WITH US</span>
@@ -170,4 +310,5 @@ export default function SectionPartners() {
     </section>
   );
 }
+
 
