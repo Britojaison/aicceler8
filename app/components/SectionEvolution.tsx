@@ -129,39 +129,58 @@ export default function SectionEvolution() {
       <div className="corner-plus top-6 left-6 sm:left-12 lg:left-16 text-neutral-400 z-20" />
       <div className="corner-plus top-6 right-6 sm:right-12 lg:right-16 text-neutral-400 z-20" />
 
-      {/* Main Text Content */}
+      {/* Main Text Content: 50% top image + 50% bottom text on Mobile & Tablet (< lg) */}
       <div
         ref={contentRef}
-        className="w-full px-6 sm:px-12 lg:px-16 flex flex-col gap-3 sm:gap-4 relative z-10"
+        className="w-full h-full lg:h-auto px-5 sm:px-10 lg:px-16 3xl:px-24 4xl:px-32 flex flex-col items-center lg:items-start justify-between lg:justify-start pt-14 sm:pt-16 pb-6 sm:pb-8 lg:pt-0 lg:pb-0 relative z-10"
       >
+        {/* Top 50% Height Image Preview Card for Mobile & Tablet View (< lg) */}
+        <div className="block lg:hidden w-full max-w-[500px] h-[38vh] sm:h-[42vh] max-h-[360px] rounded-2xl overflow-hidden shadow-xl border border-amber-900/20 shrink-0 mt-1 mb-2">
+          <img
+            src="/images/section2.jpg"
+            alt="AICceler8 Transformation Preview"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
 
-        {/* Full-width Word-by-Word Scroll Reveal Text */}
-        <div className="w-full">
-          <p className="text-3xl sm:text-4xl lg:text-5xl xl:text-[4.2rem] 2xl:text-[4.8rem] font-sans font-semibold tracking-tight leading-[1.44] text-left">
-            {/* First line paragraph indent spacer */}
-            <span className="inline-block w-[7rem] sm:w-[12rem] lg:w-[16rem] xl:w-[22rem]" />
+        {/* Bottom 50% Height Word-by-Word Scroll Reveal Text */}
+        <div className="w-full h-[45vh] lg:h-auto flex items-center lg:block">
+          <p className="text-lg sm:text-2xl md:text-3xl lg:text-[2.2rem] xl:text-[2.8rem] 2xl:text-[3.5rem] 3xl:text-[5.5rem] 4xl:text-[7.8rem] font-sans font-semibold tracking-tight leading-[1.38] sm:leading-[1.42] xl:leading-[1.52] 3xl:leading-[1.38] 4xl:leading-[1.35] text-left sm:text-justify">
+            {/* First line paragraph indent spacer for Desktop ONLY */}
+            <span className="hidden lg:inline-block w-[7rem] xl:w-[9rem] 2xl:w-[11rem] 3xl:w-[18rem] 4xl:w-[28rem]" />
             {words.map((word, wordIndex) => {
               const isBrandWord = word.toLowerCase().includes("aicceler8");
               const isLastWord = wordIndex === words.length - 1;
 
-              return (
-                <React.Fragment key={wordIndex}>
-                  <span
-                    data-brand={isBrandWord ? "true" : "false"}
-                    className="reveal-word inline-block opacity-15 text-[#c5b8ad] mr-[0.26em]"
-                  >
-                    {word}
-                  </span>
-                  {isLastWord && (
-                    <span className="inline-block align-middle ml-3 sm:ml-5 w-32 sm:w-44 lg:w-56 xl:w-64 h-20 sm:h-24 lg:h-28 xl:h-32 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-amber-900/20 relative transition-transform duration-300 my-1">
+              if (isLastWord) {
+                return (
+                  <span key={wordIndex} className="inline-block whitespace-nowrap align-baseline">
+                    <span
+                      data-brand="false"
+                      className="reveal-word inline-block opacity-15 text-[#c5b8ad] mr-[0.2em] sm:mr-[0.28em] align-baseline"
+                    >
+                      {word}
+                    </span>
+                    {/* Inline Image Capsule for Desktop view ONLY (lg+) */}
+                    <span className="hidden lg:inline-block align-middle ml-4 3xl:ml-8 4xl:ml-12 w-44 xl:w-52 2xl:w-60 3xl:w-80 4xl:w-[28rem] h-24 xl:h-28 2xl:h-32 3xl:h-44 4xl:h-[15rem] rounded-xl 3xl:rounded-2xl 4xl:rounded-3xl overflow-hidden shadow-xl border border-amber-900/20 relative transition-transform duration-300">
                       <img
                         src="/images/section2.jpg"
                         alt="AICceler8 Transformation"
                         className="w-full h-full object-cover object-center"
                       />
                     </span>
-                  )}
-                </React.Fragment>
+                  </span>
+                );
+              }
+
+              return (
+                <span
+                  key={wordIndex}
+                  data-brand={isBrandWord ? "true" : "false"}
+                  className="reveal-word inline-block opacity-15 text-[#c5b8ad] mr-[0.2em] sm:mr-[0.28em] align-baseline"
+                >
+                  {word}
+                </span>
               );
             })}
           </p>
@@ -187,10 +206,10 @@ export default function SectionEvolution() {
         {/* Heading Overlay on Top Left with Typewriter Letter-by-Letter Reveal */}
         <div
           ref={headingOverlayRef}
-          className="absolute top-20 sm:top-28 lg:top-32 left-6 sm:left-12 lg:left-16 right-6 sm:right-12 lg:right-16 z-40 opacity-0 max-w-6xl"
+          className="absolute top-20 sm:top-28 lg:top-32 left-5 sm:left-12 lg:left-16 right-5 sm:right-12 lg:right-16 z-40 opacity-0 max-w-6xl"
         >
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-medium text-white tracking-tight leading-[1.1] uppercase drop-shadow-2xl">
-            <span className="block whitespace-nowrap">
+          <h2 className="text-2xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-medium text-white tracking-tight leading-[1.1] uppercase drop-shadow-2xl">
+            <span className="block sm:whitespace-nowrap">
               {"FROM AI ADOPTION TO".split("").map((char, index) => (
                 <span
                   key={index}
@@ -200,7 +219,7 @@ export default function SectionEvolution() {
                 </span>
               ))}
             </span>
-            <span className="not-italic font-medium text-[#FF5E3F] block whitespace-nowrap">
+            <span className="not-italic font-medium text-[#FF5E3F] block sm:whitespace-nowrap">
               {"ENTERPRISE TRANSFORMATION.".split("").map((char, index) => (
                 <span
                   key={index}

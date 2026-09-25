@@ -228,30 +228,30 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="min-h-screen h-screen py-10 sm:py-16 px-6 sm:px-10 lg:px-16 w-full flex items-center justify-center bg-transparent text-white relative isolate overflow-hidden border-t border-white/10">
+    <section id="contact" className="min-h-screen h-auto py-12 sm:py-16 lg:py-24 px-4 sm:px-10 lg:px-16 w-full flex items-center justify-center bg-transparent text-[#ffffff] relative isolate overflow-hidden border-t border-white/10">
       {/* Corner crosshair accents aligned with margin grid */}
-      <div className="corner-plus top-6 left-6 sm:left-10 lg:left-16 text-[#FF5E3F] z-10" />
-      <div className="corner-plus top-6 right-6 sm:right-10 lg:right-16 text-[#FF5E3F] z-10" />
+      <div className="corner-plus top-6 left-4 sm:left-10 lg:left-16 text-[#FF5E3F] z-10" />
+      <div className="corner-plus top-6 right-4 sm:right-10 lg:right-16 text-[#FF5E3F] z-10" />
 
       {/* Full width container matching Navbar left & right padding */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center relative z-10">
         {/* Left Column: Contact Info */}
-        <div className="lg:col-span-5 flex flex-col justify-between relative py-2 pl-4 sm:pl-8 lg:pl-10 -mt-3">
-          <div className="space-y-6 relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold tracking-tight text-white leading-tight">
+        <div className="lg:col-span-5 flex flex-col justify-between relative py-0 sm:py-2 px-0 lg:pl-10">
+          <div className="space-y-4 sm:space-y-6 relative z-10">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-sans font-bold tracking-tight text-white leading-tight">
               Book a Strategy Call
             </h2>
 
-            <div className="pt-2 space-y-6">
-              <div className="text-xs font-bold tracking-widest text-[#FF5E3F] uppercase">
+            <div className="pt-1 sm:pt-2 space-y-4 sm:space-y-6">
+              <div className="text-[11px] sm:text-xs font-bold tracking-widest text-[#FF5E3F] uppercase">
                 DUBAI HQ
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-[#FF5E3F] shadow-sm">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-[#FF5E3F] shadow-sm">
                   <Phone className="w-4 h-4" />
                 </div>
-                <div className="pt-2">
+                <div className="pt-1.5 sm:pt-2">
                   <a
                     href="tel:+971585521169"
                     className="text-sm sm:text-base text-neutral-200 hover:text-[#FF5E3F] transition-colors font-medium"
@@ -261,8 +261,8 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-[#FF5E3F] shadow-sm">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-[#FF5E3F] shadow-sm">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="text-xs sm:text-sm text-neutral-300 leading-relaxed pt-1 max-w-xs">
@@ -276,20 +276,20 @@ export default function ContactSection() {
         {/* Right Column: Form or Thank You view */}
         <div className="lg:col-span-7 relative">
           {isSubmitted ? (
-            <div className="min-h-[400px] flex flex-col justify-center items-start sm:items-center text-left sm:text-center py-12 px-4 animate-fade-in font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
-              <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+            <div className="min-h-[300px] sm:min-h-[400px] flex flex-col justify-center items-start sm:items-center text-left sm:text-center py-8 sm:py-12 px-2 sm:px-4 animate-fade-in font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 sm:mb-4 font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Thank you!
               </h3>
-              <p className="text-[#FF5E3F] text-base sm:text-lg lg:text-xl font-bold tracking-wide font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <p className="text-[#FF5E3F] text-sm sm:text-lg lg:text-xl font-bold tracking-wide font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 You will be contacted shortly.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Row 1 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
                     Full Name <span className="text-[#FF5E3F]">*</span>
                   </label>
                   <input
@@ -299,12 +299,12 @@ export default function ContactSection() {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="e.g., Priya Sharma"
-                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
+                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
                     Company Name <span className="text-[#FF5E3F]">*</span>
                   </label>
                   <input
@@ -314,15 +314,15 @@ export default function ContactSection() {
                     value={formData.companyName}
                     onChange={handleChange}
                     placeholder="e.g., FutureTech Solutions Pvt. Ltd."
-                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
+                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 2 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
                     Email <span className="text-[#FF5E3F]">*</span>
                   </label>
                   <input
@@ -332,19 +332,19 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="e.g., priya@futuretech.com"
-                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
+                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
                     Phone Number <span className="text-[#FF5E3F]">*</span>
                   </label>
                   <div className="flex rounded-xl overflow-hidden border border-white/15 focus-within:border-[#FF5E3F] bg-white/[0.06] transition-all">
                     <select
                       value={countryCode}
                       onChange={(e) => setCountryCode(e.target.value)}
-                      className="bg-transparent border-r border-white/15 px-2.5 sm:px-3 py-3.5 text-xs text-white focus:outline-none cursor-pointer font-semibold shrink-0 w-24 sm:w-28 truncate"
+                      className="bg-transparent border-r border-white/15 px-2 sm:px-3 py-3 sm:py-3.5 text-xs text-white focus:outline-none cursor-pointer font-semibold shrink-0 w-20 sm:w-24 truncate"
                     >
                       {countryCodes.map((c) => (
                         <option key={`${c.country}-${c.code}`} value={c.code} className="bg-[#181514] text-white py-1">
@@ -359,16 +359,16 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="e.g., 9876543210"
-                      className="w-full bg-transparent px-4 py-3.5 text-sm text-white placeholder-neutral-400 focus:outline-none"
+                      className="w-full bg-transparent px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Row 3 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
                     Position <span className="text-[#FF5E3F]">*</span>
                   </label>
                   <input
@@ -378,13 +378,13 @@ export default function ContactSection() {
                     value={formData.position}
                     onChange={handleChange}
                     placeholder="e.g., Chief Operating Officer"
-                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
+                    className="w-full bg-white/[0.06] border border-white/15 rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all"
                   />
                 </div>
 
                 {/* Custom Color-Themed Dropdown */}
-                <div className="space-y-2 relative" ref={dropdownRef}>
-                  <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
+                <div className="space-y-1.5 sm:space-y-2 relative" ref={dropdownRef}>
+                  <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">
                     What are you looking to solve? <span className="text-[#FF5E3F]">*</span>
                   </label>
                   <button
@@ -396,7 +396,7 @@ export default function ContactSection() {
                         : isDropdownOpen
                         ? "border-[#FF5E3F] bg-white/[0.09]"
                         : "border-white/15"
-                    } rounded-xl px-4 py-3.5 text-sm text-left transition-all cursor-pointer focus:outline-none`}
+                    } rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-left transition-all cursor-pointer focus:outline-none`}
                   >
                     <span className={formData.service ? "text-white" : "text-neutral-400"}>
                       {formData.service || "Select the service"}
@@ -415,7 +415,7 @@ export default function ContactSection() {
                         <div
                           key={option}
                           onClick={() => handleSelectService(option)}
-                          className={`px-4 py-3 text-sm cursor-pointer transition-colors flex items-center justify-between ${
+                          className={`px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm cursor-pointer transition-colors flex items-center justify-between ${
                             formData.service === option
                               ? "bg-[#FF5E3F]/20 text-[#FF5E3F] font-semibold"
                               : "text-neutral-200 hover:bg-[#FF5E3F]/15 hover:text-white"
@@ -433,15 +433,15 @@ export default function ContactSection() {
               </div>
 
               {/* Message Area */}
-              <div className="space-y-2">
-                <label className="text-xs text-neutral-200 font-semibold block uppercase tracking-wider">Message</label>
+              <div className="space-y-1.5 sm:space-y-2">
+                <label className="text-[11px] sm:text-xs text-neutral-200 font-semibold block uppercase tracking-wider">Message</label>
                 <textarea
                   name="message"
-                  rows={4}
+                  rows={3}
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Briefly describe your unique challenge"
-                  className="w-full bg-white/[0.06] border border-white/15 rounded-xl p-4 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all resize-none"
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-xl p-3.5 sm:p-4 text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#FF5E3F] focus:bg-white/[0.09] transition-all resize-none"
                 />
               </div>
 
@@ -449,7 +449,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-[#FF5E3F] hover:bg-[#e0482b] disabled:opacity-50 text-white font-bold text-sm tracking-widest uppercase rounded-xl transition-all shadow-lg hover:shadow-[#FF5E3F]/25 active:scale-[0.99] cursor-pointer"
+                className="w-full py-3.5 sm:py-4 bg-[#FF5E3F] hover:bg-[#e0482b] disabled:opacity-50 text-white font-bold text-xs sm:text-sm tracking-widest uppercase rounded-xl transition-all shadow-lg hover:shadow-[#FF5E3F]/25 active:scale-[0.99] cursor-pointer"
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>

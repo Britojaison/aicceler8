@@ -204,29 +204,29 @@ export default function SectionPartners() {
   return (
     <section
       id="who-we-work-with"
-      className="py-20 sm:py-28 px-6 sm:px-12 lg:px-16 w-full bg-transparent text-white relative isolate overflow-hidden"
+      className="py-12 sm:py-16 lg:py-20 2xl:py-28 px-6 sm:px-12 lg:px-16 3xl:px-24 4xl:px-32 w-full bg-transparent text-white relative isolate overflow-hidden"
     >
       <div className="corner-accent corner-plus top-6 left-6 sm:left-12 lg:left-16 text-neutral-600" />
       <div className="corner-accent corner-plus top-6 right-6 sm:right-12 lg:right-16 text-neutral-600" />
 
       {/* Editorial Header - Aligned to Navbar margins */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-start pt-2">
-        <div className="lg:col-span-6">
-          <h2 className="partners-title text-4xl sm:text-5xl lg:text-6xl font-serif font-medium text-white tracking-tight leading-[1.05] uppercase">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8 sm:mb-12 items-start pt-2">
+        <div className="lg:col-span-7 xl:col-span-6">
+          <h2 className="partners-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 3xl:text-7xl 4xl:text-8xl font-serif font-medium text-white tracking-tight leading-[1.05] uppercase">
             WHO WE PARTNER WITH
           </h2>
         </div>
 
-        <div className="partners-border lg:col-span-6 border-l border-white/20 pl-6 lg:pl-8">
-          <p className="partners-text text-xl sm:text-2xl text-neutral-300 font-medium leading-snug">
+        <div className="partners-border lg:col-span-5 xl:col-span-6 border-l border-white/20 pl-6 lg:pl-8">
+          <p className="partners-text text-lg sm:text-xl lg:text-xl xl:text-2xl 4xl:text-3xl text-neutral-300 font-medium leading-snug">
             We work with organizations that see AI as a strategic advantage—not just another technology initiative.
           </p>
         </div>
       </div>
 
       {/* Ticker Subhead - Aligned to Navbar margins */}
-      <div className="w-full mb-8 flex items-center justify-between">
-        <h3 className="partners-title text-xl sm:text-2xl font-serif font-semibold text-white uppercase tracking-wider">
+      <div className="w-full mb-6 sm:mb-8 flex items-center justify-between">
+        <h3 className="partners-title text-lg sm:text-xl lg:text-2xl 4xl:text-3xl font-serif font-semibold text-white uppercase tracking-wider">
           OUR CLIENTS TYPICALLY INCLUDE:
         </h3>
         <span className="type-mono text-xs text-neutral-400 hidden sm:block">
@@ -257,7 +257,7 @@ export default function SectionPartners() {
             return (
               <div
                 key={`${cohort.num}-${idx}`}
-                className="w-80 sm:w-[22rem] h-[26rem] sm:h-[29rem] shrink-0 rounded-2xl overflow-hidden relative group border border-amber-900/15 bg-neutral-900"
+                className="w-72 sm:w-80 lg:w-[20rem] xl:w-[22rem] 3xl:w-[28rem] 4xl:w-[34rem] h-[22rem] sm:h-[25rem] lg:h-[26rem] xl:h-[29rem] 3xl:h-[35rem] shrink-0 rounded-2xl overflow-hidden relative group border border-amber-900/15 bg-neutral-900"
               >
                 {/* Background Image */}
                 <img

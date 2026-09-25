@@ -151,21 +151,21 @@ export default function SectionApproach() {
     <section
       ref={sectionRef}
       id="our-approach"
-      className="py-20 sm:py-28 px-6 sm:px-10 lg:px-16 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10"
+      className="py-12 sm:py-16 lg:py-20 2xl:py-24 4xl:py-36 px-6 sm:px-10 lg:px-16 3xl:px-24 4xl:px-32 w-full bg-[#FAF3EA] text-[#0c0c0c] relative isolate overflow-hidden border-t border-black/10"
     >
       {/* Corner cross accents */}
       <div className="corner-plus top-6 left-6 sm:left-10 lg:left-16 text-neutral-400" />
       <div className="corner-plus top-6 right-6 sm:right-10 lg:right-16 text-neutral-400" />
 
       {/* Header section matching brand guidelines */}
-      <div className="w-full mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
+      <div className="w-full mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 relative z-10">
         <div>
-          <span className="type-mono text-[#FF5E3F] block mb-3 font-semibold tracking-wider text-xs uppercase">
+          <span className="type-mono text-[#FF5E3F] block mb-2 sm:mb-3 font-semibold tracking-wider text-xs sm:text-xs md:text-sm uppercase">
             OUR APPROACH
           </span>
           <h2
             ref={titleRef}
-            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-neutral-900 leading-[1.08] uppercase"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 3xl:text-7xl 4xl:text-8xl font-serif font-medium tracking-tight text-neutral-900 leading-[1.08] uppercase"
           >
             CHOSEN BY AGILE TEAMS. <br className="hidden sm:inline" />
             <span className="font-light italic text-[#FF5E3F]">OPERATING AT SCALE.</span>
@@ -177,23 +177,23 @@ export default function SectionApproach() {
           <button
             onClick={handlePrev}
             aria-label="Previous step"
-            className="nav-arrow-btn w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+            className="nav-arrow-btn w-9 h-9 sm:w-10 sm:h-10 4xl:w-14 4xl:h-14 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 4xl:w-7 4xl:h-7" />
           </button>
           <button
             onClick={handleNext}
             aria-label="Next step"
-            className="nav-arrow-btn w-10 h-10 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+            className="nav-arrow-btn w-9 h-9 sm:w-10 sm:h-10 4xl:w-14 4xl:h-14 rounded-full border border-black/15 bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 4xl:w-7 4xl:h-7" />
           </button>
         </div>
       </div>
 
-      {/* Accordion Gallery Horizontal Track */}
+      {/* Accordion Gallery Track: Stacked vertical on Mobile & Tablet (< lg), Horizontal flex accordion on Desktop (lg+) */}
       <div className="w-full relative z-10">
-        <div className="flex flex-col md:flex-row gap-3 sm:gap-4 h-auto md:h-[560px] lg:h-[600px] items-stretch transition-all duration-500 ease-in-out">
+        <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 h-auto lg:h-[500px] xl:h-[540px] 2xl:h-[580px] 4xl:h-[720px] items-stretch transition-all duration-500 ease-in-out">
           {accordionItems.map((item, idx) => {
             const isActive = activeIdx === idx;
 
@@ -201,42 +201,40 @@ export default function SectionApproach() {
               <div
                 key={item.id}
                 onClick={() => setActiveIdx(idx)}
-                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:p-10 border border-white/10 bg-[#141211] ${
+                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out flex flex-col justify-between p-4 sm:p-5 lg:p-8 xl:p-10 border border-white/10 bg-[#141211] ${
                   isActive
-                    ? "md:flex-[6] lg:flex-[7] shadow-2xl scale-[1.01]"
-                    : "md:flex-[0.4] lg:flex-[0.5] hover:opacity-95 shadow-md"
+                    ? "w-full lg:flex-[6] xl:flex-[7] shadow-2xl scale-[1.005] lg:scale-[1.01]"
+                    : "w-full lg:flex-[0.6] xl:flex-[0.5] hover:opacity-95 shadow-md"
                 }`}
               >
                 {/* Background Image Layer: Full clear background for collapsed cards */}
                 {!isActive && (
                   <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                    <Image
+                    <img
                       src={item.image}
                       alt={item.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    {/* Subtle dark gradient at top & bottom only for text contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
+                    {/* Dark gradient for text legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-r lg:bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
                   </div>
                 )}
 
-                {/* Collapsed Vertical/Compact Card Content */}
+                {/* Collapsed Card Content: Full-width row bar on Mobile/Tablet (< lg), Vertical column on Desktop (lg+) */}
                 {!isActive && (
-                  <div className="h-full flex flex-col justify-between items-start text-white relative z-10">
-                    <div>
-                      <span className="type-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5E3F] block mb-2">
+                  <div className="w-full h-full flex flex-row lg:flex-col items-center lg:items-start justify-between text-white relative z-10 py-1 lg:py-0">
+                    <div className="flex items-center gap-3 lg:block">
+                      <span className="type-mono text-xs sm:text-xs lg:text-[11px] font-bold tracking-widest uppercase text-[#FF5E3F] block lg:mb-2 whitespace-nowrap">
                         {item.phase}
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-white leading-tight">
+                      <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold font-sans tracking-tight text-white leading-tight">
                         {item.title}
                       </h3>
                     </div>
 
-                    <div className="mt-auto">
-                      <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
-                        <ArrowUpRight className="w-4 h-4" />
+                    <div className="lg:mt-auto">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
+                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </div>
                     </div>
                   </div>
@@ -244,31 +242,28 @@ export default function SectionApproach() {
 
                 {/* Expanded Active Card Layout */}
                 {isActive && (
-                  <div className="h-full flex flex-col justify-between text-white relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch h-full">
+                  <div className="w-full h-full flex flex-col justify-between text-white relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-stretch h-full">
                       {/* Left Details Column */}
-                      <div className="lg:col-span-5 flex flex-col justify-start h-full pt-2 sm:pt-4">
+                      <div className="lg:col-span-5 flex flex-col justify-start h-full pt-1 sm:pt-2">
                         <div>
                           {/* Main Phase Title */}
-                          <div className="type-mono text-xs font-bold tracking-widest uppercase text-[#FF5E3F] block mb-3">
+                          <div className="type-mono text-xs sm:text-sm lg:text-sm font-bold tracking-widest uppercase text-[#FF5E3F] block mb-2 sm:mb-3 whitespace-nowrap">
                             {item.phase} // {item.title}
                           </div>
                           {/* Main Phase Description */}
-                          <p className="text-base sm:text-lg lg:text-xl font-serif font-medium leading-relaxed text-white/95">
+                          <p className="text-sm sm:text-base lg:text-base xl:text-lg 2xl:text-xl 4xl:text-2xl font-serif font-medium leading-relaxed text-white/95">
                             {item.quote}
                           </p>
                         </div>
                       </div>
 
                       {/* Right Image Frame */}
-                      <div className="lg:col-span-7 h-64 sm:h-80 lg:h-full min-h-[320px] lg:min-h-[440px] relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
-                        <Image
+                      <div className="lg:col-span-7 h-52 sm:h-64 md:h-72 lg:h-full min-h-[220px] lg:min-h-[360px] relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
+                        <img
                           src={item.image}
                           alt={item.title}
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 60vw"
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          priority
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                       </div>
