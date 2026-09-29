@@ -1,155 +1,100 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import React, { useState } from "react";
+import { Plus, ChevronDown } from "lucide-react";
 
 interface HeaderProps {
   onOpenBooking: () => void;
 }
 
 export default function Header({ onOpenBooking }: HeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Why AICceler8", href: "#why-aicceler8" },
-    { name: "How We Transform", href: "#how-we-transform" },
-    { name: "Who We Work With", href: "#who-we-work-with" },
-    { name: "Insights", href: "#insights" },
+    { name: "HOME", href: "#home" },
+    { name: "WHO WE HELP", href: "#who-we-help" },
+    { name: "SOLUTIONS", href: "#solutions", hasDropdown: true },
+    { name: "INDUSTRIES", href: "#industries" },
+    { name: "WHY AICCELER8", href: "#why-aicceler8", highlight: true },
+    { name: "CONTACT US", href: "#contact-us" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-neutral-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] py-3 text-neutral-900"
-          : "bg-transparent backdrop-blur-sm border-b border-white/10 py-4 text-white"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <a
-          href="#"
-          className="flex items-center gap-3 group focus:outline-none"
-          aria-label="AICceler8 Home"
-        >
-          <div className="relative h-8 w-24 sm:h-8 sm:w-26 flex items-center">
-            <Image
-              src="/images/logos/logo.png"
-              alt="AICceler8"
-              fill
-              priority
-              className={`object-contain transition-all duration-300 ${
-                isScrolled ? "filter invert" : ""
-              }`}
-            />
-          </div>
-          <span
-            className={`hidden sm:inline-block text-[10px] font-mono tracking-widest uppercase border-l pl-3 transition-colors duration-300 ${
-              isScrolled
-                ? "text-neutral-400 border-neutral-200"
-                : "text-neutral-400 border-white/20"
-            }`}
-          >
-            ENTERPRISE AI
-          </span>
-        </a>
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 text-[10.5px] tracking-[0.15em] uppercase text-white/70 font-mono pointer-events-none">
+      
+      {/* 
+        Use pointer-events-auto on interactive elements so the empty space 
+        of the header doesn't block clicks to the background.
+      */}
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8">
+      {/* Grid Plus Icons */}
+      <Plus className="w-5 h-5 text-white/30 stroke-[1] absolute left-6 top-6" />
+      <Plus className="w-5 h-5 text-white/30 stroke-[1] absolute left-[35%] top-6 hidden md:block" />
+      <Plus className="w-5 h-5 text-white/30 stroke-[1] absolute right-6 top-6 hidden md:block" />
+
+      <div className="flex items-center justify-between w-full relative">
+        
+        {/* Left Block */}
+        <div className="flex items-center pointer-events-auto pl-8">
+          <span className="font-semibold text-white tracking-[0.2em]">AICCELER8</span>
+        </div>
+
+        {/* Right Block (Desktop) */}
+        <nav className="hidden lg:flex items-center gap-10 pointer-events-auto pr-10">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-medium transition-colors duration-150 py-1 ${
-                isScrolled
-                  ? "text-neutral-600 hover:text-neutral-950"
-                  : "text-neutral-300 hover:text-white"
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className={`flex items-center gap-1 transition-colors ${
+                link.highlight ? "text-[#ff5e3a] hover:text-[#ff8a70]" : "hover:text-white"
               }`}
             >
               {link.name}
+              {link.hasDropdown && <ChevronDown className="w-3 h-3" />}
             </a>
           ))}
+          <button 
+            onClick={onOpenBooking} 
+            className="flex items-center justify-center px-6 py-2.5 rounded-full text-black bg-white hover:bg-neutral-200 transition-colors tracking-[0.15em] font-semibold ml-4"
+          >
+            CONTACT US
+          </button>
         </nav>
 
-        {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={onOpenBooking}
-            className={`text-sm font-medium transition-colors py-1 ${
-              isScrolled
-                ? "text-neutral-600 hover:text-neutral-950"
-                : "text-neutral-300 hover:text-white"
-            }`}
-          >
-            Contact
-          </button>
-          <button
-            onClick={onOpenBooking}
-            className={`inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold active:scale-[0.98] transition-all shadow-sm ${
-              isScrolled
-                ? "text-white bg-black hover:bg-neutral-800"
-                : "text-white bg-[#e2725b] hover:bg-[#f07e68] shadow-[0_0_20px_rgba(226,114,91,0.35)]"
-            }`}
-          >
-            <span>Book an Enterprise Strategy Session</span>
-            <ArrowUpRight className="ml-1.5 w-3.5 h-3.5" />
-          </button>
-        </div>
-
         {/* Mobile Menu Toggle */}
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={onOpenBooking}
-            className="px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-black"
-          >
-            Strategy Session
-          </button>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-neutral-700 hover:text-neutral-900 rounded-lg border border-neutral-200"
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
+        <button 
+          className="lg:hidden pointer-events-auto text-white/60 hover:text-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          MENU
+        </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-neutral-200 px-6 py-5 space-y-3">
+        <div className="absolute top-16 left-0 right-0 bg-black/95 border-y border-white/10 p-6 flex flex-col gap-6 lg:hidden pointer-events-auto">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className={`flex items-center gap-2 transition-colors ${
+                link.highlight ? "text-[#ff5e3a]" : "text-white hover:text-[#ff5e3a]"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-neutral-700 hover:text-black py-1"
             >
               {link.name}
+              {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
             </a>
           ))}
-          <div className="pt-3 border-t border-neutral-100">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full py-3 rounded-full bg-black text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2"
-            >
-              <span>Book an Enterprise Strategy Session</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
-          </div>
+          <button 
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenBooking();
+            }} 
+            className="w-full py-3 rounded-full text-black bg-white hover:bg-neutral-200 transition-colors font-semibold tracking-[0.15em] mt-2"
+          >
+            CONTACT US
+          </button>
         </div>
       )}
     </header>
