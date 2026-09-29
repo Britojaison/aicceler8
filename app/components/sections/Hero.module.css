@@ -48,94 +48,29 @@
   }
 }
 
-/* --- Left Side: Image Card --- */
-.imageCardContainer {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .imageCardContainer {
-    display: block;
-    flex: 0 0 300px;
-    margin-right: 4rem;
-  }
-}
-
-.imageCard {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/3;
-  background-color: #1a1a1a;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.imageOverlayTopLeft {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  z-index: 2;
-  text-transform: uppercase;
-}
-
-.imageOverlayTopRight {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.65rem;
-  text-align: right;
-  z-index: 2;
-  line-height: 1.4;
-}
-
-.imageWrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.imagePlaceholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #111, #222);
-  filter: grayscale(100%);
-}
-
-/* --- Right Side: Text --- */
-.textContent {
-  flex: 1;
+/* --- Centered Content --- */
+.centeredContent {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 800px;
-}
-
-.headlineContainer {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
-.aboutLabel {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-right: 1.5rem;
-  margin-top: 1rem;
-  white-space: nowrap;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  gap: 1.5rem;
+  z-index: 2;
 }
 
 .headline {
-  font-family: 'Inter', -apple-system, sans-serif !important;
-  font-size: 3rem;
-  font-weight: 500 !important;
-  line-height: 1.05 !important;
-  letter-spacing: -0.04em !important;
+  font-family: var(--font-stara), 'Inter', -apple-system, sans-serif !important;
+  font-size: 3.5rem;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
   color: #ffffff;
-  text-transform: none !important;
   margin: 0;
+}
+
+.headline i {
+  font-style: italic;
 }
 
 @media (min-width: 768px) {
@@ -150,55 +85,49 @@
   }
 }
 
-/* --- Bottom Controls --- */
-.bottomBar {
-  position: absolute;
-  bottom: 11rem; /* above marquee */
-  left: 0;
-  right: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4rem;
-  max-width: 90rem;
-  margin: 0 auto;
+.subheadline {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
 }
 
-.bottomLeft, .bottomCenter {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.bottomCenter {
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.projectButton {
+.buttonGroup {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.primaryButton, .secondaryButton {
+  padding: 0.875rem 1.75rem;
   border-radius: 100px;
-  background: transparent;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.projectButton:hover {
-  background: white;
+.primaryButton {
+  background-color: white;
   color: black;
+  border: 1px solid white;
 }
 
-.btnIcon {
-  width: 14px;
-  height: 14px;
+.primaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* --- Marquee --- */
@@ -222,7 +151,7 @@
 }
 
 .marqueeText {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: var(--font-kobe), sans-serif;
   font-size: 8rem; /* huge text */
   font-weight: 500;
   line-height: 1;
@@ -245,34 +174,9 @@
 @media (max-width: 1023px) {
   .contentWrapper {
     padding: 0 2rem;
-    text-align: center;
-    align-items: center;
   }
   
-  .textContent {
-    align-items: center;
-  }
-
-  .headlineContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .aboutLabel {
-    margin-right: 0;
-    margin-bottom: 1rem;
-    margin-top: 0;
-  }
-  
-  .bottomBar {
-    padding: 0 2rem;
-    bottom: 10rem;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .bottomLeft {
-    display: none;
+  .headline {
+    font-size: 2.5rem;
   }
 }
-

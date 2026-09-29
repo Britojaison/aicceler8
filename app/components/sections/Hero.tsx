@@ -64,49 +64,24 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
         <div className={styles.bgOverlay}></div>
       </div>
 
-      {/* Main Content (Image & Text) */}
+      {/* Main Content */}
       <div className={styles.contentWrapper} ref={contentRef}>
-        
-        {/* Left Side: Image Card */}
-        <div className={styles.imageCardContainer}>
-          <div className={styles.imageCard}>
-            <div className={styles.imageOverlayTopLeft}>ATHENA</div>
-            <div className={styles.imageOverlayTopRight}>
-              20:00 PM<br/>02:00 AM
-            </div>
-            {/* Fallback to logo or empty div, ideally an actual image */}
-            <div className={styles.imageWrapper}>
-              <div className={styles.imagePlaceholder}></div>
-            </div>
+        <div className={styles.centeredContent}>
+          <h1 className={styles.headline}>
+            <i>Growth Reimagined</i><br />
+            <i>Powered by Intelligence</i>
+          </h1>
+          <p className={styles.subheadline}>
+            AICCELER8 is the modern consulting partner built for the age of AI where intelligence meets execution.
+          </p>
+          <div className={styles.buttonGroup}>
+            <button className={styles.primaryButton}>
+              Talk to a Consultant
+            </button>
+            <button className={styles.secondaryButton}>
+              Explore Our Services
+            </button>
           </div>
-        </div>
-
-        {/* Right Side: Big Typography */}
-        <div className={styles.textContent}>
-          <div className={styles.headlineContainer}>
-            <div className={styles.aboutLabel}>(About us)</div>
-            <h1 className={styles.headline}>
-              We're AICceler8,<br />
-              an AI-Powered Enterprise<br />
-              Builder based globally.
-            </h1>
-          </div>
-        </div>
-
-      </div>
-
-      {/* Bottom Controls */}
-      <div className={styles.bottomBar} ref={bottomBarRef}>
-        <div className={styles.bottomLeft}>
-          / 2026 /
-        </div>
-        <div className={styles.bottomCenter}>
-          Scroll down
-        </div>
-        <div className={styles.bottomRight}>
-          <button className={styles.projectButton} onClick={onOpenBooking}>
-            START THE PROJECT <ArrowUpRight className={styles.btnIcon} />
-          </button>
         </div>
       </div>
 
