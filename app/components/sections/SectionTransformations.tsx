@@ -233,9 +233,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
           <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
             SECTION SIX // ENTERPRISE AI IN ACTION
           </span>
-          <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.15]">
+          <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.15]">
             Enterprise Transformations <br />
-            <span className="italic font-normal text-neutral-950">
+            <span className="font-normal text-neutral-950">
               Enterprise AI in Action.
             </span>
           </h2>
@@ -276,7 +276,7 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
               </span>
             </div>
 
-            <p className="text-xl sm:text-2xl font-serif leading-snug max-w-2xl mb-6">
+            <p className="text-xl sm:text-2xl leading-snug max-w-2xl mb-6">
               {current.quote}
             </p>
 

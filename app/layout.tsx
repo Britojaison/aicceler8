@@ -1,18 +1,47 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Lora } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const sansFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
+const kobeFont = localFont({
+  src: "../public/fonts/kobe-font/kobe.otf",
+  variable: "--font-kobe",
   display: "swap",
 });
 
-const serifFont = Lora({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+const helveticaFont = localFont({
+  src: [
+    {
+      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Ex-AF65e98e3e4df99.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-ExO-AF65e98e3e52394.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Bd-AF65e98e3e07da6.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-BdIt-AF65e98e3e2068f.otf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Hv-AF65e98e3e56917.otf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Blk-AF65e98e3e28de2.otf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-helvetica",
   display: "swap",
 });
 
@@ -74,16 +103,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth antialiased">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body
-        className={`${sansFont.variable} ${serifFont.variable} font-sans bg-white text-neutral-900 min-h-screen selection:bg-neutral-900 selection:text-white`}
+        className={`${kobeFont.variable} ${helveticaFont.variable} font-sans bg-white text-neutral-900 min-h-screen selection:bg-neutral-900 selection:text-white`}
       >
         {children}
       </body>

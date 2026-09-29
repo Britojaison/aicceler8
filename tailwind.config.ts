@@ -25,8 +25,12 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["var(--font-serif)", "Lora", "Georgia", "serif"],
+        sans: ["var(--font-helvetica)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        helvetica: ["var(--font-helvetica)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        kobe: ["var(--font-kobe)", "Kobe", "sans-serif"],
+        heading: ["var(--font-kobe)", "Kobe", "sans-serif"],
+        serif: ["var(--font-kobe)", "Kobe", "sans-serif"],
+        mono: ["var(--font-helvetica)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
       },
       letterSpacing: {
         tightest: "-0.04em",

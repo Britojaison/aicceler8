@@ -26,9 +26,9 @@ export default function SectionFinalCTA({ onOpenBooking }: SectionFinalCTAProps)
           </div>
 
           {/* Headline from Aicceler8 Website.docx */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight leading-[1.18] mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-normal text-white tracking-tight leading-[1.18] mb-6">
             The Future Won’t Be Built by Companies That Simply Use AI. <br />
-            <span className="italic font-normal text-amber-300">
+            <span className="font-normal text-amber-300">
               It Will Be Built by Companies That Reinvent Themselves Around It.
             </span>
           </h2>

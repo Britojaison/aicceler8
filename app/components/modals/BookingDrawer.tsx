@@ -109,7 +109,7 @@ END:VCALENDAR`;
                   EXECUTIVE SCHEDULER
                 </span>
               </div>
-              <h3 className="text-xl font-sans font-bold text-neutral-950 mt-1">
+              <h3 className="text-xl font-heading font-bold text-neutral-950 mt-1">
                 Book an Enterprise Strategy Session
               </h3>
             </div>
@@ -307,7 +307,7 @@ END:VCALENDAR`;
                   <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold block mb-1">
                     CONFIRMED & RESERVED
                   </span>
-                  <h4 className="text-2xl font-sans font-bold text-neutral-950">
+                  <h4 className="text-2xl font-heading font-bold text-neutral-950">
                     We look forward to meeting, {formData.name}.
                   </h4>
                   <p className="text-xs text-neutral-600 mt-2 max-w-sm mx-auto">

@@ -76,7 +76,7 @@
 .heading {
   font-size: 3rem;
   line-height: 1.08;
-  font-family: serif;
+  font-family: var(--font-kobe), 'Kobe', sans-serif;
   font-weight: 400;
   color: #0a0a0a; /* neutral-950 */
   letter-spacing: -0.025em;
@@ -94,7 +94,6 @@
 }
 
 .headingItalic {
-  font-style: italic;
   font-weight: 400;
   color: #0a0a0a;
 }

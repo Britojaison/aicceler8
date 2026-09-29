@@ -49,14 +49,14 @@ export default function SectionDifferentiators() {
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
           SECTION SEVEN // WHY AICCELER8
         </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           Why Organizations <br />
-          <span className="italic font-normal text-neutral-950">
+          <span className="font-normal text-neutral-950">
             Choose AICceler8
           </span>
         </h2>
         <div className="space-y-4 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          <p className="text-2xl sm:text-3xl font-serif italic text-neutral-950 leading-snug">
+          <p className="text-2xl sm:text-3xl text-neutral-950 leading-snug">
             “Because AI alone doesn’t transform businesses. Execution does.”
           </p>
           <div className="text-base text-neutral-600 space-y-2 pt-2">

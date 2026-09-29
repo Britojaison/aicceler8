@@ -78,13 +78,13 @@ export default function SectionInsights() {
           <span className="text-xs font-semibold tracking-wider text-brand-purple uppercase mb-3 block">
             SECTION NINE // PERSPECTIVES
           </span>
-          <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-4">
+          <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-4">
             Insights for the <br />
-            <span className="italic font-normal text-neutral-950">
+            <span className="font-normal text-neutral-950">
               AI Era
             </span>
           </h2>
-          <p className="text-xl sm:text-2xl font-serif italic text-neutral-900 leading-snug mb-4">
+          <p className="text-xl sm:text-2xl text-neutral-900 leading-snug mb-4">
             “The future belongs to organizations that learn faster than the market.”
           </p>
           <p className="text-base text-neutral-600 font-normal leading-relaxed max-w-2xl">
@@ -117,7 +117,7 @@ export default function SectionInsights() {
                 <span className="text-neutral-900 font-semibold">{art.tag}</span>
                 <span>{art.readTime}</span>
               </div>
-              <h4 className="text-lg font-serif font-bold text-neutral-950 mb-3 group-hover:text-black transition-colors leading-snug">
+              <h4 className="text-lg font-heading font-bold text-neutral-950 mb-3 group-hover:text-black transition-colors leading-snug">
                 {art.title}
               </h4>
               <p className="text-xs text-neutral-600 leading-relaxed mb-6 font-normal">
@@ -145,8 +145,8 @@ export default function SectionInsights() {
               LinkedIn Newsletter Integration
             </span>
           </div>
-          <h4 className="text-2xl sm:text-3xl font-serif font-normal text-neutral-950 mb-2">
-            Insights for the <span className="italic font-normal">AI Era</span>
+          <h4 className="text-2xl sm:text-3xl font-heading font-normal text-neutral-950 mb-2">
+            Insights for the <span className="font-normal">AI Era</span>
           </h4>
           <p className="text-sm text-neutral-600 font-normal">
             Subscribe to receive our latest research, executive playbooks, and practical insights on enterprise AI, organizational transformation, and global growth directly in your inbox.

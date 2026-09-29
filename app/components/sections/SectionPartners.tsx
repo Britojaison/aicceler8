@@ -101,7 +101,7 @@ export default function SectionPartners() {
         <span className="text-xs font-semibold tracking-wider text-brand-orange uppercase mb-3 block">
           SECTION FIVE // PARTNERS
         </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           Who We Partner With
         </h2>
         <p className="text-xl sm:text-2xl text-neutral-900 font-medium leading-snug mb-3">
@@ -121,7 +121,7 @@ export default function SectionPartners() {
           <p className="text-2xl sm:text-3xl lg:text-4xl font-sans font-normal text-neutral-950 tracking-tight leading-snug">
             Rather than asking <span className="text-neutral-400 line-through">“Can AI help us?”</span>, these organizations ask:
             <br />
-            <span className="font-serif italic font-normal text-neutral-950 block mt-3">
+            <span className="font-normal text-neutral-950 block mt-3">
               “How can AI redefine the way we grow?”
             </span>
           </p>
@@ -130,7 +130,7 @@ export default function SectionPartners() {
 
       {/* 12 Cohort Grid */}
       <div className="mb-6">
-        <h3 className="text-xl font-serif font-bold text-neutral-900 mb-4">
+        <h3 className="text-xl font-heading font-bold text-neutral-900 mb-4">
           Our Clients Typically Include:
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">

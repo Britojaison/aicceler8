@@ -2,9 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Kobe';
+  src: url('/fonts/kobe-font/kobe.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Bd-AF65e98e3e07da6.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-BdIt-AF65e98e3e2068f.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Hv-AF65e98e3e56917.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Blk-AF65e98e3e28de2.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: local('Helvetica Neue'), local('Helvetica'), url('/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Ex-AF65e98e3e4df99.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: local('Helvetica Neue Italic'), local('Helvetica-Oblique'), url('/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-ExO-AF65e98e3e52394.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+  --font-kobe: 'Kobe', sans-serif;
+  --font-helvetica: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-helvetica);
+  --font-serif: var(--font-kobe);
 }
 
 * {
@@ -15,9 +75,11 @@ html {
   scroll-behavior: smooth;
   color-scheme: light;
   background-color: #ffffff;
+  font-family: var(--font-helvetica), 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
+  font-family: var(--font-helvetica), 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #0f172a;
   background: #ffffff;
   overflow-x: hidden;
@@ -45,16 +107,24 @@ body {
   background: #94a3b8;
 }
 
-/* Headings: Lora font */
-h1, h2, h3, h4, h5, h6, .lora {
-  font-family: var(--font-serif), "Lora", Georgia, serif;
-  font-optical-sizing: auto;
+/* Headings: Kobe font strictly */
+h1, h2, h3, h4, h5, h6, .font-heading, .font-kobe, .heading-kobe {
+  font-family: var(--font-kobe), 'Kobe', sans-serif !important;
 }
 
-/* Editorial Serif Emphasis */
+/* Descriptions, body text, paragraphs, labels, and badges: Helvetica strictly */
+p, span, div, a, button, input, textarea, select, label, li, td, th {
+  font-family: inherit;
+}
+
+/* Ensure no other font is used for monospace elements */
+code, kbd, samp, pre, .font-mono {
+  font-family: var(--font-helvetica), 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
 .font-serif-italic {
-  font-family: var(--font-serif), "Lora", Georgia, serif;
-  font-style: italic;
+  font-family: var(--font-kobe), 'Kobe', sans-serif;
+  font-style: normal;
   font-weight: 500;
 }
 

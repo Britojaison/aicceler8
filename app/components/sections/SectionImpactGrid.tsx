@@ -121,9 +121,9 @@ export default function SectionImpactGrid() {
         <span className="text-xs font-semibold tracking-wider text-brand-emerald uppercase mb-3 block">
           SECTION FOUR // OUTCOMES
         </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           How We Create <br />
-          <span className="italic font-normal text-neutral-950">
+          <span className="font-normal text-neutral-950">
             Enterprise Impact.
           </span>
         </h2>
@@ -173,7 +173,7 @@ export default function SectionImpactGrid() {
                 </div>
 
                 <h3
-                  className={`text-2xl font-sans font-bold mb-2 ${
+                  className={`text-2xl font-heading font-bold mb-2 ${
                     isHighlighted ? "text-white" : "text-neutral-950"
                   }`}
                 >

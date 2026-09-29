@@ -86,9 +86,9 @@ export default function SectionApproach() {
         <span className="text-xs font-semibold tracking-wider text-neutral-500 uppercase mb-3 block">
           SECTION EIGHT // OUR APPROACH
         </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           Our Approach <br />
-          <span className="italic font-normal text-neutral-950">
+          <span className="font-normal text-neutral-950">
             From Blueprint to Compounding Scale.
           </span>
         </h2>
@@ -144,7 +144,7 @@ export default function SectionApproach() {
             </span>
           </div>
 
-          <h3 className="text-3xl font-sans font-bold text-neutral-950 mb-3">
+          <h3 className="text-3xl font-heading font-bold text-neutral-950 mb-3">
             {steps[activeStep].title}: {steps[activeStep].tagline}
           </h3>
 

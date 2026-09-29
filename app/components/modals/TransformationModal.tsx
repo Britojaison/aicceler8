@@ -70,7 +70,7 @@ export default function TransformationModal({
               {item.sector}
             </span>
           </div>
-          <h3 className="text-3xl font-sans font-bold text-neutral-950 mb-2">
+          <h3 className="text-3xl font-heading font-bold text-neutral-950 mb-2">
             {item.title}
           </h3>
           <p className="text-sm text-neutral-600 font-medium">

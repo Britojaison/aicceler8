@@ -29,7 +29,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <span>The Enterprise Growth Partner for the AI Era</span>
           </div>
 
-          {/* Heading from Aicceler8 Website.docx with Editorial Lora Italic Emphasis */}
+          {/* Heading from Aicceler8 Website.docx in Kobe Font */}
           <h1 className={styles.heading}>
             Building <br />
             <span className={styles.headingItalic}>

@@ -64,9 +64,9 @@ export default function SectionEvolution() {
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
           WHY AICCELER8
         </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           AI isn’t the transformation. <br />
-          <span className="italic font-normal text-neutral-950">
+          <span className="font-normal text-neutral-950">
             Your business is.
           </span>
         </h2>
@@ -109,7 +109,7 @@ export default function SectionEvolution() {
                   <Icon className={`w-5 h-5 ${isActive ? "text-black" : "text-neutral-400"}`} />
                 </div>
 
-                <h3 className="text-2xl font-sans font-bold text-neutral-950 mb-2">
+                <h3 className="text-2xl font-heading font-bold text-neutral-950 mb-2">
                   {stage.title}
                 </h3>
                 <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide mb-4">
@@ -147,7 +147,7 @@ export default function SectionEvolution() {
           <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block mb-2">
             STRATEGIC POSITIONING
           </span>
-          <p className="text-xl sm:text-2xl font-serif italic text-white font-normal leading-snug">
+          <p className="text-xl sm:text-2xl text-white font-normal leading-snug">
             “An Enterprise Growth & Transformation Company powered by Artificial Intelligence.”
           </p>
           <p className="text-xs text-neutral-400 mt-2">

@@ -84,9 +84,9 @@ export default function SectionPillars() {
         <span className="text-xs font-semibold tracking-wider text-brand-purple uppercase mb-3 block">
           HOW WE TRANSFORM
         </span>
-        <h2 className="text-4xl sm:text-5xl font-serif font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
           From AI adoption to <br />
-          <span className="italic font-normal text-neutral-950">
+          <span className="font-normal text-neutral-950">
             enterprise transformation.
           </span>
         </h2>
@@ -121,7 +121,7 @@ export default function SectionPillars() {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-sans font-bold text-neutral-950 mb-2">
+                <h3 className="text-2xl font-heading font-bold text-neutral-950 mb-2">
                   {pillar.title}
                 </h3>
                 <p className="text-xs sm:text-sm font-semibold text-neutral-700 mb-3">
@@ -142,7 +142,7 @@ export default function SectionPillars() {
                   ))}
                 </div>
 
-                <div className="border-l-2 border-black pl-3 text-xs italic font-serif text-neutral-600">
+                <div className="border-l-2 border-black pl-3 text-xs text-neutral-600">
                   “{pillar.quote}”
                 </div>
               </div>
