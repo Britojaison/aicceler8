@@ -30,14 +30,14 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-neutral-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] py-3"
-          : "bg-white/80 backdrop-blur-sm border-b border-transparent py-4"
+          ? "bg-white/95 backdrop-blur-md border-b border-neutral-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] py-3 text-neutral-900"
+          : "bg-transparent backdrop-blur-sm border-b border-white/10 py-4 text-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo (Inverted to pure black for clean white background) */}
+        {/* Brand Logo */}
         <a
           href="#"
           className="flex items-center gap-3 group focus:outline-none"
@@ -49,10 +49,18 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               alt="AICceler8"
               fill
               priority
-              className="object-contain filter invert"
+              className={`object-contain transition-all duration-300 ${
+                isScrolled ? "filter invert" : ""
+              }`}
             />
           </div>
-          <span className="hidden sm:inline-block text-[10px] font-mono tracking-widest text-neutral-400 uppercase border-l border-neutral-200 pl-3">
+          <span
+            className={`hidden sm:inline-block text-[10px] font-mono tracking-widest uppercase border-l pl-3 transition-colors duration-300 ${
+              isScrolled
+                ? "text-neutral-400 border-neutral-200"
+                : "text-neutral-400 border-white/20"
+            }`}
+          >
             ENTERPRISE AI
           </span>
         </a>
@@ -63,26 +71,39 @@ export default function Header({ onOpenBooking }: HeaderProps) {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-neutral-600 hover:text-neutral-950 transition-colors duration-150 py-1"
+              className={`text-sm font-medium transition-colors duration-150 py-1 ${
+                isScrolled
+                  ? "text-neutral-600 hover:text-neutral-950"
+                  : "text-neutral-300 hover:text-white"
+              }`}
             >
               {link.name}
             </a>
           ))}
         </nav>
 
-        {/* Action Buttons (Freshworks Style) */}
+        {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={onOpenBooking}
-            className="text-sm font-medium text-neutral-600 hover:text-neutral-950 transition-colors py-1"
+            className={`text-sm font-medium transition-colors py-1 ${
+              isScrolled
+                ? "text-neutral-600 hover:text-neutral-950"
+                : "text-neutral-300 hover:text-white"
+            }`}
           >
             Contact
           </button>
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-black hover:bg-neutral-800 active:scale-[0.98] transition-all shadow-sm"
+            className={`inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold active:scale-[0.98] transition-all shadow-sm ${
+              isScrolled
+                ? "text-white bg-black hover:bg-neutral-800"
+                : "text-white bg-[#e2725b] hover:bg-[#f07e68] shadow-[0_0_20px_rgba(226,114,91,0.35)]"
+            }`}
           >
             <span>Book an Enterprise Strategy Session</span>
+            <ArrowUpRight className="ml-1.5 w-3.5 h-3.5" />
           </button>
         </div>
 

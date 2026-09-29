@@ -15,9 +15,12 @@ import SectionFinalCTA from "./components/sections/SectionFinalCTA";
 import BookingDrawer from "./components/modals/BookingDrawer";
 import Footer from "./components/layout/Footer";
 import SmoothScrollProvider from "./components/ui/SmoothScrollProvider";
+import LoadingScreen from "./components/ui/LoadingScreen";
 
 export default function Home() {
   const [bookingDrawerOpen, setBookingDrawerOpen] = useState(false);
+  const [loadingComplete, setLoadingComplete] = useState(false);
+  const [heroReady, setHeroReady] = useState(false);
 
   const handleOpenBooking = () => {
     setBookingDrawerOpen(true);
@@ -29,13 +32,19 @@ export default function Home() {
 
   return (
     <SmoothScrollProvider>
+      {/* Sleek Technical Preloader matching Prime Security design */}
+      <LoadingScreen
+        onRevealStart={() => setHeroReady(true)}
+        onComplete={() => setLoadingComplete(true)}
+      />
+
       <div className="relative bg-white text-neutral-900 min-h-screen selection:bg-black selection:text-white">
       {/* Floating Freshworks-Style Header */}
       <Header onOpenBooking={handleOpenBooking} />
 
       {/* Main Content Sections */}
       <main className="relative">
-        <Hero onOpenBooking={handleOpenBooking} />
+        <Hero onOpenBooking={handleOpenBooking} isReady={heroReady} />
         <SectionEvolution />
         <SectionPillars />
         <SectionImpactGrid />
