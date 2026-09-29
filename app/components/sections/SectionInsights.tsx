@@ -2,10 +2,12 @@
 
 import React, { useState } from "react";
 import { ArrowUpRight, BookOpen, CheckCircle2, Linkedin, ExternalLink } from "lucide-react";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 
 export default function SectionInsights() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.1 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,9 +73,9 @@ export default function SectionInsights() {
   ];
 
   return (
-    <section id="insights" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+    <section ref={sectionRef} id="insights" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
       {/* Section Header from Aicceler8 Website.docx */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+      <div data-gsap="title" className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
         <div className="max-w-3xl">
           <span className="text-xs font-semibold tracking-wider text-brand-purple uppercase mb-3 block">
             SECTION NINE // PERSPECTIVES
@@ -110,6 +112,7 @@ export default function SectionInsights() {
         {articles.map((art) => (
           <article
             key={art.id}
+            data-gsap="item"
             className="rounded-2xl p-7 bg-surface-50 border border-neutral-200/80 hover:bg-white hover:border-neutral-300 hover:shadow-lg hover:shadow-neutral-900/5 transition-all flex flex-col justify-between group"
           >
             <div>

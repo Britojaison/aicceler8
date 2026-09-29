@@ -47,6 +47,7 @@ export default function TransformationModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-150">
       <div
+        data-lenis-prevent
         className="relative w-full max-w-2xl bg-white border border-neutral-200 rounded-3xl p-8 sm:p-10 shadow-2xl max-h-[90vh] overflow-y-auto"
         role="dialog"
         aria-modal="true"

@@ -14,6 +14,7 @@ import SectionInsights from "./components/sections/SectionInsights";
 import SectionFinalCTA from "./components/sections/SectionFinalCTA";
 import BookingDrawer from "./components/modals/BookingDrawer";
 import Footer from "./components/layout/Footer";
+import SmoothScrollProvider from "./components/ui/SmoothScrollProvider";
 
 export default function Home() {
   const [bookingDrawerOpen, setBookingDrawerOpen] = useState(false);
@@ -27,7 +28,8 @@ export default function Home() {
   };
 
   return (
-    <div className="relative bg-white text-neutral-900 min-h-screen selection:bg-black selection:text-white">
+    <SmoothScrollProvider>
+      <div className="relative bg-white text-neutral-900 min-h-screen selection:bg-black selection:text-white">
       {/* Floating Freshworks-Style Header */}
       <Header onOpenBooking={handleOpenBooking} />
 
@@ -54,5 +56,6 @@ export default function Home() {
         onClose={handleCloseBooking}
       />
     </div>
+    </SmoothScrollProvider>
   );
 }

@@ -10,9 +10,11 @@ import {
   Globe2,
   Check,
 } from "lucide-react";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 
 export default function SectionImpactGrid() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.1 });
 
   const impacts = [
     {
@@ -115,9 +117,9 @@ export default function SectionImpactGrid() {
   ];
 
   return (
-    <section id="enterprise-impact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+    <section ref={sectionRef} id="enterprise-impact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
       {/* Section Header */}
-      <div className="max-w-3xl mb-16">
+      <div data-gsap="title" className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-emerald uppercase mb-3 block">
           SECTION FOUR // OUTCOMES
         </span>
@@ -142,6 +144,7 @@ export default function SectionImpactGrid() {
           return (
             <div
               key={item.id}
+              data-gsap="item"
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
               className={`rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between border ${

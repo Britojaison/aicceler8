@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import TransformationModal, { TransformationItem } from "../modals/TransformationModal";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 
 interface SectionTransformationsProps {
   onOpenBooking: () => void;
@@ -11,6 +12,7 @@ interface SectionTransformationsProps {
 export default function SectionTransformations({ onOpenBooking }: SectionTransformationsProps) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [modalItem, setModalItem] = useState<TransformationItem | null>(null);
+  const sectionRef = useGsapScrollTrigger<HTMLElement>();
 
   const transformations: (TransformationItem & {
     bgColor: string;
@@ -226,9 +228,9 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
   };
 
   return (
-    <section id="transformations" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+    <section ref={sectionRef} id="transformations" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
       {/* Header with Title & Slider Buttons from Aicceler8 Website.docx */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <div data-gsap="title" className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
         <div>
           <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
             SECTION SIX // ENTERPRISE AI IN ACTION
@@ -261,7 +263,7 @@ export default function SectionTransformations({ onOpenBooking }: SectionTransfo
       </div>
 
       {/* Freshworks Signature Multi-Color Accordion Slider */}
-      <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
+      <div data-gsap="item" className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
         {/* Main Expanded Active Card */}
         <div
           className={`flex-1 rounded-3xl p-8 sm:p-12 ${current.bgColor} ${current.textColor} transition-all duration-300 flex flex-col justify-between shadow-sm relative overflow-hidden`}

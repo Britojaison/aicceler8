@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { ArrowRight, ShieldCheck, Zap, Sparkles, Check } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 import ParticleWave from "../ui/ParticleWave";
 import styles from "./Hero.module.css";
 
@@ -10,27 +10,97 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenBooking }: HeroProps) {
-  const trustLogos = [
-    { name: "Forbes", width: "w-20" },
-    { name: "Ingram Micro", width: "w-24" },
-    { name: "RingCentral", width: "w-24" },
-    { name: "Mastercard Cohort", width: "w-24" },
-    { name: "Databricks Scale", width: "w-24" },
-  ];
+  const heroRef = useRef<HTMLElement | null>(null);
+  const badgeRef = useRef<HTMLDivElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const subheadingRef = useRef<HTMLParagraphElement | null>(null);
+  const bodyRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const trustRef = useRef<HTMLDivElement | null>(null);
+  const rightColRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.from(badgeRef.current, {
+        y: -15,
+        autoAlpha: 0,
+        duration: 0.6,
+      })
+        .from(
+          headingRef.current,
+          {
+            y: 35,
+            autoAlpha: 0,
+            duration: 0.9,
+          },
+          "-=0.3"
+        )
+        .from(
+          subheadingRef.current,
+          {
+            y: 20,
+            autoAlpha: 0,
+            duration: 0.7,
+          },
+          "-=0.5"
+        )
+        .from(
+          bodyRef.current,
+          {
+            y: 20,
+            autoAlpha: 0,
+            duration: 0.7,
+          },
+          "-=0.4"
+        )
+        .from(
+          ctaRef.current?.children ? Array.from(ctaRef.current.children) : [],
+          {
+            y: 15,
+            autoAlpha: 0,
+            duration: 0.6,
+            stagger: 0.1,
+          },
+          "-=0.3"
+        )
+        .from(
+          trustRef.current,
+          {
+            y: 15,
+            autoAlpha: 0,
+            duration: 0.7,
+          },
+          "-=0.2"
+        )
+        .from(
+          rightColRef.current,
+          {
+            scale: 0.96,
+            autoAlpha: 0,
+            duration: 1.1,
+          },
+          0.2
+        );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className={styles.heroSection}>
+    <section ref={heroRef} className={styles.heroSection}>
       <div className={styles.gridContainer}>
         {/* Left Column: Freshworks-style Editorial Content */}
         <div className={styles.leftColumn}>
           {/* Badge */}
-          <div className={styles.badge}>
+          <div ref={badgeRef} className={styles.badge}>
             <span className={styles.badgeDot} />
             <span>The Enterprise Growth Partner for the AI Era</span>
           </div>
 
           {/* Heading from Aicceler8 Website.docx in Kobe Font */}
-          <h1 className={styles.heading}>
+          <h1 ref={headingRef} className={styles.heading}>
             Building <br />
             <span className={styles.headingItalic}>
               AI-Powered
@@ -39,10 +109,10 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           </h1>
 
           {/* Subheading and Body from Aicceler8 Website.docx */}
-          <p className={styles.subheading}>
+          <p ref={subheadingRef} className={styles.subheading}>
             We help ambitious businesses redesign how they grow, operate and compete in an AI-first world.
           </p>
-          <div className={styles.bodyText}>
+          <div ref={bodyRef} className={styles.bodyText}>
             <p>
               We don’t implement AI for the sake of technology. We transform how organizations generate revenue, empower teams, accelerate decisions and scale globally by embedding AI into every critical business function.
             </p>
@@ -52,7 +122,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           </div>
 
           {/* CTA Buttons (Freshworks Pill Style) */}
-          <div className={styles.ctaContainer}>
+          <div ref={ctaRef} className={styles.ctaContainer}>
             <button
               onClick={onOpenBooking}
               className={styles.primaryButton}
@@ -68,7 +138,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           </div>
 
           {/* Trust Banner (Aicceler8 Website.docx) */}
-          <div className={styles.trustBanner}>
+          <div ref={trustRef} className={styles.trustBanner}>
             <p className={styles.trustTitle}>
               Trusted by ambitious enterprises across industries
             </p>
@@ -90,7 +160,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
         </div>
 
         {/* Right Column: Freshworks Particle Wave Canvas */}
-        <div className={styles.rightColumn}>
+        <div ref={rightColRef} className={styles.rightColumn}>
           <ParticleWave />
 
           {/* Floating High-Impact Value Pill */}

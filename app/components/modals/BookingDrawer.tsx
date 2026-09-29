@@ -99,7 +99,7 @@ END:VCALENDAR`;
 
       {/* Slide-over Drawer Panel */}
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-lg bg-white border-l border-neutral-200 shadow-2xl flex flex-col justify-between overflow-y-auto">
+        <div data-lenis-prevent className="w-screen max-w-lg bg-white border-l border-neutral-200 shadow-2xl flex flex-col justify-between overflow-y-auto">
           {/* Header */}
           <div className="p-6 border-b border-neutral-100 flex items-center justify-between bg-surface-50">
             <div>

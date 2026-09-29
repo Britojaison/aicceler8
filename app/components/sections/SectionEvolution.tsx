@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import { ArrowRight, Check, Sparkles, Cpu, Layers, Workflow } from "lucide-react";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 
 export default function SectionEvolution() {
   const [activeStage, setActiveStage] = useState<number>(2);
+  const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.14 });
 
   const stages = [
     {
@@ -58,9 +60,9 @@ export default function SectionEvolution() {
   ];
 
   return (
-    <section id="why-aicceler8" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+    <section ref={sectionRef} id="why-aicceler8" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
       {/* Section Header with Freshworks Serif Italic */}
-      <div className="max-w-3xl mb-16">
+      <div data-gsap="title" className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
           WHY AICCELER8
         </span>
@@ -92,6 +94,7 @@ export default function SectionEvolution() {
           return (
             <div
               key={stage.id}
+              data-gsap="item"
               onClick={() => setActiveStage(idx)}
               className={`cursor-pointer rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between border ${
                 isActive

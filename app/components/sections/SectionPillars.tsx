@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import { Compass, Cpu, Users, Repeat, Check, ArrowRight } from "lucide-react";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 
 export default function SectionPillars() {
   const [activePillar, setActivePillar] = useState<number>(0);
+  const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.12 });
 
   const pillars = [
     {
@@ -78,9 +80,9 @@ export default function SectionPillars() {
   ];
 
   return (
-    <section id="how-we-transform" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
+    <section ref={sectionRef} id="how-we-transform" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
       {/* Section Header */}
-      <div className="max-w-3xl mb-16">
+      <div data-gsap="title" className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-purple uppercase mb-3 block">
           HOW WE TRANSFORM
         </span>
@@ -104,6 +106,7 @@ export default function SectionPillars() {
           return (
             <div
               key={pillar.id}
+              data-gsap="item"
               onMouseEnter={() => setActivePillar(idx)}
               className={`rounded-2xl p-8 transition-all duration-200 border flex flex-col justify-between ${
                 isSelected

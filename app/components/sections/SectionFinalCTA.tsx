@@ -3,16 +3,19 @@
 import React from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import ParticleWave from "../ui/ParticleWave";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 
 interface SectionFinalCTAProps {
   onOpenBooking: () => void;
 }
 
 export default function SectionFinalCTA({ onOpenBooking }: SectionFinalCTAProps) {
+  const sectionRef = useGsapScrollTrigger<HTMLElement>({ y: 40, duration: 1 });
+
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Freshworks Image 4: Embedded Dark Showcase Card */}
-      <div className="relative rounded-3xl overflow-hidden bg-[#0A0A0B] text-white p-10 sm:p-16 lg:p-20 shadow-2xl">
+      <div data-gsap="title" className="relative rounded-3xl overflow-hidden bg-[#0A0A0B] text-white p-10 sm:p-16 lg:p-20 shadow-2xl">
         {/* Dynamic particle ribbon inside dark container */}
         <div className="absolute inset-0 opacity-80 pointer-events-none">
           <ParticleWave />

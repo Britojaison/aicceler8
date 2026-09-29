@@ -8,40 +8,65 @@ const kobeFont = localFont({
   display: "swap",
 });
 
-const helveticaFont = localFont({
+const staraFont = localFont({
   src: [
     {
-      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Ex-AF65e98e3e4df99.otf",
+      path: "../public/fonts/Stara-Medium.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-ExO-AF65e98e3e52394.otf",
-      weight: "400",
+      path: "../public/fonts/Stara-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Stara-MediumItalic.otf",
+      weight: "500",
       style: "italic",
     },
     {
-      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Bd-AF65e98e3e07da6.otf",
+      path: "../public/fonts/Stara-SemiBold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Stara-SemiBoldItalic.otf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Stara-Bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-BdIt-AF65e98e3e2068f.otf",
+      path: "../public/fonts/Stara-BoldItalic.otf",
       weight: "700",
       style: "italic",
     },
     {
-      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Hv-AF65e98e3e56917.otf",
+      path: "../public/fonts/Stara-ExtraBold.otf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "../public/fonts/neue-helvetica-font-family/HelveticaNeueLTStd-Blk-AF65e98e3e28de2.otf",
+      path: "../public/fonts/Stara-ExtraBoldItalic.otf",
+      weight: "800",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Stara-Black.otf",
       weight: "900",
       style: "normal",
     },
+    {
+      path: "../public/fonts/Stara-BlackItalic.otf",
+      weight: "900",
+      style: "italic",
+    },
   ],
-  variable: "--font-helvetica",
+  variable: "--font-stara",
   display: "swap",
 });
 
@@ -102,9 +127,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth antialiased">
+    <html lang="en" className="antialiased">
       <body
-        className={`${kobeFont.variable} ${helveticaFont.variable} font-sans bg-white text-neutral-900 min-h-screen selection:bg-neutral-900 selection:text-white`}
+        className={`${kobeFont.variable} ${staraFont.variable} font-sans bg-white text-neutral-900 min-h-screen selection:bg-neutral-900 selection:text-white`}
       >
         {children}
       </body>
