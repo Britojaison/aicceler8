@@ -58,41 +58,31 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
 
   return (
     <section ref={heroRef} className={styles.heroSection}>
-      {/* Background Effect */}
-      <div className={styles.backgroundContainer}>
-        <AsciiBackground />
-        <div className={styles.bgOverlay}></div>
-      </div>
-
       {/* Main Content */}
       <div className={styles.contentWrapper} ref={contentRef}>
-        <div className={styles.centeredContent}>
-          <h1 className={styles.headline}>
-            <i>Growth Reimagined</i><br />
-            <i>Powered by Intelligence</i>
-          </h1>
-          <p className={styles.subheadline}>
+        
+        {/* Mid-Left Text */}
+        <div className={styles.leftTextBlock}>
+          <div className={styles.verticalLine}></div>
+          <p className={styles.paragraphText}>
+            <strong>Growth Reimagined Powered by Intelligence.</strong><br />
             AICCELER8 is the modern consulting partner built for the age of AI where intelligence meets execution.
           </p>
-          <div className={styles.buttonGroup}>
-            <button className={styles.primaryButton}>
-              Talk to a Consultant
-            </button>
-            <button className={styles.secondaryButton}>
-              Explore Our Services
-            </button>
-          </div>
         </div>
-      </div>
 
-      {/* Orange Marquee */}
-      <div className={styles.marqueeContainer}>
-        <div className={styles.marqueeContent}>
-          <span className={styles.marqueeText}>© AICceler8 © AI Enterprise</span>
-          <span className={styles.marqueeText}>© AICceler8 © AI Enterprise</span>
-          <span className={styles.marqueeText}>© AICceler8 © AI Enterprise</span>
-          <span className={styles.marqueeText}>© AICceler8 © AI Enterprise</span>
+        {/* Huge Bottom Text */}
+        <div className={styles.hugeTextContainer}>
+          <h1 className={styles.hugeText}>.aicceler8</h1>
+          <span className={styles.registeredMark}>®</span>
         </div>
+
+        {/* Bottom Right Button */}
+        <div className={styles.bottomRightAction}>
+          <button className={styles.actionButton} onClick={onOpenBooking}>
+            BOOK A CALL
+          </button>
+        </div>
+
       </div>
     </section>
   );

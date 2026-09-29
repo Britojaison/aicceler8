@@ -4,179 +4,123 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #050202;
-  color: #ffffff;
+  background-color: #e22920; /* Vibrant Red */
+  color: #111111; /* Dark text */
   overflow: hidden;
   user-select: none;
   font-family: 'Inter', -apple-system, sans-serif;
-}
-
-.backgroundContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.bgOverlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 0%, #050202 80%);
-  pointer-events: none;
 }
 
 .contentWrapper {
   position: relative;
   z-index: 10;
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  max-width: 90rem;
-  padding: 0 4rem;
-  margin: 0 auto;
-  padding-top: 5rem; /* for header */
+  padding-top: 6rem; /* for header */
 }
 
-/* Layout: Left image, Right text */
-@media (min-width: 1024px) {
-  .contentWrapper {
-    justify-content: space-between;
-  }
-}
-
-/* --- Centered Content --- */
-.centeredContent {
+/* Mid-Left Text */
+.leftTextBlock {
+  position: absolute;
+  top: 45%;
+  left: 2rem;
+  transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 900px;
-  gap: 1.5rem;
-  z-index: 2;
-}
-
-.headline {
-  font-family: var(--font-stara), 'Inter', -apple-system, sans-serif !important;
-  font-size: 3.5rem;
-  font-weight: 600 !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.02em !important;
-  color: #ffffff;
-  margin: 0;
-}
-
-.headline i {
-  font-style: italic;
-}
-
-@media (min-width: 768px) {
-  .headline {
-    font-size: 4.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .headline {
-    font-size: 5.5rem;
-  }
-}
-
-.subheadline {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
-  margin: 0 auto 1rem;
-  line-height: 1.5;
-}
-
-.buttonGroup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
   gap: 1rem;
+  max-width: 450px;
+  z-index: 15;
 }
 
-.primaryButton, .secondaryButton {
-  padding: 0.875rem 1.75rem;
-  border-radius: 100px;
+@media (min-width: 1024px) {
+  .leftTextBlock {
+    left: 4rem;
+  }
+}
+
+.verticalLine {
+  width: 2px;
+  background-color: #111111;
+  flex-shrink: 0;
+}
+
+.paragraphText {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+  color: #111111;
+}
+
+.paragraphText strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Huge Bottom Text */
+.hugeTextContainer {
+  position: absolute;
+  bottom: -4vw;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.hugeText {
+  font-family: var(--font-stara), 'Inter', sans-serif !important;
+  font-size: 16vw; 
+  font-weight: 900 !important;
+  line-height: 0.7 !important;
+  letter-spacing: -0.07em !important;
+  color: #111111;
+  margin: 0;
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+
+.registeredMark {
+  font-size: 2vw;
+  font-weight: 600;
+  margin-bottom: 9.5vw;
+  margin-left: 0.5vw;
+  color: #111111;
+}
+
+/* Bottom Right Button */
+.bottomRightAction {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 30;
+}
+
+@media (min-width: 1024px) {
+  .bottomRightAction {
+    bottom: 3rem;
+    right: 4rem;
+  }
+}
+
+.actionButton {
+  padding: 1rem 2rem;
+  border: 1.5px solid #111111;
+  background-color: transparent;
+  color: #111111;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.primaryButton {
-  background-color: white;
-  color: black;
-  border: 1px solid white;
-}
-
-.primaryButton:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.secondaryButton {
-  background-color: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.secondaryButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* --- Marquee --- */
-.marqueeContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 9rem; /* Increased height */
-  background-color: #ff5e3a; /* vibrant orange matching image */
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  z-index: 20;
-}
-
-.marqueeContent {
-  display: flex;
-  white-space: nowrap;
-  animation: scrollMarquee 20s linear infinite;
-}
-
-.marqueeText {
-  font-family: var(--font-kobe), sans-serif;
-  font-size: 8rem; /* huge text */
-  font-weight: 500;
-  line-height: 1;
-  color: white;
-  padding-right: 2rem;
-  letter-spacing: -0.04em;
-  text-transform: none;
-}
-
-@keyframes scrollMarquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 1023px) {
-  .contentWrapper {
-    padding: 0 2rem;
-  }
-  
-  .headline {
-    font-size: 2.5rem;
-  }
+.actionButton:hover {
+  background-color: #111111;
+  color: #ffffff;
 }
