@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="md:col-span-2 space-y-4">
           <div className="relative h-8 w-26 flex items-center">
             <Image
-              src="/logo.png"
+              src="/images/logos/logo.png"
               alt="AICceler8"
               fill
               className="object-contain filter invert"

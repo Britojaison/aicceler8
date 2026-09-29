@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "AICceler8",
     images: [
       {
-        url: "/logo.png",
+        url: "/images/logos/logo.png",
         width: 1200,
         height: 630,
         alt: "AICceler8 Enterprise Growth Partner",
@@ -54,10 +54,10 @@ export const metadata: Metadata = {
     title: "AICceler8 — The Enterprise Growth Partner for the AI Era",
     description:
       "Enterprise growth, intelligent systems, and business transformation powered by Artificial Intelligence.",
-    images: ["/logo.png"],
+    images: ["/images/logos/logo.png"],
   },
   icons: {
-    icon: "/logo.png",
+    icon: "/images/logos/logo.png",
   },
 };
 

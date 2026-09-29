@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
-import TransformationModal, { TransformationItem } from "./TransformationModal";
+import TransformationModal, { TransformationItem } from "../modals/TransformationModal";
 
 interface SectionTransformationsProps {
   onOpenBooking: () => void;

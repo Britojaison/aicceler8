@@ -45,7 +45,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         >
           <div className="relative h-8 w-24 sm:h-8 sm:w-26 flex items-center">
             <Image
-              src="/logo.png"
+              src="/images/logos/logo.png"
               alt="AICceler8"
               fill
               priority

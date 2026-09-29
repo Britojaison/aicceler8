@@ -1,19 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import SectionEvolution from "./components/SectionEvolution";
-import SectionPillars from "./components/SectionPillars";
-import SectionImpactGrid from "./components/SectionImpactGrid";
-import SectionPartners from "./components/SectionPartners";
-import SectionTransformations from "./components/SectionTransformations";
-import SectionDifferentiators from "./components/SectionDifferentiators";
-import SectionApproach from "./components/SectionApproach";
-import SectionInsights from "./components/SectionInsights";
-import SectionFinalCTA from "./components/SectionFinalCTA";
-import BookingDrawer from "./components/BookingDrawer";
-import Footer from "./components/Footer";
+import Header from "./components/layout/Header";
+import Hero from "./components/sections/Hero";
+import SectionEvolution from "./components/sections/SectionEvolution";
+import SectionPillars from "./components/sections/SectionPillars";
+import SectionImpactGrid from "./components/sections/SectionImpactGrid";
+import SectionPartners from "./components/sections/SectionPartners";
+import SectionTransformations from "./components/sections/SectionTransformations";
+import SectionDifferentiators from "./components/sections/SectionDifferentiators";
+import SectionApproach from "./components/sections/SectionApproach";
+import SectionInsights from "./components/sections/SectionInsights";
+import SectionFinalCTA from "./components/sections/SectionFinalCTA";
+import BookingDrawer from "./components/modals/BookingDrawer";
+import Footer from "./components/layout/Footer";
 
 export default function Home() {
   const [bookingDrawerOpen, setBookingDrawerOpen] = useState(false);

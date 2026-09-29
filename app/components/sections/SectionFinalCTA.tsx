@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import ParticleWave from "./ParticleWave";
+import ParticleWave from "../ui/ParticleWave";
 
 interface SectionFinalCTAProps {
   onOpenBooking: () => void;
