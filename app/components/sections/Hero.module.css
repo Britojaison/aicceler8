@@ -69,7 +69,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background-color: #ff6b6b; /* brand-coral */
+  background-color: #e2725B; /* brand primary */
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
