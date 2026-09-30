@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
+import TextBlockAnimation from "../ui/text-block-animation";
 
 export interface IndustryItem {
   id: string;
@@ -182,11 +183,13 @@ export default function SectionIndustries({ onOpenBooking }: SectionIndustriesPr
       {/* Header Container matching SectionSolutions width & margins */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 mb-10 sm:mb-14">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-8">
-          {/* Left: Typography matching Designerpart */}
-          <div data-gsap="title" className="max-w-4xl">
-            <h2 className="text-3xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] font-heading font-medium text-neutral-950 tracking-tight leading-[1.06]">
-              We partner with businesses<br className="hidden sm:inline" /> and institutions across industries.
-            </h2>
+          {/* Left: Typography matching Designerpart with Hero TextBlockAnimation */}
+          <div className="max-w-4xl">
+            <TextBlockAnimation blockColor="#000" delay={0.1} duration={0.65}>
+              <h2 className="text-3xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] font-heading font-medium text-neutral-950 tracking-tight leading-[1.06]">
+                We partner with businesses and institutions across industries.
+              </h2>
+            </TextBlockAnimation>
           </div>
 
           {/* Right: Clean Architectural Arrows matching Designerpart (No floating dot) */}
