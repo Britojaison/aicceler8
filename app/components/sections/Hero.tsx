@@ -12,14 +12,13 @@ interface HeroProps {
 export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
   const heroRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const bottomBarRef = useRef<HTMLDivElement | null>(null);
 
   // GSAP entrance animation
   useEffect(() => {
     if (!isReady) return;
 
     const ctx = gsap.context(() => {
-      if (contentRef.current && bottomBarRef.current) {
+      if (contentRef.current) {
         gsap.fromTo(
           contentRef.current.children,
           {
@@ -32,19 +31,6 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
             duration: 1.1,
             stagger: 0.15,
             ease: "power3.out",
-          }
-        );
-
-        gsap.fromTo(
-          bottomBarRef.current,
-          {
-            autoAlpha: 0,
-          },
-          {
-            autoAlpha: 1,
-            duration: 1,
-            delay: 0.5,
-            ease: "power2.out",
           }
         );
       }
