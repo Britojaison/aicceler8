@@ -19,7 +19,7 @@ export default function SectionEvolution() {
           start="top 85%"
           scrub={false}
         >
-          We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining <span className="text-white/30">strategic thinking</span>, AI integration, and <span className="text-white/30">execution</span> at speed.
+          We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining <span className="text-[#E2725B]">strategic thinking</span>, AI integration, and <span className="text-[#E2725B]">execution</span> at speed.
         </TextReveal>
 
       </div>
