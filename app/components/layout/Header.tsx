@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Instagram, Facebook, Linkedin } from "lucide-react";
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -10,111 +10,121 @@ interface HeaderProps {
 
 export default function Header({ onOpenBooking }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [centerNavVisible, setCenterNavVisible] = useState(true);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const secondSection = document.getElementById("why-aicceler8");
-      if (secondSection) {
-        if (window.scrollY > secondSection.offsetTop - 100) {
-          setCenterNavVisible(false);
-        } else {
-          setCenterNavVisible(true);
-        }
-      } else {
-        if (window.scrollY > 800) {
-          setCenterNavVisible(false);
-        } else {
-          setCenterNavVisible(true);
-        }
-      }
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
     };
+  }, [mobileMenuOpen]);
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Home", href: "#home" },
+  const mainLinks = [
     { name: "Who We Help", href: "#who-we-help" },
-    { name: "Solutions", href: "#solutions", hasDropdown: true },
+    { name: "Solutions", href: "#solutions" },
     { name: "Industries", href: "#industries" },
-    { name: "Why AICCELER8", href: "#why-aicceler8", highlight: true },
-    { name: "Contact Us", href: "#contact-us" },
+    { name: "Why AICCELER8", href: "#why-aicceler8" },
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-5 py-5 text-[#101010] md:px-8 md:py-8">
-      <div className="relative flex items-center justify-between">
+    <>
+      {/* Fixed Header */}
+      <header className="fixed inset-x-0 top-0 z-[60] px-6 py-6 md:px-12 md:py-8 flex items-center justify-between mix-blend-difference text-white">
+        {/* Logo */}
         <a
           href="#home"
           aria-label="AICCELER8 home"
-          className="flex h-11 items-center justify-center px-3.5 transition-transform hover:scale-95"
+          className="relative z-[60] flex items-center transition-transform hover:scale-95 mix-blend-normal"
+          onClick={() => setMobileMenuOpen(false)}
         >
-          <div className="relative h-6 w-24">
-            <Image
-              src="/images/logos/logo.png"
-              alt="AICCELER8"
-              fill
-              priority
-              className="object-contain"
-            />
+          {/* We'll use a text logo if the image isn't suitable, but let's stick to the image and adjust its color using CSS filters if needed. 
+              Since mix-blend-difference is tricky with images, we'll conditionally change the text color based on menu state. */}
+          <div className={`text-2xl font-bold tracking-tighter ${mobileMenuOpen ? 'text-black' : 'text-white mix-blend-difference'}`}>
+            AICCELER8
           </div>
         </a>
 
-        <nav className={`hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 lg:gap-8 text-sm font-bold transition-opacity duration-300 ${centerNavVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`flex items-center gap-1 transition-opacity hover:opacity-60 whitespace-nowrap ${
-                link.highlight ? "underline underline-offset-4" : ""
-              }`}
-            >
-              {link.name}
-              {link.hasDropdown && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          className="grid h-11 w-11 place-items-center bg-[#101010] text-[#E2725B] transition-transform hover:scale-95"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <nav className="absolute right-5 top-20 flex w-[min(23rem,calc(100vw-2.5rem))] flex-col gap-1 border border-[#101010] bg-[#E2725B] p-3 shadow-[8px_8px_0_#101010] md:right-8 md:top-24">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className={`flex items-center justify-between px-3 py-3 text-base font-semibold transition-colors hover:bg-[#101010] hover:text-[#E2725B] ${
-                link.highlight ? "underline underline-offset-4" : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-              {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
-            </a>
-          ))}
+        {/* Right Actions */}
+        <div className="flex items-center gap-4 md:gap-6 relative z-[60]">
           <button
             onClick={() => {
               setMobileMenuOpen(false);
               onOpenBooking();
-            }} 
-            className="mt-2 border border-[#101010] bg-[#101010] px-3 py-3 text-left font-semibold text-[#E2725B] transition-colors hover:bg-transparent hover:text-[#101010]"
+            }}
+            className={`hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-colors ${
+              mobileMenuOpen 
+                ? "bg-black text-white hover:bg-black/80" 
+                : "bg-white text-black hover:bg-gray-200"
+            }`}
           >
-            Book a call
+            Book a call <ArrowRight className="w-4 h-4" />
           </button>
-        </nav>
-      )}
-    </header>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex items-center justify-center w-12 h-12 rounded-full transition-transform hover:scale-95"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? (
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                <div className="absolute w-6 h-[2px] bg-red-600 rotate-45 transition-transform" />
+                <div className="absolute w-6 h-[2px] bg-red-600 -rotate-45 transition-transform" />
+              </div>
+            ) : (
+              <div className="flex flex-col gap-[6px] items-end mix-blend-difference">
+                <div className="w-8 h-[2px] bg-white" />
+                <div className="w-8 h-[2px] bg-white" />
+              </div>
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* Full Screen Menu Overlay */}
+      <div 
+        className={`fixed inset-0 z-50 bg-[#FFFAF0] transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)] ${
+          mobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <div className="h-full w-full flex flex-col justify-center px-6 md:px-16 lg:px-32 max-w-[1400px] mx-auto">
+          <nav className="flex flex-col w-full mt-12 md:mt-0">
+            {mainLinks.map((link, i) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="group flex items-center justify-between border-b border-black/20 py-5 md:py-8 text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-bold tracking-tighter text-black hover:text-[#E2725B] transition-colors"
+              >
+                <span>{link.name}</span>
+                <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 opacity-0 -translate-x-4 translate-y-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Bottom Footer Links */}
+        <div className="absolute bottom-8 left-6 md:left-16 flex gap-6 md:gap-8 text-sm md:text-base font-bold text-black">
+          <a href="#" className="hover:text-[#E2725B] transition-colors">Blog</a>
+          <a href="#" className="hover:text-[#E2725B] transition-colors">Jobs</a>
+          <a href="#" className="hover:text-[#E2725B] transition-colors">FAQ</a>
+        </div>
+        
+        <div className="absolute bottom-8 right-6 md:right-16 flex gap-5 md:gap-6 text-black">
+          <a href="#" aria-label="Instagram" className="hover:text-[#E2725B] transition-colors">
+            <Instagram className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+          <a href="#" aria-label="Facebook" className="hover:text-[#E2725B] transition-colors">
+            <Facebook className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+          <a href="#" aria-label="LinkedIn" className="hover:text-[#E2725B] transition-colors">
+            <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+        </div>
+      </div>
+    </>
   );
 }
