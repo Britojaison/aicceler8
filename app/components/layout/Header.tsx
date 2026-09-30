@@ -26,7 +26,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         <a
           href="#home"
           aria-label="AICCELER8 home"
-          className="flex h-11 items-center justify-center bg-[#101010] px-3.5 transition-transform hover:scale-95"
+          className="flex h-11 items-center justify-center px-3.5 transition-transform hover:scale-95"
         >
           <div className="relative h-6 w-24">
             <Image
