@@ -1,0 +1,85 @@
+--- components/curtain-slider/curtain-slider.jsx
++++ components/curtain-slider/curtain-slider.jsx
+@@ -179,16 +179,30 @@
+ // content - invisible, but the seam can never open.
+-function layoutStrips(stage, layerParts, columns) {
+-  const w = stage.clientWidth || 1;
++function layoutStrips(stage, layerParts, columns, orientation) {
++  const isHoriz = orientation === 'horizontal';
++  const size = isHoriz ? (stage.clientHeight || 1) : (stage.clientWidth || 1);
+   const edges = [];
+-  for (let c = 0; c <= columns; c++) edges.push(Math.round((c * w) / columns));
++  for (let c = 0; c <= columns; c++) edges.push(Math.round((c * size) / columns));
+   layerParts.forEach((parts) => {
+     for (let c = 0; c < columns; c++) {
+       const strip = parts.strips[c];
+       const inner = parts.inners[c];
+       const overlap = c < columns - 1 ? 1 : 0;
+-      strip.style.left = edges[c] + 'px';
+-      strip.style.width = (edges[c + 1] - edges[c] + overlap) + 'px';
+-      inner.style.left = (-edges[c]) + 'px';
+-      inner.style.width = w + 'px';
++      const dim = (edges[c + 1] - edges[c] + overlap) + 'px';
++      const offset = (-edges[c]) + 'px';
++      const full = size + 'px';
++      if (isHoriz) {
++        strip.style.top = edges[c] + 'px';
++        strip.style.height = dim;
++        strip.style.left = '0px';
++        strip.style.width = '100%';
++        inner.style.top = offset;
++        inner.style.height = full;
++        inner.style.left = '0px';
++        inner.style.width = '100%';
++      } else {
++        strip.style.left = edges[c] + 'px';
++        strip.style.width = dim;
++        strip.style.top = '0px';
++        strip.style.height = '100%';
++        inner.style.left = offset;
++        inner.style.width = full;
++        inner.style.top = '0px';
++        inner.style.height = '100%';
++      }
+     }
+   });
+ }
+@@ -218,6 +232,7 @@
+   drag = true,
+   stagger = 0.0125,
++  orientation = 'vertical',
+   disable,
+   onChange,
+ }) {
+@@ -358,9 +373,15 @@
+     gsap.killTweensOf(outParts.strips);
+     for (let s = 0; s < outParts.strips.length; s++) {
+-      outParts.strips[s].style.clipPath = direction > 0
+-        ? 'inset(0% 0% 0% var(--csc, 0%))'
+-        : 'inset(0% var(--csc, 0%) 0% 0%)';
++      if (orientation === 'horizontal') {
++        outParts.strips[s].style.clipPath = direction > 0
++          ? 'inset(0% 0% var(--csc, 0%) 0%)'
++          : 'inset(var(--csc, 0%) 0% 0% 0%)';
++      } else {
++        outParts.strips[s].style.clipPath = direction > 0
++          ? 'inset(0% 0% 0% var(--csc, 0%))'
++          : 'inset(0% var(--csc, 0%) 0% 0%)';
++      }
+     }
+     gsap.set(outParts.strips, { '--csc': '0%' });
+@@ -537,7 +558,7 @@
+     };
+ 
+-    layoutStrips(stage, layerParts, clampedColumns);
++    layoutStrips(stage, layerParts, clampedColumns, orientation);
+     settleCurrent();
+ 
+@@ -620,7 +641,7 @@
+       resizeTimer = setTimeout(() => {
+         if (!refsRef.current || !stageRef.current) return;
+-        layoutStrips(stageRef.current, refsRef.current.layerParts, clampedColumns);
++        layoutStrips(stageRef.current, refsRef.current.layerParts, clampedColumns, orientation);
+       }, 150);
+     }
+     window.addEventListener('resize', handleResize);
