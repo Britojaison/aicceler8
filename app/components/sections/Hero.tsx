@@ -44,7 +44,6 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
     <section id="home" ref={heroRef} className={styles.heroSection}>
       <div className={styles.contentWrapper} ref={contentRef}>
         <div className={styles.leftTextBlock}>
-          <div className={styles.verticalLine} aria-hidden="true" />
           <p className={styles.paragraphText}>
             <strong>Growth reimagined, powered by intelligence.</strong>
             <span>
@@ -67,6 +66,12 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
             colors="Fire"
             shape="Asterisk"
           />
+        </div>
+
+        <div className={styles.leftActionBlock}>
+          <a href="#solutions" className={styles.actionButton}>
+            Explore our services
+          </a>
         </div>
 
         <div className={styles.rightHeroBlock}>

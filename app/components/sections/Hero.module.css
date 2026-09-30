@@ -51,23 +51,25 @@
 }
 
 .paragraphText {
-  font-size: clamp(0.82rem, 1vw, 1rem);
-  line-height: 1.35;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  line-height: 1.4;
   margin: 0;
   color: #111111;
+  text-align: center;
 }
 
 .paragraphText strong {
-  font-size: clamp(1.05rem, 1.45vw, 1.45rem);
-  font-weight: 700;
+  font-size: clamp(1.6rem, 2.8vw, 3.2rem);
+  font-weight: 800;
   display: block;
-  margin-bottom: 1.45rem;
-  letter-spacing: 0;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
 }
 
 .paragraphText span {
   display: block;
-  max-width: 30rem;
+  max-width: 34rem;
+  margin: 0 auto;
 }
 
 /* Huge Bottom Text */
@@ -102,6 +104,25 @@
   margin-bottom: clamp(5.4rem, 10.7vw, 13.5rem);
   margin-left: 0.8vw;
   color: #111111;
+}
+
+/* Left Action Block (Explore Button) */
+.leftActionBlock {
+  position: absolute;
+  top: 48%;
+  left: 1.25rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 30;
+}
+
+@media (min-width: 1024px) {
+  .leftActionBlock {
+    left: 2.5rem;
+    top: 48%;
+  }
 }
 
 /* Right Hero Block (Action Button) */
@@ -183,6 +204,13 @@
 
   .registeredMark {
     display: none;
+  }
+
+  .leftActionBlock {
+    top: auto;
+    bottom: clamp(4.5rem, 20vw, 7.5rem);
+    left: 1rem;
+    transform: none;
   }
 
   .rightHeroBlock {
