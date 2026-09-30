@@ -34,6 +34,7 @@ export default function SectionPillars() {
 
   return (
     <section ref={sectionRef} id="how-we-transform" className="w-full relative z-20 bg-transparent">
+      <div id="who-we-help" className="absolute -top-10" />
       
       {/* SVG Mask Definition */}
       <svg className="absolute w-0 h-0 pointer-events-none">

@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Hero from "./components/sections/Hero";
 import SectionEvolution from "./components/sections/SectionEvolution";
 import SectionPillars from "./components/sections/SectionPillars";
+import SectionSolutions from "./components/sections/SectionSolutions";
 import SectionImpactGrid from "./components/sections/SectionImpactGrid";
 import SectionPartners from "./components/sections/SectionPartners";
 import SectionTransformations from "./components/sections/SectionTransformations";
@@ -47,6 +48,7 @@ export default function Home() {
         <Hero onOpenBooking={handleOpenBooking} isReady={heroReady} />
         <SectionEvolution />
         <SectionPillars />
+        <SectionSolutions onOpenBooking={handleOpenBooking} />
         <SectionImpactGrid />
         <SectionPartners />
         <SectionTransformations onOpenBooking={handleOpenBooking} />
