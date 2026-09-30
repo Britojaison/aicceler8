@@ -2,10 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Image from "next/image";
-import AsciiBackground from "../ui/AsciiBackground";
 import styles from "./Hero.module.css";
-import { ArrowUpRight } from "lucide-react";
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -57,29 +54,27 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
   }, [isReady]);
 
   return (
-    <section ref={heroRef} className={styles.heroSection}>
-      {/* Main Content */}
+    <section id="home" ref={heroRef} className={styles.heroSection}>
       <div className={styles.contentWrapper} ref={contentRef}>
-        
-        {/* Mid-Left Text */}
         <div className={styles.leftTextBlock}>
-          <div className={styles.verticalLine}></div>
+          <div className={styles.verticalLine} aria-hidden="true" />
           <p className={styles.paragraphText}>
-            <strong>Growth Reimagined Powered by Intelligence.</strong><br />
-            AICCELER8 is the modern consulting partner built for the age of AI where intelligence meets execution.
+            <strong>Growth reimagined, powered by intelligence.</strong>
+            <span>
+              AICCELER8 is the modern consulting partner built for the age of
+              AI, where intelligence meets execution.
+            </span>
           </p>
         </div>
 
-        {/* Huge Bottom Text */}
         <div className={styles.hugeTextContainer}>
-          <h1 className={styles.hugeText}>.aicceler8</h1>
-          <span className={styles.registeredMark}>®</span>
+          <h1 className={styles.hugeText}>aicceler8</h1>
+          <span className={styles.registeredMark} aria-hidden="true">®</span>
         </div>
 
-        {/* Bottom Right Button */}
         <div className={styles.bottomRightAction}>
           <button className={styles.actionButton} onClick={onOpenBooking}>
-            BOOK A CALL
+            Book a call
           </button>
         </div>
 

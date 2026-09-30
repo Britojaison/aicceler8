@@ -4,11 +4,12 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #882D17; /* Kobe */
-  color: #111111; /* Dark text */
+  min-height: max(100vh, 44rem);
+  background-color: #E2725B;
+  color: #101010;
   overflow: hidden;
   user-select: none;
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: var(--font-stara), sans-serif;
 }
 
 .contentWrapper {
@@ -16,107 +17,156 @@
   z-index: 10;
   flex: 1;
   width: 100%;
-  padding-top: 6rem; /* for header */
+  min-height: inherit;
 }
 
 /* Mid-Left Text */
 .leftTextBlock {
   position: absolute;
-  top: 45%;
-  left: 2rem;
+  top: 58.5%;
+  left: 1.25rem;
   transform: translateY(-50%);
   display: flex;
   align-items: stretch;
-  gap: 1rem;
-  max-width: 450px;
+  gap: 1.25rem;
+  max-width: min(49rem, calc(100vw - 2.5rem));
   z-index: 15;
 }
 
 @media (min-width: 1024px) {
   .leftTextBlock {
-    left: 4rem;
+    left: 1.25rem;
   }
 }
 
 .verticalLine {
-  width: 2px;
-  background-color: #111111;
+  width: 1px;
+  background-color: currentColor;
   flex-shrink: 0;
 }
 
 .paragraphText {
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: clamp(0.82rem, 1vw, 1rem);
+  line-height: 1.35;
   margin: 0;
   color: #111111;
 }
 
 .paragraphText strong {
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 1.45vw, 1.45rem);
   font-weight: 700;
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 1.45rem;
+  letter-spacing: 0;
+}
+
+.paragraphText span {
+  display: block;
+  max-width: 30rem;
 }
 
 /* Huge Bottom Text */
 .hugeTextContainer {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
+  bottom: -0.8vw;
+  left: 0.3vw;
+  width: 110%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
   z-index: 5;
+  pointer-events: none;
 }
 
 .hugeText {
-  font-family: var(--font-kobe), 'Inter', sans-serif !important;
-  font-size: 16vw; 
-  font-weight: 400 !important;
-  line-height: 0.85 !important;
-  letter-spacing: 0.02em !important;
+  font-family: var(--font-kobe), sans-serif !important;
+  font-size: clamp(8.4rem, 17.4vw, 22rem);
+  font-weight: 900 !important;
+  line-height: 0.72 !important;
+  letter-spacing: 0 !important;
   color: #111111;
   margin: 0;
+  padding-left: 0;
   white-space: nowrap;
   text-transform: lowercase;
 }
 
 .registeredMark {
-  font-size: 2vw;
+  font-size: clamp(1.2rem, 2.4vw, 3rem);
   font-weight: 600;
-  margin-bottom: 9.5vw;
-  margin-left: 0.5vw;
+  margin-bottom: clamp(5.4rem, 10.7vw, 13.5rem);
+  margin-left: 0.8vw;
   color: #111111;
 }
 
 /* Bottom Right Button */
 .bottomRightAction {
   position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1.25rem;
+  right: 1.25rem;
   z-index: 30;
 }
 
 @media (min-width: 1024px) {
   .bottomRightAction {
-    bottom: 3rem;
-    right: 4rem;
+    bottom: 1.25rem;
+    right: 1.25rem;
   }
 }
 
 .actionButton {
-  padding: 1rem 2rem;
-  border: 1.5px solid #111111;
+  min-width: 12.5rem;
+  padding: 1.2rem 1.75rem;
+  border: 1px solid #111111;
   background-color: transparent;
   color: #111111;
-  font-size: 0.875rem;
+  font-family: var(--font-stara), sans-serif;
+  font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .heroSection {
+    min-height: max(100svh, 38rem);
+  }
+
+  .leftTextBlock {
+    top: 54%;
+    gap: 0.85rem;
+  }
+
+  .paragraphText strong {
+    margin-bottom: 0.85rem;
+  }
+
+  .hugeTextContainer {
+    left: 0;
+    bottom: 0.1rem;
+    width: 160%;
+  }
+
+  .hugeText {
+    font-size: clamp(6.5rem, 29vw, 10rem);
+  }
+
+  .registeredMark {
+    display: none;
+  }
+
+  .bottomRightAction {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .actionButton {
+    min-width: auto;
+    padding: 0.85rem 1rem;
+    font-size: 0.76rem;
+  }
 }
 
 .actionButton:hover {

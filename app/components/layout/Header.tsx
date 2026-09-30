@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Plus, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -21,81 +21,65 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 font-sans pointer-events-none">
-      
-      {/* Grid Plus Icons - keeping the tech aesthetic in the background */}
-      <Plus className="w-5 h-5 text-white/20 stroke-[1] absolute left-6 top-6 hidden md:block" />
-      <Plus className="w-5 h-5 text-white/20 stroke-[1] absolute right-6 top-6 hidden md:block" />
-
-      <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between relative">
-        
-        {/* Left Block - Logo */}
-        <div className="flex items-center pointer-events-auto pl-2 md:pl-8">
-          <span className="font-semibold text-white tracking-wider text-lg">AICCELER8</span>
-        </div>
-
-        {/* Center Block - Pill Menu (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-8 pointer-events-auto bg-[#0a0a0a] border border-white/10 rounded-full px-8 py-3.5 shadow-2xl">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
-                link.highlight ? "text-[#ff5e3a] hover:text-[#ff8a70]" : "text-white/80 hover:text-white"
-              }`}
-            >
-              {link.name}
-              {link.hasDropdown && <ChevronDown className="w-4 h-4 text-white/50" />}
-            </a>
-          ))}
-        </nav>
-
-        {/* Right Block - Action Button (Desktop) */}
-        <div className="hidden lg:flex items-center pointer-events-auto pr-2 md:pr-8">
-          <button 
-            onClick={onOpenBooking} 
-            className="px-6 py-3 rounded-full text-black bg-white hover:bg-neutral-200 transition-colors text-sm font-semibold shadow-[0_0_20px_rgba(255,255,255,0.15)]"
-          >
-            Contact Us
-          </button>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="lg:hidden pointer-events-auto text-white/80 hover:text-white bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-sm font-medium"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+    <header className="fixed inset-x-0 top-0 z-50 px-5 py-5 text-[#101010] md:px-8 md:py-8">
+      <div className="relative flex items-center justify-between">
+        <a
+          href="#home"
+          aria-label="AICCELER8 home"
+          className="flex h-11 items-center justify-center bg-[#101010] px-3.5 transition-transform hover:scale-95"
         >
-          Menu
+          <div className="relative h-6 w-24">
+            <Image
+              src="/images/logos/logo.png"
+              alt="AICCELER8"
+              fill
+              priority
+              className="object-contain"
+            />
+          </div>
+        </a>
+
+        <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm font-bold">
+          <button className="border border-[#101010] px-2.5 py-1.5" aria-label="English language">EN</button>
+          <button className="px-1 py-1.5 opacity-65 transition-opacity hover:opacity-100" aria-label="French language">FR</button>
+        </div>
+
+        <button
+          className="grid h-11 w-11 place-items-center bg-[#101010] text-[#E2725B] transition-transform hover:scale-95"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-20 left-4 right-4 bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 flex flex-col gap-4 lg:hidden pointer-events-auto shadow-2xl">
+        <nav className="absolute right-5 top-20 flex w-[min(23rem,calc(100vw-2.5rem))] flex-col gap-1 border border-[#101010] bg-[#E2725B] p-3 shadow-[8px_8px_0_#101010] md:right-8 md:top-24">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href} 
-              className={`flex items-center gap-2 text-base font-medium transition-colors ${
-                link.highlight ? "text-[#ff5e3a]" : "text-white/80 hover:text-white"
+              className={`flex items-center justify-between px-3 py-3 text-base font-semibold transition-colors hover:bg-[#101010] hover:text-[#E2725B] ${
+                link.highlight ? "underline underline-offset-4" : ""
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
-              {link.hasDropdown && <ChevronDown className="w-4 h-4 text-white/50" />}
+              {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
             </a>
           ))}
-          <div className="h-px bg-white/10 my-2 w-full"></div>
-          <button 
+          <button
             onClick={() => {
               setMobileMenuOpen(false);
               onOpenBooking();
             }} 
-            className="w-full py-3.5 rounded-xl text-black bg-white hover:bg-neutral-200 transition-colors font-semibold mt-2"
+            className="mt-2 border border-[#101010] bg-[#101010] px-3 py-3 text-left font-semibold text-[#E2725B] transition-colors hover:bg-transparent hover:text-[#101010]"
           >
-            Contact Us
+            Book a call
           </button>
-        </div>
+        </nav>
       )}
     </header>
   );
