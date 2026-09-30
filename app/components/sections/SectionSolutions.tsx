@@ -172,12 +172,20 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
               data-gsap="item"
               onMouseEnter={() => setActiveId(service.id)}
               onClick={onOpenBooking}
-              className={`group relative w-full rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 transition-colors duration-500 cursor-pointer overflow-hidden ${
+              className={`group relative w-full rounded-none p-8 sm:p-12 lg:p-16 transition-colors duration-500 cursor-pointer overflow-hidden ${
                 isActive
                   ? "bg-black text-white"
                   : "bg-[#F4F4F4] text-black hover:bg-[#EAEAEA]"
               }`}
             >
+              {/* Signature Red Accent Dot at bottom-right corner matching Designerpart */}
+              {(isActive || service.hasRedDot) && (
+                <div
+                  className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-2.5 h-2.5 rounded-full bg-[#FF2D20] pointer-events-none transition-opacity duration-300"
+                  aria-hidden="true"
+                />
+              )}
+
               {/* Massive Architectural Top-Right Diagonal Arrow (Visible only on Active Black Card) */}
               <div
                 className={`absolute top-8 right-8 sm:top-12 sm:right-12 lg:top-14 lg:right-14 transition-all duration-500 pointer-events-none ${
@@ -229,7 +237,7 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
                   </div>
                 </div>
 
-                {/* Column 2: Punchy Statement with Signature Red Accent Dot */}
+                {/* Column 2: Punchy Statement */}
                 <div className="lg:col-span-4 lg:pt-3">
                   <p
                     className={`text-xl sm:text-2xl lg:text-[1.65rem] font-medium leading-[1.3] tracking-tight transition-colors duration-500 ${
@@ -237,12 +245,6 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
                     }`}
                   >
                     {service.statement}
-                    {isActive && (
-                      <span
-                        className="inline-block w-2.5 h-2.5 rounded-full ml-2 align-middle bg-[#FF2D20]"
-                        aria-hidden="true"
-                      />
-                    )}
                   </p>
                 </div>
 

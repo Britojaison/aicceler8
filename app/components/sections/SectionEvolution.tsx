@@ -5,6 +5,8 @@ import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
 import TextBlockAnimation from "../ui/text-block-animation";
 import TextReveal from "../../../components/text-reveal/text-reveal.jsx";
 
+const TextRevealComponent = TextReveal as any;
+
 export default function SectionEvolution() {
   const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.14 });
 
@@ -13,14 +15,14 @@ export default function SectionEvolution() {
       {/* Subtle Grain/Texture overlay if desired, currently just a dark solid background matching the vibe */}
       <div data-gsap="title" className="max-w-[1400px] mx-auto w-full relative z-10">
 
-        <TextReveal
+        <TextRevealComponent
           textClassName="!text-white !text-left !font-sans !text-[11vw] md:!text-[6.5vw] lg:!text-[5.5vw] !font-medium !tracking-tightest !leading-[0.9]"
           type="words"
           start="top 85%"
           scrub={false}
         >
           We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining <span className="text-[#E2725B]">strategic thinking</span>, AI integration, and <span className="text-[#E2725B]">execution</span> at speed.
-        </TextReveal>
+        </TextRevealComponent>
 
       </div>
     </section>
