@@ -75,7 +75,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   z-index: 5;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .hugeText {

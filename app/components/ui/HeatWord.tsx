@@ -96,15 +96,24 @@ function drawShape(g: CanvasRenderingContext2D, shape: string, w: number, h: num
   }
 }
 
+let cachedKobeFont = "";
+function getKobeFont() {
+  if (cachedKobeFont) return cachedKobeFont;
+  if (typeof document === "undefined") return `"${FACE.family}"`;
+  const el = document.createElement("span");
+  el.style.fontFamily = "var(--font-kobe), Kobe, sans-serif";
+  document.body.appendChild(el);
+  const font = getComputedStyle(el).fontFamily;
+  document.body.removeChild(el);
+  cachedKobeFont = font;
+  return font;
+}
+
 /* the face is on the page already, but may not have arrived by
    the first frame — waited for, or the first word is the fallback */
 async function ensure() {
   try {
-    let fontFamily = `"${FACE.family}"`;
-    if (typeof window !== "undefined") {
-      const kobeVar = getComputedStyle(document.body).getPropertyValue("--font-kobe").trim();
-      if (kobeVar) fontFamily = kobeVar;
-    }
+    const fontFamily = getKobeFont();
     await document.fonts?.load(`${FACE.weight} 100px ${fontFamily}`);
   } catch {
     /* drawn in the fallback, which is still a word */
@@ -195,7 +204,7 @@ function lut(name: string) {
    the heat would be, soft at the edge — and the heat map is only
    ever shown where the hand is. GREY_A is the grey's alpha per
    brightness: the letter's body at full, a short soft edge. */
-const GREY = [150, 150, 154];
+const GREY = [17, 17, 17];
 const GREY_A = new Uint8ClampedArray(256);
 for (let i = 0; i < 256; i++) GREY_A[i] = 255 * clamp((i - 70) / 45, 0, 1);
 
@@ -295,12 +304,8 @@ export function HeatWord({
     }
     /* as large as fits */
     let size = 150 * r;
-    let fontFamily = `"${FACE.family}"`;
-    if (typeof window !== "undefined") {
-      const kobeVar = getComputedStyle(document.body).getPropertyValue("--font-kobe").trim();
-      if (kobeVar) fontFamily = kobeVar;
-    }
-    const f = `${fontFamily}, system-ui, sans-serif`;
+    const fontFamily = getKobeFont();
+    const f = `${fontFamily}`;
     g.font = `${FACE.weight} ${size}px ${f}`;
     const fit = (w * 0.88) / g.measureText(word).width;
     size = Math.min(size, size * fit);
