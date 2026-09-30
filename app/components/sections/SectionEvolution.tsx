@@ -65,25 +65,22 @@ export default function SectionEvolution() {
       {/* Section Header with Freshworks Serif Italic */}
       <div data-gsap="title" className="max-w-3xl mb-16">
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
-          WHY AICCELER8
+          Who We Are
         </span>
         <TextBlockAnimation blockColor="#F59E0B" delay={0.5}>
           <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-            AI isn’t the transformation. <br />
-            <span className="font-normal text-neutral-950">
-              Your business is.
-            </span>
+            The Growth Architects for an AI-Powered Era
           </h2>
         </TextBlockAnimation>
         <div className="space-y-4 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
           <p>
-            For the past decade, digital transformation focused on software. Today, every organization is adopting AI tools. <strong className="text-neutral-900 font-medium">Yet very few are becoming AI-powered businesses.</strong>
+            We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining strategic thinking, AI integration, and execution at speed.
           </p>
           <p>
-            The companies that lead over the next decade won’t simply use AI. They will redesign the way they think, work, sell, create and serve customers.
+            AICCELER8 is a new-age Growth Management Consultancy built for the world's most ambitious organizations—enterprises, governments, and institutions navigating rapid change.
           </p>
-          <p className="text-neutral-900 font-medium">
-            That shift requires more than technology. It requires strategy. It requires leadership. It requires organizational change. <span className="text-black font-semibold underline decoration-neutral-300 underline-offset-4">That is where AICceler8 comes in.</span>
+          <p>
+            We combine the strategic depth of a consulting firm, the agility of a tech company, and the precision of an AI-native execution team. Our job is simple yet bold: to help organizations move faster, scale smarter, and lead confidently in an AI-powered world.
           </p>
         </div>
       </div>
