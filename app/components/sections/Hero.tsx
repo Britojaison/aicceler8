@@ -47,7 +47,9 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
         <div className={styles.leftTextBlock}>
           <div className={styles.paragraphText}>
             <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.6}>
-              <strong>Growth reimagined, powered by intelligence.</strong>
+              <strong style={{ lineHeight: 1 }}>Growth reimagined, powered by intelligence.</strong>
+            </TextBlockAnimation>
+            <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.7}>
               <span>
                 AICCELER8 is the modern consulting partner built for the age of
                 AI, where intelligence meets execution.

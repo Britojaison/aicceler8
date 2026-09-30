@@ -35,7 +35,7 @@ export default function TextBlockAnimation({
         // 1. Setup SplitText
         const split = new SplitText(containerRef.current, {
             type: "lines,words",
-            linesClass: "block-line-parent relative overflow-hidden", // Add relative and overflow-hidden for pseudo-element
+            linesClass: "block-line-parent relative", // Removed overflow-hidden
         });
 
         const lines = split.lines;
@@ -104,6 +104,11 @@ export default function TextBlockAnimation({
     return (
         <>
             <style dangerouslySetInnerHTML={{__html: `
+                .block-line-parent {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    line-height: inherit;
+                }
                 .block-line-parent::after {
                     content: '';
                     position: absolute;
