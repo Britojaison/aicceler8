@@ -100,13 +100,24 @@ let cachedKobeFont = "";
 function getKobeFont() {
   if (cachedKobeFont) return cachedKobeFont;
   if (typeof document === "undefined") return `"${FACE.family}"`;
+  
+  // Canvas doesn't support CSS variables in font strings. 
+  // We need the actual generated font name from Next.js.
+  const kobeVar = getComputedStyle(document.body).getPropertyValue('--font-kobe').trim();
+  if (kobeVar) {
+    cachedKobeFont = `${kobeVar}, "${FACE.family}", sans-serif`;
+    return cachedKobeFont;
+  }
+
   const el = document.createElement("span");
   el.style.fontFamily = "var(--font-kobe), Kobe, sans-serif";
   document.body.appendChild(el);
   const font = getComputedStyle(el).fontFamily;
   document.body.removeChild(el);
-  cachedKobeFont = font;
-  return font;
+  
+  // Strip var() in case it wasn't evaluated
+  cachedKobeFont = font.replace(/var\([^)]+\),?\s*/g, '') || `"${FACE.family}"`;
+  return cachedKobeFont;
 }
 
 /* the face is on the page already, but may not have arrived by
