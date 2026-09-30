@@ -39,10 +39,20 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           </div>
         </a>
 
-        <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm font-bold">
-          <button className="border border-[#101010] px-2.5 py-1.5" aria-label="English language">EN</button>
-          <button className="px-1 py-1.5 opacity-65 transition-opacity hover:opacity-100" aria-label="French language">FR</button>
-        </div>
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 lg:gap-8 text-sm font-bold">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className={`flex items-center gap-1 transition-opacity hover:opacity-60 whitespace-nowrap ${
+                link.highlight ? "underline underline-offset-4" : ""
+              }`}
+            >
+              {link.name}
+              {link.hasDropdown && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
+            </a>
+          ))}
+        </nav>
 
         <button
           className="grid h-11 w-11 place-items-center bg-[#101010] text-[#E2725B] transition-transform hover:scale-95"
