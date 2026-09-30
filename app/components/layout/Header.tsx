@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Instagram, Facebook, Linkedin } from "lucide-react";
+import SlideToConfirm from "../ui/SlideToConfirm";
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -33,36 +34,40 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   return (
     <>
       {/* Fixed Header */}
-      <header className="fixed inset-x-0 top-0 z-[60] px-6 py-6 md:px-12 md:py-8 flex items-center justify-between mix-blend-difference text-white">
+      <header className="fixed inset-x-0 top-0 z-[60] px-6 py-6 md:px-12 md:py-8 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#home"
           aria-label="AICCELER8 home"
-          className="relative z-[60] flex items-center transition-transform hover:scale-95 mix-blend-normal"
+          className="relative z-[60] flex items-center transition-transform hover:scale-95"
           onClick={() => setMobileMenuOpen(false)}
         >
-          {/* We'll use a text logo if the image isn't suitable, but let's stick to the image and adjust its color using CSS filters if needed. 
-              Since mix-blend-difference is tricky with images, we'll conditionally change the text color based on menu state. */}
-          <div className={`text-2xl font-bold tracking-tighter ${mobileMenuOpen ? 'text-black' : 'text-white mix-blend-difference'}`}>
-            AICCELER8
+          <div className="relative h-7 w-28 md:h-8 md:w-32">
+            <Image
+              src="/images/logos/logo.png"
+              alt="AICCELER8"
+              fill
+              priority
+              className={`object-contain transition-all ${
+                mobileMenuOpen ? "brightness-0" : ""
+              }`}
+            />
           </div>
         </a>
 
         {/* Right Actions */}
         <div className="flex items-center gap-4 md:gap-6 relative z-[60]">
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenBooking();
-            }}
-            className={`hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-colors ${
-              mobileMenuOpen 
-                ? "bg-black text-white hover:bg-black/80" 
-                : "bg-white text-black hover:bg-gray-200"
-            }`}
-          >
-            Book a call <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="hidden sm:block">
+            <SlideToConfirm
+              width={240}
+              label="Slide to book call"
+              theme="dark"
+              onConfirm={() => {
+                setMobileMenuOpen(false);
+                onOpenBooking();
+              }}
+            />
+          </div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -71,13 +76,13 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           >
             {mobileMenuOpen ? (
               <div className="relative w-6 h-6 flex items-center justify-center">
-                <div className="absolute w-6 h-[2px] bg-red-600 rotate-45 transition-transform" />
-                <div className="absolute w-6 h-[2px] bg-red-600 -rotate-45 transition-transform" />
+                <div className="absolute w-6 h-[2px] bg-black rotate-45 transition-transform" />
+                <div className="absolute w-6 h-[2px] bg-black -rotate-45 transition-transform" />
               </div>
             ) : (
-              <div className="flex flex-col gap-[6px] items-end mix-blend-difference">
-                <div className="w-8 h-[2px] bg-white" />
-                <div className="w-8 h-[2px] bg-white" />
+              <div className="flex flex-col gap-[6px] items-end">
+                <div className="w-8 h-[2px] bg-black" />
+                <div className="w-8 h-[2px] bg-black" />
               </div>
             )}
           </button>
