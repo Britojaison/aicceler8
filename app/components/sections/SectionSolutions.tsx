@@ -174,19 +174,21 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
               onClick={onOpenBooking}
               className={`group relative w-full rounded-none p-8 sm:p-12 lg:p-16 transition-colors duration-500 cursor-pointer overflow-hidden ${
                 isActive
-                  ? "bg-black text-white"
+                  ? "bg-[#E2725B] text-black"
                   : "bg-[#F4F4F4] text-black hover:bg-[#EAEAEA]"
               }`}
             >
-              {/* Signature Red Accent Dot at bottom-right corner matching Designerpart */}
+              {/* Signature Accent Dot at bottom-right corner */}
               {(isActive || service.hasRedDot) && (
                 <div
-                  className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-2.5 h-2.5 rounded-full bg-[#FF2D20] pointer-events-none transition-opacity duration-300"
+                  className={`absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-2.5 h-2.5 rounded-full pointer-events-none transition-opacity duration-300 ${
+                    isActive ? "bg-black" : "bg-[#FF2D20]"
+                  }`}
                   aria-hidden="true"
                 />
               )}
 
-              {/* Massive Architectural Top-Right Diagonal Arrow (Visible only on Active Black Card) */}
+              {/* Massive Architectural Top-Right Diagonal Arrow (Visible only on Active Orange Card) */}
               <div
                 className={`absolute top-8 right-8 sm:top-12 sm:right-12 lg:top-14 lg:right-14 transition-all duration-500 pointer-events-none ${
                   isActive
@@ -196,7 +198,7 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
                 aria-hidden="true"
               >
                 <svg
-                  className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 stroke-white stroke-[1.25]"
+                  className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 stroke-black stroke-[1.25]"
                   viewBox="0 0 24 24"
                   fill="none"
                 >
@@ -210,7 +212,7 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
 
               {/* 3-Column Layout: Left (Title), Middle (Pitch Statement), Right (Offerings list) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start pr-12 lg:pr-20">
-                {/* Column 1: Massive Bold Title, Line, & "Mehr erfahren →" style link */}
+                {/* Column 1: Massive Bold Title, Line, & "Learn more →" style link */}
                 <div className="lg:col-span-5 flex flex-col justify-between">
                   <div>
                     <h3 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-heading font-extrabold tracking-tight leading-[1.04]">
@@ -221,9 +223,7 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
 
                   {/* Horizontal Divider Bar */}
                   <div
-                    className={`w-28 sm:w-32 h-[1.5px] mt-8 mb-6 sm:mt-10 sm:mb-8 transition-colors duration-500 ${
-                      isActive ? "bg-white" : "bg-black"
-                    }`}
+                    className="w-28 sm:w-32 h-[1.5px] mt-8 mb-6 sm:mt-10 sm:mb-8 bg-black transition-colors duration-500"
                   />
 
                   {/* Clean CTA Link */}
@@ -240,9 +240,7 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
                 {/* Column 2: Punchy Statement */}
                 <div className="lg:col-span-4 lg:pt-3">
                   <p
-                    className={`text-xl sm:text-2xl lg:text-[1.65rem] font-medium leading-[1.3] tracking-tight transition-colors duration-500 ${
-                      isActive ? "text-white" : "text-black"
-                    }`}
+                    className="text-xl sm:text-2xl lg:text-[1.65rem] font-medium leading-[1.3] tracking-tight text-black transition-colors duration-500"
                   >
                     {service.statement}
                   </p>
@@ -254,9 +252,7 @@ export default function SectionSolutions({ onOpenBooking }: SectionSolutionsProp
                     {service.deliverables.map((item, idx) => (
                       <li
                         key={idx}
-                        className={`text-xs sm:text-sm lg:text-[0.95rem] font-normal leading-relaxed transition-colors duration-500 ${
-                          isActive ? "text-white/85" : "text-black/85"
-                        }`}
+                        className="text-xs sm:text-sm lg:text-[0.95rem] font-normal leading-relaxed text-black/85 transition-colors duration-500"
                       >
                         <span className="select-none mr-2">—</span>
                         <span>{item}</span>
