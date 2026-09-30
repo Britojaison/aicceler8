@@ -55,7 +55,13 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
         </div>
 
         <div className={styles.hugeTextContainer}>
-          <h1 className={styles.hugeText}>aicceler8</h1>
+          <HeatWord
+            heat={60}
+            soft={50}
+            area={50}
+            colors="Fire"
+            shape="Word"
+          />
           <span className={styles.registeredMark} aria-hidden="true">®</span>
         </div>
 

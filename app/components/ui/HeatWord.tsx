@@ -26,23 +26,18 @@ import "./HeatWord.css";
    drawn far off the canvas with its shadow thrown back on, so
    only the blurred shadow lands. */
 
-const W = 360;
-const H = 170;
-/* one word, always: its curves and its straight stems both melt well */
-const word = "BEND";
-
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 
 /* the word is Inter at its bold, the site's own face, so it is
    already on the page and never fetched */
-const FACE = { family: "Inter", weight: 700 };
+const FACE = { family: "Kobe", weight: 900 };
 
 /* ── or a shape, instead of a word ─────────────────────────
    The heat reads any shape, and the ones that look most liquid
    are where strokes meet or nearly touch: bars crossing at a
    centre, dots close enough to run together. Each takes a seed,
    so a press deals a new arrangement of the same kind. */
-export const SHAPES = ["Dots", "Asterisk", "Word"] as const;
+export const SHAPES = ["Dots", "Asterisk"] as const;
 
 function rng(seed: number) {
   let t = seed * 9301 + 49297;
@@ -105,7 +100,12 @@ function drawShape(g: CanvasRenderingContext2D, shape: string, w: number, h: num
    the first frame — waited for, or the first word is the fallback */
 async function ensure() {
   try {
-    await document.fonts?.load(`${FACE.weight} 100px "${FACE.family}"`);
+    let fontFamily = `"${FACE.family}"`;
+    if (typeof window !== "undefined") {
+      const kobeVar = getComputedStyle(document.body).getPropertyValue("--font-kobe").trim();
+      if (kobeVar) fontFamily = kobeVar;
+    }
+    await document.fonts?.load(`${FACE.weight} 100px ${fontFamily}`);
   } catch {
     /* drawn in the fallback, which is still a word */
   }
@@ -210,15 +210,22 @@ export function HeatWord({
   colors = "Neon",
   /* the shape it starts on; a press steps to the next */
   shape: start = "Dots",
+  /* optional override word */
+  word = "AICCELER8",
 }: {
   heat?: number;
   soft?: number;
   area?: number;
   colors?: string;
   shape?: string;
+  word?: string;
 } = {}) {
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 1000));
   const [shape, setShape] = useState(start);
+  
+  const currentW = shape === "Word" ? 1600 : 360;
+  const currentH = shape === "Word" ? 250 : 170;
+
   /* the knob moving is a new start, whatever the presses did */
   useEffect(() => setShape(start), [start]);
   const shown = useRef<HTMLCanvasElement>(null);
@@ -245,7 +252,7 @@ export function HeatWord({
     const s = st.current;
     const r = Math.min(2, window.devicePixelRatio || 1);
     s.ratio = r;
-    const w = Math.round(W * r), h = Math.round(H * r);
+    const w = Math.round(currentW * r), h = Math.round(currentH * r);
     const base = s.base ?? document.createElement("canvas");
     base.width = w; base.height = h;
     s.base = base;
@@ -288,7 +295,12 @@ export function HeatWord({
     }
     /* as large as fits */
     let size = 150 * r;
-    const f = `"${FACE.family}", system-ui, sans-serif`;
+    let fontFamily = `"${FACE.family}"`;
+    if (typeof window !== "undefined") {
+      const kobeVar = getComputedStyle(document.body).getPropertyValue("--font-kobe").trim();
+      if (kobeVar) fontFamily = kobeVar;
+    }
+    const f = `${fontFamily}, system-ui, sans-serif`;
     g.font = `${FACE.weight} ${size}px ${f}`;
     const fit = (w * 0.88) / g.measureText(word).width;
     size = Math.min(size, size * fit);
@@ -430,11 +442,12 @@ export function HeatWord({
   return (
     <div
       className="heat"
-      style={{ width: W, height: H }}
+      style={{ width: currentW, height: currentH }}
       onPointerEnter={(e) => { aim(e); const s = st.current; s.px = s.tx; s.py = s.ty; s.want = 1; run(); }}
       onPointerMove={(e) => { aim(e); st.current.want = 1; run(); }}
       onPointerLeave={() => { st.current.want = 0; run(); }}
       onClick={() => {
+        if (shape === "Word") return;
         /* the next shape round, the dots and the asterisk dealt a
            fresh arrangement as they come back */
         const i = SHAPES.indexOf(shape as (typeof SHAPES)[number]);
@@ -444,7 +457,7 @@ export function HeatWord({
       role="button"
       aria-label={shape === "Word" ? `${word}. Press for the next shape` : `${shape}. Press for the next shape`}
     >
-      <canvas ref={shown} className="heat-canvas" style={{ width: W, height: H }} aria-hidden="true" />
+      <canvas ref={shown} className="heat-canvas" style={{ width: currentW, height: currentH }} aria-hidden="true" />
     </div>
   );
 }
