@@ -23,19 +23,24 @@
 /* Mid-Left Text */
 .leftTextBlock {
   position: absolute;
-  top: 58.5%;
-  left: 1.25rem;
-  transform: translateY(-50%);
+  top: 35%;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   display: flex;
   align-items: stretch;
+  justify-content: center;
   gap: 1.25rem;
+  width: max-content;
   max-width: min(49rem, calc(100vw - 2.5rem));
   z-index: 15;
 }
 
 @media (min-width: 1024px) {
   .leftTextBlock {
-    left: 1.25rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
   }
 }
 
@@ -155,7 +160,10 @@
   }
 
   .leftTextBlock {
-    top: 54%;
+    top: 35%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
     gap: 0.85rem;
   }
 
