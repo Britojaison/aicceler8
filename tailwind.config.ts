@@ -28,7 +28,7 @@ export default {
         sans: ["var(--font-stara)", "Stara", "sans-serif"],
         stara: ["var(--font-stara)", "Stara", "sans-serif"],
         kobe: ["var(--font-kobe)", "Kobe", "sans-serif"],
-        heading: ["var(--font-kobe)", "Kobe", "sans-serif"],
+        heading: ["var(--font-stara)", "Stara", "sans-serif"],
         serif: ["var(--font-kobe)", "Kobe", "sans-serif"],
         mono: ["var(--font-stara)", "Stara", "sans-serif"],
       },

@@ -159,8 +159,12 @@ body {
   background: #94a3b8;
 }
 
-/* Headings: Kobe font strictly */
-h1, h2, h3, h4, h5, h6, .font-heading, .font-kobe, .heading-kobe {
+/* Headings: Stara font strictly */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-stara), 'Stara', sans-serif !important;
+}
+
+.font-kobe, .heading-kobe {
   font-family: var(--font-kobe), 'Kobe', sans-serif !important;
 }
 
