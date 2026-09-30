@@ -48,7 +48,7 @@ export default function TransformationModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-150">
       <div
         data-lenis-prevent
-        className="relative w-full max-w-2xl bg-white border border-neutral-200 rounded-3xl p-8 sm:p-10 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-2xl bg-white rounded-3xl p-8 sm:p-10 shadow-2xl max-h-[90vh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
       >
@@ -82,7 +82,7 @@ export default function TransformationModal({
         {/* Metrics Grid */}
         <div className="grid grid-cols-3 gap-3 mb-8">
           {item.metrics.map((m, idx) => (
-            <div key={idx} className="p-4 rounded-2xl bg-neutral-50 border border-neutral-100">
+            <div key={idx} className="p-4 rounded-2xl bg-neutral-50">
               <div className="text-[11px] text-neutral-500 uppercase font-mono mb-1">{m.label}</div>
               <div className="text-xl font-sans font-bold text-neutral-950">{m.value}</div>
             </div>

@@ -76,7 +76,7 @@ export default function SectionDifferentiators() {
       </div>
 
       {/* Comparison Table */}
-      <div className="overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-2xl bg-white shadow-sm">
         <table className="w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="border-b border-neutral-200 bg-surface-50 text-xs font-mono tracking-wider uppercase text-neutral-500">

@@ -107,10 +107,10 @@ export default function SectionApproach() {
             <button
               key={step.num}
               onClick={() => setActiveStep(idx)}
-              className={`p-5 rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[120px] ${
+              className={`p-5 rounded-2xl text-left transition-all flex flex-col justify-between min-h-[120px] ${
                 isActive
-                  ? "bg-white border-black shadow-[0_10px_25px_-8px_rgba(0,0,0,0.12)] ring-1 ring-black"
-                  : "bg-surface-50 border-neutral-200/80 text-neutral-700 hover:border-neutral-300 hover:bg-white"
+                  ? "bg-white shadow-[0_10px_25px_-8px_rgba(0,0,0,0.12)]"
+                  : "bg-surface-50 text-neutral-700 hover:bg-white"
               }`}
             >
               <div className="flex items-center justify-between w-full mb-2">
@@ -133,10 +133,10 @@ export default function SectionApproach() {
       </div>
 
       {/* Active Phase Card */}
-      <div className="rounded-3xl border border-neutral-200 bg-surface-50 p-8 sm:p-12">
+      <div className="rounded-3xl bg-surface-50 p-8 sm:p-12">
         <div className="max-w-3xl">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono font-bold text-neutral-900 px-3 py-1 rounded-full bg-white border border-neutral-200">
+            <span className="text-xs font-mono font-bold text-neutral-900 px-3 py-1 rounded-full bg-white">
               PHASE {steps[activeStep].num} // {steps[activeStep].duration}
             </span>
             <span className="text-xs font-medium text-neutral-500">
@@ -160,7 +160,7 @@ export default function SectionApproach() {
               {steps[activeStep].deliverables.map((del, dIdx) => (
                 <div
                   key={dIdx}
-                  className="p-4 rounded-xl bg-white border border-neutral-200/80 flex items-start gap-2.5 text-xs font-medium text-neutral-800 shadow-xs"
+                  className="p-4 rounded-xl bg-white flex items-start gap-2.5 text-xs font-medium text-neutral-800 shadow-xs"
                 >
                   <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>{del}</span>

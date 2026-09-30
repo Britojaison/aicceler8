@@ -147,12 +147,12 @@ export default function SectionImpactGrid() {
               data-gsap="item"
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between border ${
+              className={`rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between ${
                 isHighlighted
                   ? "bg-neutral-950 text-white shadow-xl"
                   : isHovered
-                  ? "bg-white border-black shadow-[0_12px_30px_-10px_rgba(0,0,0,0.1)]"
-                  : "bg-surface-50 border-neutral-200/80 hover:bg-white"
+                  ? "bg-white shadow-[0_12px_30px_-10px_rgba(0,0,0,0.1)]"
+                  : "bg-surface-50 hover:bg-white"
               }`}
             >
               <div>

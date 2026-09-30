@@ -113,7 +113,7 @@ export default function SectionPartners() {
       </div>
 
       {/* Strategic Mindset Banner (from Aicceler8 Website.docx) */}
-      <div className="mb-14 rounded-3xl border border-neutral-200 bg-surface-50 p-8 sm:p-12 relative overflow-hidden">
+      <div className="mb-14 rounded-3xl bg-surface-50 p-8 sm:p-12 relative overflow-hidden">
         <div className="max-w-3xl">
           <span className="text-xs font-mono uppercase tracking-widest text-brand-coral font-semibold block mb-3">
             THE STRATEGIC MINDSET
@@ -142,10 +142,10 @@ export default function SectionPartners() {
               <button
                 key={cohort.name}
                 onClick={() => setSelectedCohort(idx)}
-                className={`text-left p-4 rounded-xl border transition-all flex flex-col justify-between min-h-[110px] ${
+                className={`text-left p-4 rounded-xl transition-all flex flex-col justify-between min-h-[110px] ${
                   isSelected
-                    ? "bg-black text-white border-black shadow-md"
-                    : "bg-surface-50 border-neutral-200/80 text-neutral-800 hover:bg-white hover:border-neutral-300"
+                    ? "bg-black text-white shadow-md"
+                    : "bg-surface-50 text-neutral-800 hover:bg-white"
                 }`}
               >
                 <div className="flex items-center justify-between w-full mb-2">
@@ -168,7 +168,7 @@ export default function SectionPartners() {
       </div>
 
       {/* Selected Cohort Detail Card */}
-      <div className="rounded-2xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-sm">
+      <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <span className="text-xs font-mono uppercase tracking-widest text-brand-coral font-bold block">

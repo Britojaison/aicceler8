@@ -113,7 +113,7 @@ export default function SectionInsights() {
           <article
             key={art.id}
             data-gsap="item"
-            className="rounded-2xl p-7 bg-surface-50 border border-neutral-200/80 hover:bg-white hover:border-neutral-300 hover:shadow-lg hover:shadow-neutral-900/5 transition-all flex flex-col justify-between group"
+            className="rounded-2xl p-7 bg-surface-50 hover:bg-white hover:shadow-lg hover:shadow-neutral-900/5 transition-all flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 mb-3">
@@ -140,7 +140,7 @@ export default function SectionInsights() {
       </div>
 
       {/* LinkedIn Newsletter Integration Box (from Aicceler8 Website.docx) */}
-      <div className="rounded-3xl border border-neutral-200 bg-surface-50 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="rounded-3xl bg-surface-50 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="max-w-xl">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-black" />
