@@ -10,6 +10,30 @@ interface HeaderProps {
 
 export default function Header({ onOpenBooking }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [centerNavVisible, setCenterNavVisible] = useState(true);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const secondSection = document.getElementById("why-aicceler8");
+      if (secondSection) {
+        if (window.scrollY > secondSection.offsetTop - 100) {
+          setCenterNavVisible(false);
+        } else {
+          setCenterNavVisible(true);
+        }
+      } else {
+        if (window.scrollY > 800) {
+          setCenterNavVisible(false);
+        } else {
+          setCenterNavVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -39,7 +63,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           </div>
         </a>
 
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 lg:gap-8 text-sm font-bold">
+        <nav className={`hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 lg:gap-8 text-sm font-bold transition-opacity duration-300 ${centerNavVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
