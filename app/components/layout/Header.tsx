@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 interface HeaderProps {
@@ -27,9 +28,15 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           aria-label="AICCELER8 home"
           className="flex h-11 items-center justify-center bg-[#101010] px-3.5 transition-transform hover:scale-95"
         >
-          <span className="font-kobe text-[1.4rem] font-black tracking-tight text-[#E2725B] leading-none pt-1">
-            AICCELER8
-          </span>
+          <div className="relative h-6 w-24">
+            <Image
+              src="/images/logos/logo.png"
+              alt="AICCELER8"
+              fill
+              priority
+              className="object-contain"
+            />
+          </div>
         </a>
 
         <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 lg:gap-8 text-sm font-bold">

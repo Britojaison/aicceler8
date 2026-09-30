@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
@@ -13,10 +14,13 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-16">
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-4">
-          <div className="relative flex items-center">
-            <span className="font-kobe text-2xl font-black tracking-tight text-neutral-900 uppercase leading-none">
-              AICCELER8
-            </span>
+          <div className="relative h-8 w-26 flex items-center">
+            <Image
+              src="/images/logos/logo.png"
+              alt="AICceler8"
+              fill
+              className="object-contain filter invert"
+            />
           </div>
           <p className="text-xs sm:text-sm text-neutral-500 font-normal max-w-sm leading-relaxed">
             An Enterprise Growth & Transformation Company powered by Artificial Intelligence. We partner with ambitious leadership teams to redesign how their organizations grow, operate, and compete.
