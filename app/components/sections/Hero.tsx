@@ -47,7 +47,7 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
         <div className={styles.leftTextBlock}>
           <div className={styles.paragraphText}>
             <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.6}>
-              <strong style={{ lineHeight: 1 }}>Growth reimagined, powered by intelligence.</strong>
+              <strong>Growth reimagined, powered by intelligence.</strong>
             </TextBlockAnimation>
             <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.7}>
               <span>

@@ -34,12 +34,12 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   return (
     <>
       {/* Fixed Header */}
-      <header className="fixed inset-x-0 top-0 z-[60] px-6 py-6 md:px-12 md:py-8 flex items-center justify-between">
+      <header className="fixed inset-x-0 top-0 z-[60] px-6 py-6 md:px-12 md:py-8 flex items-center justify-between pointer-events-none">
         {/* Logo */}
         <a
           href="#home"
           aria-label="AICCELER8 home"
-          className="relative z-[60] flex items-center transition-transform hover:scale-95"
+          className="pointer-events-auto relative z-[60] flex items-center transition-transform hover:scale-95"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div className="relative h-7 w-28 md:h-8 md:w-32">
@@ -56,7 +56,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         </a>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-4 md:gap-6 relative z-[60]">
+        <div className="pointer-events-auto flex items-center gap-4 md:gap-6 relative z-[60]">
           <div className="hidden sm:block">
             <SlideToConfirm
               width={240}

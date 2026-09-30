@@ -21,7 +21,7 @@
 /* Mid-Left Text */
 .leftTextBlock {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 0;
   right: 0;
   margin-inline: auto;
@@ -30,7 +30,7 @@
   justify-content: center;
   gap: 1.25rem;
   width: max-content;
-  max-width: min(49rem, calc(100vw - 2.5rem));
+  max-width: min(62rem, calc(100vw - 3rem));
   z-index: 15;
 }
 
@@ -49,24 +49,25 @@
 }
 
 .paragraphText {
-  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-  line-height: 1.4;
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  line-height: 1.5;
   margin: 0;
   color: #111111;
   text-align: center;
 }
 
 .paragraphText strong {
-  font-size: clamp(1.6rem, 2.8vw, 3.2rem);
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
   font-weight: 800;
   display: block;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 
 .paragraphText span {
   display: block;
-  max-width: 34rem;
+  max-width: 42rem;
   margin: 0 auto;
 }
 

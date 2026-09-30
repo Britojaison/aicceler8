@@ -28,12 +28,27 @@ export default function SectionPillars() {
         pin: true,
         pinSpacing: false,
         scrub: true,
+        onUpdate: (self) => {
+          if (sectionRef.current) {
+            sectionRef.current.style.visibility = self.progress >= 0.98 ? "hidden" : "visible";
+          }
+        },
+        onLeave: () => {
+          if (sectionRef.current) {
+            sectionRef.current.style.visibility = "hidden";
+          }
+        },
+        onEnterBack: () => {
+          if (sectionRef.current) {
+            sectionRef.current.style.visibility = "visible";
+          }
+        },
       }
     });
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="how-we-transform" className="w-full relative z-20 bg-transparent">
+    <section ref={sectionRef} id="how-we-transform" className="w-full relative z-20 bg-transparent pointer-events-none">
       <div id="who-we-help" className="absolute -top-10" />
       
       {/* SVG Mask Definition */}
