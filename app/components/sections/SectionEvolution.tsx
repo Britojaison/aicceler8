@@ -8,21 +8,16 @@ export default function SectionEvolution() {
   const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.14 });
 
   return (
-    <section ref={sectionRef} id="why-aicceler8" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
-      {/* Section Header with Freshworks Serif Italic */}
-      <div data-gsap="title" className="max-w-3xl mb-16">
-        <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
-          Who We Are
-        </span>
-        <TextBlockAnimation blockColor="#F59E0B" delay={0.5}>
-          <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-            The Growth Architects for an AI-Powered Era
-          </h2>
-        </TextBlockAnimation>
-        <div className="space-y-4 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          <p>
-            We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining strategic thinking, AI integration, and execution at speed.
-          </p>
+    <section ref={sectionRef} id="why-aicceler8" className="py-32 md:py-48 px-4 sm:px-6 lg:px-8 w-full bg-[#101010] text-white relative overflow-hidden">
+      {/* Subtle Grain/Texture overlay if desired, currently just a dark solid background matching the vibe */}
+      <div data-gsap="title" className="max-w-[1400px] mx-auto w-full relative z-10">
+
+        
+        <h2 className="text-[11vw] md:text-[6.5vw] lg:text-[5.5vw] font-sans font-medium tracking-tightest leading-[0.9] text-white">
+          We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining <span className="text-white/30">strategic thinking</span>, AI integration, and <span className="text-white/30">execution</span> at speed.
+        </h2>
+        
+        <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 text-[15px] sm:text-base text-white/60 font-normal leading-[1.6] max-w-4xl">
           <p>
             AICCELER8 is a new-age Growth Management Consultancy built for the world's most ambitious organizations—enterprises, governments, and institutions navigating rapid change.
           </p>
@@ -31,7 +26,6 @@ export default function SectionEvolution() {
           </p>
         </div>
       </div>
-
     </section>
   );
 }
