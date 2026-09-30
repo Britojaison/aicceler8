@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ArrowRight, Check, Sparkles, Cpu, Layers, Workflow } from "lucide-react";
 import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
+import TextBlockAnimation from "../ui/text-block-animation";
 
 export default function SectionEvolution() {
   const [activeStage, setActiveStage] = useState<number>(2);
@@ -66,12 +67,14 @@ export default function SectionEvolution() {
         <span className="text-xs font-semibold tracking-wider text-brand-coral uppercase mb-3 block">
           WHY AICCELER8
         </span>
-        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-          AI isn’t the transformation. <br />
-          <span className="font-normal text-neutral-950">
-            Your business is.
-          </span>
-        </h2>
+        <TextBlockAnimation blockColor="#F59E0B" delay={0.5}>
+          <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
+            AI isn’t the transformation. <br />
+            <span className="font-normal text-neutral-950">
+              Your business is.
+            </span>
+          </h2>
+        </TextBlockAnimation>
         <div className="space-y-4 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
           <p>
             For the past decade, digital transformation focused on software. Today, every organization is adopting AI tools. <strong className="text-neutral-900 font-medium">Yet very few are becoming AI-powered businesses.</strong>

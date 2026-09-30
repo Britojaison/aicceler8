@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { HeatWord } from "../ui/HeatWord";
+import TextBlockAnimation from "../ui/text-block-animation";
 import styles from "./Hero.module.css";
 
 interface HeroProps {
@@ -44,13 +45,15 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
     <section id="home" ref={heroRef} className={styles.heroSection}>
       <div className={styles.contentWrapper} ref={contentRef}>
         <div className={styles.leftTextBlock}>
-          <p className={styles.paragraphText}>
-            <strong>Growth reimagined, powered by intelligence.</strong>
-            <span>
-              AICCELER8 is the modern consulting partner built for the age of
-              AI, where intelligence meets execution.
-            </span>
-          </p>
+          <div className={styles.paragraphText}>
+            <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.6}>
+              <strong>Growth reimagined, powered by intelligence.</strong>
+              <span>
+                AICCELER8 is the modern consulting partner built for the age of
+                AI, where intelligence meets execution.
+              </span>
+            </TextBlockAnimation>
+          </div>
         </div>
 
         <div className={styles.hugeTextContainer}>
@@ -69,15 +72,19 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
         </div>
 
         <div className={styles.leftActionBlock}>
-          <a href="#solutions" className={styles.actionButton}>
-            Explore our services
-          </a>
+          <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.8}>
+            <a href="#solutions" className={styles.actionButton}>
+              Explore our services
+            </a>
+          </TextBlockAnimation>
         </div>
 
         <div className={styles.rightHeroBlock}>
-          <button className={styles.actionButton} onClick={onOpenBooking}>
-            Book a call
-          </button>
+          <TextBlockAnimation isReady={isReady} blockColor="#000" delay={0.8}>
+            <button className={styles.actionButton} onClick={onOpenBooking}>
+              Book a call
+            </button>
+          </TextBlockAnimation>
         </div>
 
       </div>
