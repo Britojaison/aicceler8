@@ -99,19 +99,39 @@
   color: #111111;
 }
 
-/* Bottom Right Button */
-.bottomRightAction {
+/* Right Hero Block (Action Button) */
+.rightHeroBlock {
   position: absolute;
-  bottom: clamp(6.5rem, 13.5vw, 15.5rem);
+  top: 48%;
   right: 1.25rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   z-index: 30;
 }
 
 @media (min-width: 1024px) {
-  .bottomRightAction {
-    bottom: clamp(7.5rem, 14vw, 16.5rem);
-    right: 1.25rem;
+  .rightHeroBlock {
+    right: 2.5rem;
+    top: 48%;
   }
+}
+
+/* Asterisk positioned above the number 8 */
+.asteriskWrapper {
+  position: absolute;
+  bottom: clamp(3rem, 12vw, 14rem);
+  right: -2rem;
+  width: clamp(240px, 24vw, 360px);
+  z-index: 25;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.asteriskWrapper > * {
+  pointer-events: auto;
 }
 
 .actionButton {
@@ -157,9 +177,17 @@
     display: none;
   }
 
-  .bottomRightAction {
-    bottom: clamp(5.5rem, 24vw, 8.5rem);
+  .rightHeroBlock {
+    top: auto;
+    bottom: clamp(4.5rem, 20vw, 7.5rem);
     right: 1rem;
+    transform: none;
+  }
+
+  .asteriskWrapper {
+    bottom: clamp(6.5rem, 24vw, 12rem);
+    right: clamp(1rem, 4vw, 3rem);
+    width: clamp(160px, 38vw, 220px);
   }
 
   .actionButton {

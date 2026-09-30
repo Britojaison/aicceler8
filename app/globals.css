@@ -188,3 +188,41 @@ code, kbd, samp, pre, .font-mono {
   transform: translateY(-3px);
   box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
 }
+
+/* ══ Particles ═════════════════════════════════════════════
+   lab/Particles.tsx. The dots are drawn on a canvas in the
+   element's own `color`, so the ink is set here and the theme
+   carries it. */
+.ptc {
+  --ink: var(--foreground, #101010);
+  --fill-on: currentColor;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.ptc-canvas {
+  display: block;
+  color: var(--fill-on, var(--ink));
+  cursor: crosshair;
+  touch-action: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ══ Heat word ═════════════════════════════════════════════ */
+.heat {
+  position: relative;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  max-width: 100%;
+}
+
+.heat-canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

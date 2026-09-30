@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { HeatWord } from "../ui/HeatWord";
 import styles from "./Hero.module.css";
 
 interface HeroProps {
@@ -58,7 +59,17 @@ export default function Hero({ onOpenBooking, isReady = true }: HeroProps) {
           <span className={styles.registeredMark} aria-hidden="true">®</span>
         </div>
 
-        <div className={styles.bottomRightAction}>
+        <div className={styles.asteriskWrapper}>
+          <HeatWord
+            heat={60}
+            soft={50}
+            area={50}
+            colors="Fire"
+            shape="Asterisk"
+          />
+        </div>
+
+        <div className={styles.rightHeroBlock}>
           <button className={styles.actionButton} onClick={onOpenBooking}>
             Book a call
           </button>
