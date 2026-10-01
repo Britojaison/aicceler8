@@ -1,173 +1,189 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, Compass, Hammer, GraduationCap, TrendingUp, Check } from "lucide-react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { useGsapScrollTrigger } from "../ui/useGsapScrollTrigger";
+
+interface ApproachPhase {
+  num: string;
+  tag: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+
+const PHASES: ApproachPhase[] = [
+  {
+    num: "01",
+    tag: "PHASE 01 // DISCOVER",
+    title: "Discover",
+    description:
+      "We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers to map immediate ROI.",
+    image: "/accordion_1.jpg",
+    alt: "Notebook and glasses depicting discovery phase",
+  },
+  {
+    num: "02",
+    tag: "PHASE 02 // DESIGN",
+    title: "Design",
+    description:
+      "Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.",
+    image: "/accordion_2.jpg",
+    alt: "Wireframing and system architecture design",
+  },
+  {
+    num: "03",
+    tag: "PHASE 03 // BUILD",
+    title: "Build",
+    description:
+      "Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.",
+    image: "/accordion_3.jpg",
+    alt: "Software development and AI systems engineering",
+  },
+  {
+    num: "04",
+    tag: "PHASE 04 // ENABLE",
+    title: "Enable",
+    description:
+      "Train leadership and teams to integrate AI into everyday work. We drive organizational adoption, establish governance models, and eliminate operational friction.",
+    image: "/accordion_4.jpg",
+    alt: "Team enablement, mobile workflows and adoption",
+  },
+];
 
 export default function SectionApproach() {
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const sectionRef = useGsapScrollTrigger<HTMLElement>({ stagger: 0.1 });
 
-  const steps = [
-    {
-      num: "01",
-      title: "Discover",
-      tagline: "Understand Your Business",
-      icon: Search,
-      duration: "Phase 01",
-      description:
-        "Understand your business, challenges and opportunities. We evaluate existing workflows, operational bottlenecks, data readiness, and high-impact revenue levers.",
-      deliverables: [
-        "Business challenges and opportunity assessment",
-        "Executive opportunity sizing matrix",
-        "Data readiness & workflow vulnerability audit",
-      ],
-    },
-    {
-      num: "02",
-      title: "Design",
-      tagline: "Create Transformation Blueprint",
-      icon: Compass,
-      duration: "Phase 02",
-      description:
-        "Create an AI transformation blueprint aligned with business goals. We map intelligent architectures, governance frameworks, and measurable growth benchmarks.",
-      deliverables: [
-        "AI transformation blueprint aligned with business goals",
-        "System architecture & model selection specs",
-        "Executive ROI and change management roadmap",
-      ],
-    },
-    {
-      num: "03",
-      title: "Build",
-      tagline: "Develop Intelligent Systems",
-      icon: Hammer,
-      duration: "Phase 03",
-      description:
-        "Develop intelligent systems, workflows and enterprise capabilities. Everything is custom-engineered to integrate seamlessly into daily operations.",
-      deliverables: [
-        "Intelligent business systems & autonomous workflows",
-        "Enterprise search & knowledge platforms",
-        "AI agents & collaborative decision systems",
-      ],
-    },
-    {
-      num: "04",
-      title: "Enable",
-      tagline: "Train Leadership and Teams",
-      icon: GraduationCap,
-      duration: "Phase 04",
-      description:
-        "Train leadership and teams to integrate AI into everyday work. We drive organizational adoption, establish governance models, and eliminate operational friction.",
-      deliverables: [
-        "Leadership and executive AI integration training",
-        "Departmental workflow enablement & adoption",
-        "Enterprise governance models & guardrails",
-      ],
-    },
-    {
-      num: "05",
-      title: "Scale",
-      tagline: "Continuously Improve and Evolve",
-      icon: TrendingUp,
-      duration: "Phase 05",
-      description:
-        "Continuously improve, expand and evolve as your organization grows. We ensure your business captures new market opportunities and expands internationally.",
-      deliverables: [
-        "Continuous optimization as new technologies emerge",
-        "Expansion into new business opportunities",
-        "International growth & scaling frameworks",
-      ],
-    },
-  ];
+  const handlePrev = () => {
+    setActiveIdx((prev) => (prev === 0 ? PHASES.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIdx((prev) => (prev === PHASES.length - 1 ? 0 : prev + 1));
+  };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/70">
-      {/* Section Header */}
-      <div className="max-w-3xl mb-16">
-        <span className="text-xs font-semibold tracking-wider text-neutral-500 uppercase mb-3 block">
-          SECTION EIGHT // OUR APPROACH
-        </span>
-        <h2 className="text-4xl sm:text-5xl font-heading font-normal text-neutral-950 tracking-tight leading-[1.12] mb-6">
-          Our Approach <br />
-          <span className="font-normal text-neutral-950">
-            From Blueprint to Compounding Scale.
-          </span>
-        </h2>
-        <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-          A disciplined timeline from initial discovery to continuous enterprise evolution.
-        </p>
-      </div>
-
-      {/* 5-Step Timeline Buttons */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
-        {steps.map((step, idx) => {
-          const Icon = step.icon;
-          const isActive = activeStep === idx;
-
-          return (
-            <button
-              key={step.num}
-              onClick={() => setActiveStep(idx)}
-              className={`p-5 rounded-2xl text-left transition-all flex flex-col justify-between min-h-[120px] ${
-                isActive
-                  ? "bg-white shadow-[0_10px_25px_-8px_rgba(0,0,0,0.12)]"
-                  : "bg-surface-50 text-neutral-700 hover:bg-white"
-              }`}
-            >
-              <div className="flex items-center justify-between w-full mb-2">
-                <span className={`text-xs font-mono font-bold ${isActive ? "text-neutral-950" : "text-neutral-400"}`}>
-                  PHASE {step.num}
-                </span>
-                <Icon className={`w-4 h-4 ${isActive ? "text-neutral-950" : "text-neutral-400"}`} />
-              </div>
-              <div>
-                <div className="text-base font-bold text-neutral-950">
-                  {step.title}
-                </div>
-                <div className="text-[11px] font-medium text-neutral-500">
-                  {step.duration}
-                </div>
-              </div>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Active Phase Card */}
-      <div className="rounded-3xl bg-surface-50 p-8 sm:p-12">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono font-bold text-neutral-900 px-3 py-1 rounded-full bg-white">
-              PHASE {steps[activeStep].num} // {steps[activeStep].duration}
-            </span>
-            <span className="text-xs font-medium text-neutral-500">
-              {steps[activeStep].tagline}
-            </span>
-          </div>
-
-          <h3 className="text-3xl font-heading font-bold text-neutral-950 mb-3">
-            {steps[activeStep].title}: {steps[activeStep].tagline}
-          </h3>
-
-          <p className="text-base text-neutral-600 font-normal leading-relaxed mb-8">
-            {steps[activeStep].description}
-          </p>
-
+    <section
+      ref={sectionRef}
+      id="our-approach"
+      className="relative w-full bg-[#F4EFE6] py-24 sm:py-32 lg:py-36 px-6 sm:px-12 lg:px-20 border-t border-neutral-300/40 overflow-hidden"
+    >
+      <div className="max-w-[1480px] mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 lg:mb-20">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-900 font-semibold block mb-3">
-              Key Deliverables & Executive Milestones:
+            <span className="text-xs sm:text-sm font-mono tracking-widest text-[#FF5E3F] font-bold uppercase block mb-4">
+              OUR APPROACH
             </span>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {steps[activeStep].deliverables.map((del, dIdx) => (
-                <div
-                  key={dIdx}
-                  className="p-4 rounded-xl bg-white flex items-start gap-2.5 text-xs font-medium text-neutral-800 shadow-xs"
-                >
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>{del}</span>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-sans tracking-tight leading-[1.05] uppercase">
+              <span className="font-bold text-neutral-900 block">CHOSEN BY AGILE TEAMS.</span>
+              <span className="font-normal italic text-[#FF5E3F] block">OPERATING AT SCALE.</span>
+            </h2>
           </div>
+
+          {/* Prev / Next Navigation Buttons */}
+          <div className="flex items-center gap-3 self-end md:self-auto">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous Phase"
+              className="w-12 h-12 rounded-full bg-white border border-neutral-300/70 shadow-sm flex items-center justify-center text-neutral-800 hover:bg-neutral-100 hover:scale-105 active:scale-95 transition-all"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              aria-label="Next Phase"
+              className="w-12 h-12 rounded-full bg-white border border-neutral-300/70 shadow-sm flex items-center justify-center text-neutral-800 hover:bg-neutral-100 hover:scale-105 active:scale-95 transition-all"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* 4-Panel Interactive Accordion */}
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 min-h-[580px] lg:h-[620px] w-full">
+          {PHASES.map((phase, idx) => {
+            const isExpanded = activeIdx === idx;
+
+            if (isExpanded) {
+              return (
+                <div
+                  key={phase.num}
+                  className="flex-[4] lg:flex-[3.5] bg-[#141416] rounded-3xl p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row gap-8 lg:gap-10 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl relative"
+                >
+                  {/* Left Column: Text */}
+                  <div className="flex-1 flex flex-col justify-between z-10">
+                    <div>
+                      <span className="text-xs sm:text-sm font-mono tracking-widest text-[#FF5E3F] uppercase font-bold block mb-8">
+                        {phase.tag}
+                      </span>
+                      <p className="text-xl sm:text-2xl lg:text-3xl font-sans font-light text-white leading-relaxed max-w-md">
+                        {phase.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-8 pt-6 border-t border-white/10 hidden sm:flex items-center gap-3 text-neutral-400 text-xs font-mono">
+                      <span>PHASE {phase.num} OF 04</span>
+                      <span>·</span>
+                      <span className="text-[#FF5E3F]">{phase.title}</span>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Image */}
+                  <div className="flex-1 relative w-full min-h-[280px] lg:min-h-full rounded-2xl overflow-hidden shadow-inner border border-white/10">
+                    <Image
+                      src={phase.image}
+                      alt={phase.alt}
+                      fill
+                      priority
+                      className="object-cover object-center"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
+                </div>
+              );
+            }
+
+            // Collapsed Panel
+            return (
+              <button
+                key={phase.num}
+                onClick={() => setActiveIdx(idx)}
+                className="flex-1 relative bg-[#141416] rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden group text-left cursor-pointer hover:bg-[#1a1a1e] min-h-[140px] lg:min-h-full shadow-lg"
+              >
+                {/* Background image preview with dark gradient overlay */}
+                <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                  <Image
+                    src={phase.image}
+                    alt={phase.alt}
+                    fill
+                    className="object-cover object-center filter grayscale"
+                  />
+                  <div className="absolute inset-0 bg-[#141416]/80" />
+                </div>
+
+                {/* Top content */}
+                <div className="relative z-10">
+                  <span className="text-xs font-mono tracking-widest text-[#FF5E3F] uppercase font-bold block mb-3">
+                    PHASE {phase.num}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-sans font-bold text-white tracking-tight">
+                    {phase.title}
+                  </h3>
+                </div>
+
+                {/* Bottom Round Arrow Button */}
+                <div className="relative z-10 self-end">
+                  <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-[#FF5E3F] group-hover:border-[#FF5E3F] transition-all duration-300">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>

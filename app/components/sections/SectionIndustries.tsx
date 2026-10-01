@@ -31,11 +31,21 @@ export default function SectionIndustries({ onOpenBooking }: SectionIndustriesPr
   const scrollLeftRef = useRef(0);
   const hasMovedRef = useRef(false);
 
-  // Editorial alternating card layout (portrait medium vs landscape hero) matching Designerpart
+  // Industries list matching 07-who-we-work-with.png
   const industries: IndustryItem[] = [
     {
+      id: "retail",
+      title: "Retail & Omnichannel Brands",
+      subtitle:
+        "Demand sensing, automated multi-channel campaign generation, and dynamic inventory optimization.",
+      tag: "Omnichannel Brands",
+      image: "/images/fmcg.jpg",
+      widthClass: "w-[300px] sm:w-[380px] lg:w-[420px]",
+      heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
+    },
+    {
       id: "real-estate",
-      title: "Real Estate & Infra",
+      title: "Real Estate Developers",
       subtitle:
         "Predictive asset valuation, automated underwriting synthesis, and AI-accelerated tenant journeys.",
       tag: "Commercial & Residential Infra",
@@ -44,8 +54,18 @@ export default function SectionIndustries({ onOpenBooking }: SectionIndustriesPr
       heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
     },
     {
+      id: "healthcare",
+      title: "Healthcare Institutions",
+      subtitle:
+        "Administrative clinical copilot automation, non-diagnostic workflow optimization, and patient telemetry.",
+      tag: "Health Systems & Clinical Care",
+      image: "/images/hospital.jpg",
+      widthClass: "w-[300px] sm:w-[380px] lg:w-[420px]",
+      heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
+    },
+    {
       id: "education",
-      title: "Education & EdTech",
+      title: "Educational Organizations",
       subtitle:
         "Adaptive institutional learning engines, autonomous admissions, and research copilot infrastructure.",
       tag: "Higher Ed & K-12 Ecosystems",
@@ -64,14 +84,14 @@ export default function SectionIndustries({ onOpenBooking }: SectionIndustriesPr
       heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
     },
     {
-      id: "fmcg",
-      title: "Retail, FMCG & Consumer",
+      id: "manufacturing",
+      title: "Manufacturing & Industry",
       subtitle:
-        "Demand sensing, automated multi-channel campaign generation, and dynamic inventory optimization.",
-      tag: "Omnichannel Brands",
-      image: "/images/fmcg.jpg",
-      widthClass: "w-[480px] sm:w-[640px] lg:w-[780px]",
-      heightClass: "h-[420px] sm:h-[520px] lg:h-[580px]",
+        "Autonomous freight routing, predictive warehouse robotics telemetry, and end-to-end supply visibility.",
+      tag: "Capital-Intensive Operations",
+      image: "/images/warehouse.jpg",
+      widthClass: "w-[320px] sm:w-[400px] lg:w-[450px]",
+      heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
     },
     {
       id: "government",
@@ -80,26 +100,6 @@ export default function SectionIndustries({ onOpenBooking }: SectionIndustriesPr
         "Civic modernization, intelligent citizen service portals, and sovereign data governance architectures.",
       tag: "Public Sector Modernization",
       image: "/images/government.jpg",
-      widthClass: "w-[320px] sm:w-[400px] lg:w-[450px]",
-      heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
-    },
-    {
-      id: "healthcare",
-      title: "Healthcare & Life Sciences",
-      subtitle:
-        "Administrative clinical copilot automation, non-diagnostic workflow systems, and patient telemetry.",
-      tag: "Health Systems & Clinical Care",
-      image: "/images/hospital.jpg",
-      widthClass: "w-[480px] sm:w-[640px] lg:w-[780px]",
-      heightClass: "h-[420px] sm:h-[520px] lg:h-[580px]",
-    },
-    {
-      id: "logistics",
-      title: "Logistics & Warehousing",
-      subtitle:
-        "Autonomous freight routing, predictive warehouse robotics telemetry, and end-to-end supply visibility.",
-      tag: "Global Supply Networks",
-      image: "/images/warehouse.jpg",
       widthClass: "w-[320px] sm:w-[400px] lg:w-[450px]",
       heightClass: "h-[380px] sm:h-[460px] lg:h-[500px]",
     },
@@ -177,75 +177,89 @@ export default function SectionIndustries({ onOpenBooking }: SectionIndustriesPr
   return (
     <section
       ref={sectionRef}
-      id="industries"
-      className="w-full py-20 sm:py-28 bg-white relative overflow-hidden select-none"
+      id="who-we-partner-with"
+      className="w-full py-20 sm:py-28 bg-[#FAF7F2] relative overflow-hidden select-none"
     >
-      {/* Header Container matching SectionSolutions width & margins */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 mb-10 sm:mb-14">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-8">
-          {/* Left: Typography matching Designerpart with Hero TextBlockAnimation */}
-          <div className="max-w-4xl">
-            <TextBlockAnimation blockColor="#000" delay={0.1} duration={0.65}>
-              <h2 className="text-3xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] font-heading font-medium text-neutral-950 tracking-tight leading-[1.06]">
-                We partner with businesses and institutions across industries.
-              </h2>
-            </TextBlockAnimation>
+      {/* Header Container matching 07-who-we-work-with.png */}
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 mb-8 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8 pb-6 border-b border-neutral-300/60">
+          {/* Left: Heading matching 07-who-we-work-with.png */}
+          <div className="max-w-2xl">
+            <h2 className="text-4xl sm:text-6xl lg:text-[4.25rem] font-sans font-bold text-neutral-950 uppercase tracking-tight leading-[0.98]">
+              WHO WE PARTNER <br />
+              WITH
+            </h2>
           </div>
 
-          {/* Right: Clean Architectural Arrows matching Designerpart (No floating dot) */}
-          <div className="flex items-center gap-6 sm:gap-8 shrink-0 pb-2">
-            <button
-              type="button"
-              onClick={() => scroll("left")}
-              disabled={!canScrollLeft}
-              aria-label="Scroll left"
-              className={`p-1 transition-all duration-200 focus:outline-none ${
-                canScrollLeft
-                  ? "text-neutral-950 hover:opacity-60 cursor-pointer"
-                  : "text-neutral-300 cursor-not-allowed opacity-35"
-              }`}
-            >
-              <svg
-                className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-200"
-                viewBox="0 0 40 24"
-                fill="none"
-              >
-                <path
-                  d="M36 12H4M14 4L4 12L14 20"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+          {/* Right: Subtitle & Arrows */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between lg:justify-end gap-6 sm:gap-10 max-w-xl">
+            <div className="pl-0 sm:pl-6 sm:border-l border-neutral-300/80">
+              <p className="text-base sm:text-lg lg:text-xl text-neutral-700 font-normal leading-relaxed">
+                We work with organizations that see AI as a strategic advantage, not just another technology initiative.
+              </p>
+            </div>
 
-            <button
-              type="button"
-              onClick={() => scroll("right")}
-              disabled={!canScrollRight}
-              aria-label="Scroll right"
-              className={`p-1 transition-all duration-200 focus:outline-none ${
-                canScrollRight
-                  ? "text-neutral-950 hover:opacity-60 cursor-pointer"
-                  : "text-neutral-300 cursor-not-allowed opacity-35"
-              }`}
-            >
-              <svg
-                className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-200"
-                viewBox="0 0 40 24"
-                fill="none"
+            {/* Arrows */}
+            <div className="flex items-center gap-4 shrink-0">
+              <button
+                type="button"
+                onClick={() => scroll("left")}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left"
+                className={`p-2 transition-all duration-200 focus:outline-none ${
+                  canScrollLeft
+                    ? "text-neutral-950 hover:opacity-60 cursor-pointer"
+                    : "text-neutral-300 cursor-not-allowed opacity-35"
+                }`}
               >
-                <path
-                  d="M4 12H36M26 4L36 12L26 20"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-200"
+                  viewBox="0 0 40 24"
+                  fill="none"
+                >
+                  <path
+                    d="M36 12H4M14 4L4 12L14 20"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scroll("right")}
+                disabled={!canScrollRight}
+                aria-label="Scroll right"
+                className={`p-2 transition-all duration-200 focus:outline-none ${
+                  canScrollRight
+                    ? "text-neutral-950 hover:opacity-60 cursor-pointer"
+                    : "text-neutral-300 cursor-not-allowed opacity-35"
+                }`}
+              >
+                <svg
+                  className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-200"
+                  viewBox="0 0 40 24"
+                  fill="none"
+                >
+                  <path
+                    d="M4 12H36M26 4L36 12L26 20"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
+        </div>
+
+        {/* Sub-bar: OUR CLIENTS TYPICALLY INCLUDE & DRAG TO EXPLORE */}
+        <div className="flex items-center justify-between pt-6 text-xs font-mono font-bold tracking-wider text-neutral-800 uppercase">
+          <span>OUR CLIENTS TYPICALLY INCLUDE:</span>
+          <span className="text-neutral-400 font-normal hidden sm:inline">(SWIPE OR DRAG TO EXPLORE)</span>
         </div>
       </div>
 

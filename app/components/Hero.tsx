@@ -87,33 +87,27 @@ export default function Hero({ onOpenBooking }: HeroProps) {
       <div className="w-full" />
 
       {/* Grid crosshair corner accents */}
-      <div className="corner-plus top-28 left-6 sm:left-12 lg:left-16 z-10" />
-      <div className="corner-plus bottom-16 sm:bottom-12 right-6 sm:right-12 lg:right-16 z-10" />
+      <div className="corner-plus top-28 left-6 sm:left-12 lg:left-16 z-10 text-[#FF5E3F]" />
+      <div className="corner-plus bottom-16 sm:bottom-12 right-6 sm:right-12 lg:right-16 z-10 text-[#FF5E3F]" />
 
-      {/* Bottom Layout: Heading on Bottom-Left, Paragraph & Buttons on Bottom-Right */}
+      {/* Bottom Layout: Heading on Bottom-Left, Paragraph on Bottom-Right matching 02-building-ai-powered-enterprise.png */}
       <div
         ref={contentRef}
-        className="relative z-10 w-full flex flex-col lg:flex-row items-start lg:items-end justify-between gap-4 sm:gap-6 xl:gap-10 pb-6 sm:pb-4 lg:pb-6"
+        className="relative z-10 w-full flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 sm:gap-8 xl:gap-12 pb-6 sm:pb-4 lg:pb-8"
       >
         {/* Bottom Left: Headline */}
-        <div className="max-w-3xl lg:max-w-[540px] xl:max-w-5xl 3xl:max-w-7xl">
-          <h1 className="text-4xl sm:text-6xl lg:text-[4.2rem] xl:text-[6.2rem] 2xl:text-[7rem] 3xl:text-[8.5rem] 4xl:text-[11rem] font-kobe font-normal text-white tracking-normal leading-[0.92] uppercase drop-shadow-md">
-            GROWTH <br />
-            <span
-              className={`font-sans not-italic font-normal tracking-tight transition-colors duration-700 ease-in-out ${
-                isScrolled ? "text-[#FF5E3F]" : "text-white"
-              }`}
-            >
-              REIMAGINED,
-            </span> <br />
-            POWERED BY INTELLIGENCE.
+        <div className="max-w-4xl lg:max-w-[680px] xl:max-w-4xl 2xl:max-w-5xl">
+          <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] xl:text-[5.75rem] 2xl:text-[6.5rem] font-sans font-bold text-white tracking-tight leading-[0.98] uppercase drop-shadow-md">
+            BUILDING <br />
+            AI-POWERED <br />
+            ENTERPRISES.
           </h1>
         </div>
 
         {/* Bottom Right: Subheading Paragraph */}
-        <div className="flex flex-col items-start max-w-xs sm:max-w-sm lg:max-w-[300px] xl:max-w-md 2xl:max-w-lg 3xl:max-w-xl gap-4 mb-2 sm:mb-3 lg:mb-4 shrink-0">
-          <p className="text-sm sm:text-base lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl text-white/90 font-normal leading-relaxed drop-shadow-sm">
-            AICCELER8 is the modern consulting partner built for the age of AI, where intelligence meets execution.
+        <div className="flex flex-col items-start max-w-sm sm:max-w-md lg:max-w-[340px] xl:max-w-md mb-2 sm:mb-3 lg:mb-4 shrink-0">
+          <p className="text-sm sm:text-base lg:text-[0.95rem] xl:text-base text-neutral-300 font-normal leading-relaxed drop-shadow-sm">
+            We help ambitious businesses redesign how they grow, operate and compete in an AI-first world.
           </p>
         </div>
       </div>

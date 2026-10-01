@@ -11,7 +11,7 @@ export default function SectionEvolution() {
   const headingOverlayRef = useRef<HTMLDivElement>(null);
 
   const fullText =
-    "We help enterprises, institutions, and governments scale faster, operate smarter, and lead confidently by combining strategic thinking, AI integration, and execution at speed.";
+    "Every company adopts AI tools, but few build AI-powered enterprises. Future leaders won't just use AI. They will redesign how they operate, compete, and scale. True transformation demands strategic leadership and organizational change. That is where AICceler8 comes in.";
 
   const words = fullText.split(" ");
 
