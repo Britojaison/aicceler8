@@ -79,16 +79,14 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             className="hidden sm:block w-full h-full object-cover object-center scale-100 origin-center"
           />
         </div>
-        {/* Subtle Vignette gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40" />
+        {/* Vignette gradient overlay — strong bottom fade covers image drip artifacts */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/40" />
       </div>
 
       {/* Top spacing element */}
       <div className="w-full" />
 
-      {/* Grid crosshair corner accents */}
-      <div className="corner-plus top-28 left-6 sm:left-12 lg:left-16 z-10 text-[#FF5E3F]" />
-      <div className="corner-plus bottom-16 sm:bottom-12 right-6 sm:right-12 lg:right-16 z-10 text-[#FF5E3F]" />
+
 
       {/* Bottom Layout: Heading on Bottom-Left, Paragraph on Bottom-Right matching 02-building-ai-powered-enterprise.png */}
       <div
@@ -97,7 +95,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
       >
         {/* Bottom Left: Headline */}
         <div className="max-w-4xl lg:max-w-[680px] xl:max-w-4xl 2xl:max-w-5xl">
-          <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] xl:text-[5.75rem] 2xl:text-[6.5rem] font-sans font-bold text-white tracking-tight leading-[0.98] uppercase drop-shadow-md">
+          <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] xl:text-[5.75rem] 2xl:text-[6.5rem] font-stara font-bold text-white tracking-tight leading-[0.98] uppercase">
             BUILDING <br />
             AI-POWERED <br />
             ENTERPRISES.
